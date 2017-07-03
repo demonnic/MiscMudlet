@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+    <TriggerPackage>
+        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>Move Fail Trigger</name>
+            <script>raiseEvent(&quot;onMoveFail&quot;)</script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList>
+                <string>You cannot go that way.</string>
+                <string>^A closed \w+ blocks your progress\.</string>
+            </regexCodeList>
+            <regexCodePropertyList>
+                <integer>2</integer>
+                <integer>1</integer>
+            </regexCodePropertyList>
+        </Trigger>
+        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>Prompt Trigger</name>
+            <script>raiseEvent(&quot;onPrompt&quot;)</script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList>
+                <string>^\d+/\d+h \d+/\d+m .*&gt;</string>
+            </regexCodeList>
+            <regexCodePropertyList>
+                <integer>1</integer>
+            </regexCodePropertyList>
+        </Trigger>
+        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>Exits Capture Trigger</name>
+            <script>local exits = string.trim(matches[2])
+if not string.ends(exits,&quot;.&quot;) then
+	map.prompt.exits = exits
+	enableTrigger(&quot;Extended Exits Capture Trigger&quot;)
+else
+	map.prompt.exits = string.gsub(exits,&quot;%([%a%s]+%)&quot;,&quot;&quot;)
+	map.prompt.exits = string.gsub(map.prompt.exits,&quot;%.&quot;,&quot;&quot;)
+end
+raiseEvent(&quot;onNewRoom&quot;)</script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>2</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList>
+                <string>You can progress ([\w,\s\(\)\.]+)</string>
+            </regexCodeList>
+            <regexCodePropertyList>
+                <integer>1</integer>
+            </regexCodePropertyList>
+        </Trigger>
+        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="yes" isColorTriggerFg="yes" isColorTriggerBg="yes">
+            <name>Room Name Capture Trigger</name>
+            <script>map.prompt.room = matches[1]</script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#808000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList>
+                <string>FG8BG2</string>
+            </regexCodeList>
+            <regexCodePropertyList>
+                <integer>6</integer>
+            </regexCodePropertyList>
+        </Trigger>
+        <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>Extended Exits Capture Trigger</name>
+            <script>map.prompt.exits = map.prompt.exits .. &quot; &quot; .. matches[2]
+map.prompt.exits = string.gsub(map.prompt.exits,&quot;%([%a%s]+%)&quot;,&quot;&quot;)
+disableTrigger(&quot;Extended Exits Capture Trigger&quot;)</script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList>
+                <string>^([\w,\s\(\)]+)\.$</string>
+            </regexCodeList>
+            <regexCodePropertyList>
+                <integer>1</integer>
+            </regexCodePropertyList>
+        </Trigger>
+    </TriggerPackage>
+    <TimerPackage/>
+    <AliasPackage/>
+    <ActionPackage/>
+    <ScriptPackage>
+        <Script isActive="yes" isFolder="no">
+            <name>Map Script</name>
+            <packageName></packageName>
+            <script>-- Jor'Mox's Generic Map Script
+-- 2/06/2017
+-- v1.06
+--
+
+map = map or {}
+
+map.help = [[
+    Jor'Mox's Generic Map Script
+
+    This script allows for semi-automatic mapping using just room names and exits. It is
+    a good idea to know the general layout of the area you are trying to map before
+    turning on mapping with this script, so as to minimize how much you need to move
+    things around to make it look how you want it to. The script will automatically
+    stretch out a map to make space for a room if it would overlap with another one, but
+    it is important to make sure that things line up properly, or you will have inaccurate
+    maps with duplicate sections in them.
+
+    It is up to YOU to create triggers that appropriately raise the following events, and
+    gather the necessary information. The way in which such things are displayed varies
+    dramatically from game to game, so any set of triggers for one game will likely not
+    work for the next.
+
+    Important Events for Proper Mapping
+        onMoveFail - raise this event to indicate that you attempted to move, but no move
+            was made
+        onVisionFail - raise this event to indicate that you moved successfully, but are
+            unable to gather some or all of the necessary info about the room
+        onRandomMove - raise this event to indicate that you moved, but do not know what
+            direction you moved in
+        onNewRoom - raise this event to indicate that a room has been detected, typically
+            after moving or looking to see the room you are currently in
+        onPrompt - raise this event to indicate a prompt has been detected, room name and
+            exits must be stored in map.prompt.room and map.prompt.exits before raising
+            this event
+        onForcedMove - raise this event to indicate that you have been moved without
+            entering a command, but you know the direction you went. pass the relevant
+            direction as the first argument. if this movement needs to preempt other
+            movement commands in the queue (often the case), then pass &quot;true&quot; as a string
+            as the second argument
+
+    Important Commands (Aliases) for Proper Mapping
+
+        Fundamental Aliases
+        start mapping &lt;optional area name&gt; - use this command to start adding new content
+            to the map, area name is required if there are no rooms in the map
+        stop mapping - use this command to stop mapping
+        save map - saves the map to a file (map.dat, located in the profile folder), this
+            is generally only needed to share the map with someone else, or to act as a
+            backup in case something happens to the map that Mudlet maintains for your
+            profile
+        load map &lt;optional 'local'&gt; - loads the map from the location specified in the
+            download_path, or from the local copy
+        export area &lt;area name&gt; - exports a file to the profile folder with data for the
+            named area
+        import area &lt;area name&gt; - imports area data from a file created with export area,
+            must be located in profile folder
+
+
+        Mapping Aliases
+        map mode &lt;simple, normal, or complex&gt; - sets the mapping mode, determining what
+            exits are set automatically as you move around
+        set area &lt;area name&gt; - move the current room into the named area, area will be
+            created if it does not currently exist
+        shift &lt;direction&gt; - use this command to move the room you are currently in around
+            on the map
+        merge rooms - use this command to combine the room you are in with any other rooms
+            in the same location and with the same name
+        clear moves - use this command to clear the move queue after you attempt a move
+            that doesn't succeed, but for which there is no trigger indicating this with
+            the onMoveFail event
+        add door &lt;direction&gt; &lt;optional none, open, closed, locked&gt; &lt;optional yes, no&gt; -
+            adds a door in the given direction, defaulting to closed (use none to remove
+            a door), and defaulting 'no' for one-way status
+        add portal &lt;entry command&gt; - adds a portal that uses the given command for entry
+        set exit &lt;direction&gt; &lt;roomID&gt; - sets the given direction to connect, one way,
+            to the room with the specified roomID, used for very complex areas
+
+        Normal User Aliases
+        find me - use this command to search the entire map to try to locate you based on
+            room name and exits, typically not necessary, as this will be done anyway if
+            a person moves and their location is unknown
+        find path &lt;room name&gt; OR &lt;room name&gt; ; &lt;area name&gt; - used to find a walking path
+            to a room with the given name, in the given area if specified
+        set character &lt;name&gt; - sets the current character name (stored as map.character)
+        set recall - sets the current room as the recall room for the current character
+
+    Important Information Regarding Speedwalking
+
+        The existing doSpeedWalk function (which is located at the bottom of the script,
+        just above the event handler function) currently only displays a list of moves
+        to make to get to the target room. This function should be modified to implement
+        speedwalking in your game. For this purpose, a table of roomIDs is generated and
+        and stored in speedWalkPath, and a matching table of directions is stored in
+        speedWalkDir. You can check for doors with a roomID and a direction using the
+        check_doors function in the following manner: check_doors(roomID,dir) or
+        check_doors(roomID,tbl_of_dirs). It will return false if a door is not present,
+        or a table of directions and door status codes, like what you would get using the
+        getDoors function, but only for the exit(s) specified.
+]]
+
+map.recall = map.recall or {}
+map.character = map.character or &quot;&quot;
+map.prompt = map.prompt or {}
+
+map.configs = {
+    mode = &quot;normal&quot;, -- can be simple, normal, or complex
+    download_path = &quot;&quot;,
+    stretch_map = true,
+}
+
+local function make_aliases()
+    map.aliases = map.aliases or {}
+    local id
+    local tbl = {
+        [&quot;Start Mapping Alias&quot;] = {[[^start mapping(?: (.*))?$]], [[map.start_mapping(matches[2])]]},
+        [&quot;Stop Mapping Alias&quot;] = {[[^stop mapping$]], [[map.stop_mapping()]]},
+        [&quot;Save Map Alias&quot;] = {[[^save map$]], [[saveMap(getMudletHomeDir() .. &quot;/map.dat&quot;)]]},
+        [&quot;Load Map Alias&quot;] = {[[^load map(?: (local))?$]], [[map.load_map(matches[2])]]},
+        [&quot;Export Map Area Alias&quot;] = {[[^export area (.*)]],[[map.export_area(matches[2])]]},
+        [&quot;Import Map Area Alias&quot;] = {[[^import area (.*)]],[[map.import_area(matches[2])]]},
+
+        [&quot;Set Room Area Alias&quot;] = {[[^set area (.*)$]], [[map.set_area(matches[2])]]},
+        [&quot;Set Map Mode Alias&quot;] = {[[^map mode (\w+)$]],[[map.set_mode(matches[2])]]},
+        [&quot;Shift Room Alias&quot;] = {[[^shift (.*)$]], [[map.shift_room(matches[2])]]},
+        [&quot;Merge Rooms Alias&quot;] = {[[^merge rooms$]], [[map.merge_rooms()]]},
+        [&quot;Add Door Alias&quot;] = {[[^add door (\w+)(?: (none|open|closed|locked)(?: (yes|no))?)?$]],[[map.set_door(matches[2],matches[3],matches[4])]]},
+        [&quot;Add Portal Alias&quot;] = {[[^add portal (.*)$]],[[map.set_portal(matches[2])]]},
+        [&quot;Set Room Exit Alias&quot;] = {[[^set exit (\w+) (\d+)]],[[map.set_exit(matches[2],matches[3])]]},
+        [&quot;Clear Moves Alias&quot;] = {[[^clear moves$]], [[map.clear_moves()]]},
+
+        [&quot;Find Me Alias&quot;] = {[[^find me$]], [[map.find_me()]]},
+        [&quot;Find Path Alias&quot;] = {[[find path ([^;]+)(?:\s*;\s*(.+))?]],[[map.find_path(matches[2],matches[3])]]},
+        [&quot;Set Recall Alias&quot;] = {[[^set recall$]],[[map.set_recall()]]},
+        [&quot;Set Character Alias&quot;] = {[[^set character (.*)$]],[[map.character = matches[2]]},
+    }
+    for k,v in pairs(tbl) do
+        if map.aliases[k] and exists(map.aliases[k],&quot;alias&quot;) ~= 0 then
+            killAlias(map.aliases[k])
+        end
+        id = tempAlias(v[1],v[2])
+        map.aliases[k] = id
+    end
+end
+
+local function config()
+    local configs = map.configs
+    map_mode = configs.mode
+    make_aliases()
+end
+
+local move_queue = {}
+local prevRoom, prevName, prevExits
+local currentRoom, currentName, currentExits, currentArea
+local mapping, map_mode, downloading
+local find_portal, vision_fail, room_detected, random_move
+
+local exitmap = {
+    n = 'north',    ne = 'northeast',   nw = 'northwest',   e = 'east',
+    w = 'west',     s = 'south',        se = 'southeast',   sw = 'southwest',
+    u = 'up',       d = 'down',         [&quot;in&quot;] = 'in',      out = 'out',
+}
+
+local short = {}
+for k,v in pairs(exitmap) do
+    short[v] = k
+end
+
+local stubmap = {
+    north = 1,      northeast = 2,      northwest = 3,      east = 4,
+    west = 5,       south = 6,          southeast = 7,      southwest = 8,
+    up = 9,         down = 10,          [&quot;in&quot;] = 11,        out = 12,
+    [1] = &quot;north&quot;,  [2] = &quot;northeast&quot;,  [3] = &quot;northwest&quot;,  [4] = &quot;east&quot;,
+    [5] = &quot;west&quot;,   [6] = &quot;south&quot;,      [7] = &quot;southeast&quot;,  [8] = &quot;southwest&quot;,
+    [9] = &quot;up&quot;,     [10] = &quot;down&quot;,      [11] = &quot;in&quot;,        [12] = &quot;out&quot;,
+}
+
+local coordmap = {
+    [1] = {0,1,0},      [2] = {1,1,0},      [3] = {-1,1,0},     [4] = {1,0,0},
+    [5] = {-1,0,0},     [6] = {0,-1,0},     [7] = {1,-1,0},     [8] = {-1,-1,0},
+    [9] = {0,0,1},      [10] = {0,0,-1},    [11] = {0,0,0},     [12] = {0,0,0},
+}
+
+local reverse_dirs = {
+    north = &quot;south&quot;, south = &quot;north&quot;, west = &quot;east&quot;, east = &quot;west&quot;, up = &quot;down&quot;,
+    down = &quot;up&quot;, northwest = &quot;southeast&quot;, northeast = &quot;southwest&quot;, southwest = &quot;northeast&quot;,
+    southeast = &quot;northwest&quot;, [&quot;in&quot;] = &quot;out&quot;, out = &quot;in&quot;,
+}
+
+local function set_room(roomID)
+    -- moves the map to the new room
+    if currentRoom ~= roomID then
+        prevRoom = currentRoom
+        currentRoom = roomID
+    end
+    if getRoomName(currentRoom) ~= currentName then
+        prevName = currentName
+        prevExits = currentExits
+        currentName = getRoomName(currentRoom)
+        currentExits = getRoomExits(currentRoom)
+    end
+    currentArea = getRoomArea(currentRoom)
+    centerview(currentRoom)
+end
+
+local function add_door(roomID, dir, status)
+    -- create or remove a door in the designated direction
+    -- consider options for adding pickable and passable information
+    dir = exitmap[dir] or dir
+    if not table.contains(exitmap,dir) then error(&quot;Add Door: invalid direction.&quot;,2) end
+    status = assert(table.index_of({&quot;none&quot;,&quot;open&quot;,&quot;closed&quot;,&quot;locked&quot;},status),&quot;Add Door: Invald status, must be none, open, closed, or locked&quot;) - 1
+    local exits = getRoomExits(roomID)
+    if not exits[dir] then
+        setExitStub(roomID,stubmap[dir],true)
+    end
+    if table.contains({&quot;up&quot;,&quot;down&quot;,&quot;in&quot;,&quot;out&quot;},dir) then
+        setRoomUserData(roomID,&quot;door &quot; .. dir, tostring(status))
+    else
+        setDoor(roomID,short[dir],status)
+    end
+end
+
+local function check_doors(roomID,exits)
+    -- looks to see if there are doors in designated directions
+    -- used for room comparison, can also be used for pathing purposes
+    if type(exits) == &quot;string&quot; then exits = {exits} end
+    local statuses = {}
+    local doors = getDoors(roomID)
+    for k,v in ipairs({&quot;up&quot;,&quot;down&quot;,&quot;in&quot;,&quot;out&quot;}) do
+        doors[short[v]] = tonumber(getRoomUserData(roomID,&quot;door &quot; .. v) or &quot;&quot;)
+    end
+    local dir
+    for k,v in pairs(exits) do
+        dir = short[k] or short[v]
+        if not doors[dir] or doors[dir] == 0 then
+            return false
+        else
+            statuses[dir] = doors[dir]
+        end
+    end
+    return statuses
+end
+
+local function find_room(name, area)
+    -- looks for rooms with a particular name, and if given, in a specific area
+    local rooms = searchRoom(name)
+    if type(area) == &quot;string&quot; then
+        local areas = getAreaTable() or {}
+        for k,v in pairs(areas) do
+            if string.lower(k) == string.lower(area) then
+                area = v
+                break
+            end
+        end
+        area = areas[area] or nil
+    end
+    for k,v in pairs(rooms) do
+        if string.lower(v) ~= string.lower(name) then
+            rooms[k] = nil
+        elseif area and getRoomArea(k) ~= area then
+            rooms[k] = nil
+        end
+    end
+    return rooms
+end
+
+local function getRoomStubs(roomID)
+    -- turns stub info into table similar to exit table
+    local stubs = getExitStubs(roomID)
+    if type(stubs) ~= &quot;table&quot; then stubs = {} end
+    local instub = getRoomUserData(roomID,&quot;stubin&quot;)
+    if instub ~= &quot;&quot; then
+        table.insert(stubs,tonumber(instub))
+    end
+    local outstub = getRoomUserData(roomID,&quot;stubout&quot;)
+    if outstub ~= &quot;&quot; then
+        table.insert(stubs,tonumber(outstub))
+    end
+    local exits = {}
+    for k,v in pairs(stubs) do
+        exits[stubmap[v]] = 0
+    end
+    return exits
+end
+
+local function connect_rooms(ID1, ID2, dir1, dir2, no_check)
+    -- makes a connection between rooms
+    -- can make backwards connection without a check
+    local match = false
+    if not ID1 and ID2 and dir1 then error(&quot;Connect Rooms: Missing Required Arguments.&quot;,2) end
+    dir2 = dir2 or reverse_dirs[dir1]
+    setExit(ID1,ID2,stubmap[dir1])
+    if stubmap[dir1] &gt; 10 then
+        setRoomUserData(ID1,&quot;stub&quot;..dir1,&quot;&quot;)
+    end
+    if map_mode ~= &quot;complex&quot; then
+        local stubs = getRoomStubs(ID2)
+        if stubs[dir2] then match = true end
+        if (match or no_check) then
+            setExit(ID2,ID1,stubmap[dir2])
+            if stubmap[dir2] &gt; 10 then
+                setRoomUserData(ID2,&quot;stub&quot;..dir2,&quot;&quot;)
+            end
+        end
+    end
+end
+
+local function check_room(roomID, name, exits)
+    -- check to see if room name and exits match expecations
+    if not roomID then error(&quot;Check Room Error: No ID&quot;,2) end
+    if name ~= getRoomName(roomID) then return false end
+    local t_exits = table.union(getRoomExits(roomID),getRoomStubs(roomID))
+    for k,v in ipairs(exits) do
+        if short[v] and not table.contains(t_exits,v) then return false end
+        t_exits[v] = nil
+    end
+    return table.is_empty(t_exits) or check_doors(roomID,t_exits)
+end
+
+local function stretch_map(dir,x,y,z)
+    -- stretches a map to make room for just added room that would overlap with existing room
+    local dx,dy,dz
+    for k,v in pairs(getAreaRooms(currentArea)) do
+        if v ~= currentRoom then
+            dx,dy,dz = getRoomCoordinates(v)
+            if dx &gt;= x and string.find(dir,&quot;east&quot;) then
+                dx = dx + 1
+            elseif dx &lt;= x and string.find(dir,&quot;west&quot;) then
+                dx = dx - 1
+            end
+            if dy &gt;= y and string.find(dir,&quot;north&quot;) then
+                dy = dy + 1
+            elseif dy &lt;= y and string.find(dir,&quot;south&quot;) then
+                dy = dy - 1
+            end
+            if dz &gt;= z and string.find(dir,&quot;up&quot;) then
+                dz = dz + 1
+            elseif dz &lt;= z and string.find(dir,&quot;down&quot;) then
+                dz = dz - 1
+            end
+            setRoomCoordinates(v,dx,dy,dz)
+        end
+    end
+end
+
+local function create_room(name, exits, dir, coords)
+    -- makes a new room with captured name and exits
+    -- links with other rooms as appropriate
+    -- links to adjacent rooms in direction of exits if in simple mode
+    if mapping then
+        print(&quot;New Room: &quot; .. name .. &quot;\n&quot;)
+        local newID = createRoomID()
+        addRoom(newID)
+        setRoomArea(newID, currentArea)
+        setRoomName(newID, name)
+        for k,v in ipairs(exits) do
+            if stubmap[v] then
+                if stubmap[v] &lt;= 10 then
+                    setExitStub(newID, stubmap[v], true)
+                else
+                    setRoomUserData(newID, &quot;stub&quot;..v,stubmap[v])
+                end
+            end
+        end
+        if dir then
+            connect_rooms(currentRoom, newID, dir)
+        elseif find_portal then
+            addSpecialExit(currentRoom, newID, find_portal)
+            setRoomUserData(newID,&quot;portals&quot;,tostring(currentRoom)..&quot;:&quot;..find_portal)
+        end
+        setRoomCoordinates(newID,unpack(coords))
+        if map.configs.stretch_map and table.size(getRoomsByPosition(currentArea,unpack(coords))) &gt; 1 then
+            set_room(newID)
+            stretch_map(dir,unpack(coords))
+        end
+        if map_mode == &quot;simple&quot; then
+            local x,y,z = unpack(coords)
+            local dx,dy,dz,rooms
+            for k,v in ipairs(exits) do
+                if v ~= dir then
+                    dx,dy,dz = unpack(coordmap[stubmap[v]])
+                    rooms = getRoomsByPosition(currentArea,x+dx,y+dy,z+dz)
+                    if table.size(rooms) == 1 then
+                        connect_rooms(newID,rooms[0],v)
+                    end
+                end
+            end
+        end
+        set_room(newID)
+    end
+end
+
+local function find_area_limits(areaID)
+    -- used to find min and max coordinate limits for an area
+    if not areaID then error(&quot;Find Limits: Missing area ID&quot;,2) end
+    local rooms = getAreaRooms(areaID)
+    local minx, miny, minz = getRoomCoordinates(rooms[0])
+    local maxx, maxy, maxz = minx, miny, minz
+    local x,y,z
+    for k,v in pairs(rooms) do
+        x,y,z = getRoomCoordinates(v)
+        minx = math.min(x,minx)
+        maxx = math.max(x,maxx)
+        miny = math.min(y,miny)
+        maxy = math.max(y,maxy)
+        minz = math.min(z,minz)
+        maxz = math.max(z,maxz)
+    end
+    return minx, maxx, miny, maxy, minz, maxz
+end
+
+local function find_link(name, exits, dir, max_distance)
+    -- search for matching room in desired direction
+    local x,y,z = getRoomCoordinates(currentRoom)
+    if mapping and x then
+        local dx,dy,dz = unpack(coordmap[stubmap[dir]])
+        local minx, maxx, miny, maxy, minz, maxz = find_area_limits(currentArea)
+        local rooms, match, stubs
+        if max_distance then
+            minx = x - max_distance
+            maxx = x + max_distance
+            miny = y - max_distance
+            maxy = y + max_distance
+            minz = z - max_distance
+            maxz = z + max_distance
+        end
+        repeat
+            x = x + dx
+            y = y + dy
+            z = z + dz
+            rooms = getRoomsByPosition(currentArea,x,y,z)
+        until (x &gt; maxx or x &lt; minx or y &gt; maxy or y &lt; miny or z &gt; maxz or z &lt; minz or not table.is_empty(rooms))
+        for k,v in pairs(rooms) do
+            if check_room(v,name,exits) then
+                match = v
+                break
+            end
+        end
+        if match then
+            connect_rooms(currentRoom, match, dir)
+            set_room(match)
+        else
+            x,y,z = getRoomCoordinates(currentRoom)
+            create_room(name, exits, dir,{x+dx,y+dy,z+dz})
+        end
+    end
+end
+
+local function get_recall()
+    table.load(getMudletHomeDir() .. &quot;/map_recalls.dat&quot;,map.recall)
+    return map.recall[map.character]
+end
+
+local function move_map()
+    -- tries to move the map to the next room
+    local move = table.remove(move_queue,1)
+    if move or random_move then
+        local exits = (currentRoom and getRoomExits(currentRoom)) or {}
+        local special = (currentRoom and getSpecialExitsSwap(currentRoom)) or {}
+        if move and not exits[move] and not special[move] then
+            for k,v in pairs(special) do
+                if string.starts(k,move) then
+                    move = k
+                    break
+                end
+            end
+        end
+
+        if find_portal then
+            map.find_me(currentName,currentExits,move)
+            find_portal = false
+        elseif move == &quot;recall&quot; then
+            set_room(get_recall())
+        else
+            if exits[move] and (vision_fail or check_room(exits[move], currentName, currentExits)) then
+                set_room(exits[move])
+            elseif special[move] and (vision_fail or check_room(special[move], currentName, currentExits)) then
+                set_room(special[move])
+            elseif not vision_fail then
+                if mapping and move then
+                    find_link(currentName, currentExits, move)
+                else
+                    map.find_me(currentName,currentExits, move)
+                end
+            end
+        end
+        vision_fail = false
+    end
+end
+
+local function capture_move_cmd(dir,priority)
+    -- captures valid movement commands
+    dir = string.lower(dir)
+    if dir == &quot;/&quot; then dir = &quot;recall&quot; end
+    if table.contains(exitmap,dir) or string.starts(dir,&quot;enter &quot;) or dir == &quot;recall&quot; then
+        if priority then
+            table.insert(move_queue,1,exitmap[dir] or dir)
+        else
+            table.insert(move_queue,exitmap[dir] or dir)
+        end
+    elseif currentRoom then
+        local special = getSpecialExitsSwap(currentRoom) or {}
+        if special[dir] then
+            if priority then
+                table.insert(move_queue,1,dir)
+            else
+                table.insert(move_queue,dir)
+            end
+        end
+    end
+end
+
+local function capture_room_info(name, exits)
+    -- captures room info, and tries to move map to match
+    if (not vision_fail) and name and exits then
+        prevName = currentName
+        prevExits = currentExits
+        name = string.trim(name)
+        currentName = name
+        exits = string.gsub(exits,&quot;and&quot;,&quot;&quot;)
+        currentExits = (exits ~= &quot;&quot; and string.split(exits,&quot;[, ]+&quot;)) or {}
+        move_map()
+    elseif vision_fail then
+        move_map()
+    end
+end
+
+local function find_area(name)
+    -- searches for the named area, and creates it if necessary
+    local areas = getAreaTable()
+    local areaID
+    for k,v in pairs(areas) do
+        if string.lower(name) == string.lower(k) then
+            areaID = v
+            break
+        end
+    end
+    if not areaID then areaID = addAreaName(name) end
+    if not areaID then error(&quot;Invalid Area. No such area found, and area could not be added.&quot;) end
+    currentArea = areaID
+end
+
+function map.load_map(use_local)
+    local path = getMudletHomeDir() .. &quot;/map.dat&quot;
+    if use_local then
+        loadMap(path)
+        print(&quot;Map reloaded from local copy.&quot;)
+    else
+        local address = map.configs.download_path .. &quot;map.dat&quot;
+        downloading = true
+        downloadFile(path,address)
+        print(&quot;Downloading Map File.&quot;)
+    end
+end
+
+function map.set_exit(dir,roomID)
+    -- used to set unusual exits from the room you are standing in
+    if mapping then
+        roomID = assert(tonumber(roomID),&quot;Set Exit: Invalid Room ID&quot;)
+        if not table.contains(exitmap,dir) then error(&quot;Set Exit: Invalid Direction&quot;) end
+        dir = short[exitmap[dir] or dir]
+        setExit(currentRoom,roomID,dir)
+    end
+end
+
+function map.find_path(roomName,areaName,return_tables)
+    areaName = (areaName ~= &quot;&quot; and areaName) or nil
+    local rooms = find_room(roomName,areaName)
+    local found,dirs = false,{}
+    local path = {}
+    for k,v in pairs(rooms) do
+        found = getPath(currentRoom,k)
+        if found and (#dirs == 0 or #dirs &gt; #speedWalkDir) then
+            dirs = speedWalkDir
+            path = speedWalkPath
+        end
+    end
+    if return_tables then
+        if table.is_empty(path) then
+            path, dirs = nil, nil
+        end
+        return path, dirs
+    else
+        if #dirs &gt; 0 then
+            print(&quot;Path to &quot; .. roomName .. ((areaName and &quot; in &quot; .. areaName) or &quot;&quot;) .. &quot;: &quot; .. table.concat(dirs,&quot;, &quot;))
+        else
+            print(&quot;No path found to &quot; .. roomName .. ((areaName and &quot; in &quot; .. areaName) or &quot;&quot;) .. &quot;.&quot;)
+        end
+    end
+end
+
+function map.export_area(name)
+    -- used to export a single area to a file
+    local areas = getAreaTable()
+    name = string.lower(name)
+    for k,v in pairs(areas) do
+        if name == string.lower(k) then name = k end
+    end
+    if not areas[name] then error(&quot;No such area.&quot;) end
+    local rooms = getAreaRooms(areas[name])
+    local tmp = {}
+    for k,v in pairs(rooms) do
+        tmp[v] = v
+    end
+    rooms = tmp
+    local tbl = {}
+    tbl.name = name
+    tbl.rooms = {}
+    tbl.exits = {}
+    tbl.special = {}
+    local rname, exits, stubs, doors, special, portals, door_up, door_down, coords
+    for k,v in pairs(rooms) do
+        rname = getRoomName(v)
+        exits = getRoomExits(v)
+        stubs = getExitStubs(v)
+        doors = getDoors(v)
+        door_up = getRoomUserData(v,&quot;door up&quot;) or &quot;&quot;
+        door_down = getRoomUserData(v,&quot;door down&quot;) or &quot;&quot;
+        door_in = getRoomUserData(v,&quot;door in&quot;) or &quot;&quot;
+        door_out = getRoomUserData(v,&quot;door out&quot;) or &quot;&quot;
+        special = getSpecialExitsSwap(v)
+        portals = getRoomUserData(v,&quot;portals&quot;) or &quot;&quot;
+        coords = {getRoomCoordinates(v)}
+        tbl.rooms[v] = {name = rname, coords = coords, exits = exits, stubs = stubs, doors = doors, door_up = door_up, door_down = door_down, door_in = door_in, door_out = door_out, special = special, portals = portals}
+        tmp = {}
+        for k1,v1 in pairs(exits) do
+            if not table.contains(rooms,v1) then
+                tmp[k1] = {v1, getRoomName(v1)}
+            end
+        end
+        if not table.is_empty(tmp) then
+            tbl.exits[v] = tmp
+        end
+        tmp = {}
+        for k1,v1 in pairs(special) do
+            if not table.contains(rooms,v1) then
+                tmp[k1] = {v1, getRoomName(v1)}
+            end
+        end
+        if not table.is_empty(tmp) then
+            tbl.special[v] = tmp
+        end
+    end
+    local path = getMudletHomeDir()..&quot;/&quot;..string.gsub(string.lower(name),&quot;%s&quot;,&quot;_&quot;)..&quot;.dat&quot;
+    table.save(path,tbl)
+    print(&quot;Area &quot; .. name .. &quot; exported to &quot; .. path)
+end
+
+function map.import_area(name)
+    name = getMudletHomeDir() .. &quot;/&quot; .. string.gsub(string.lower(name),&quot;%s&quot;,&quot;_&quot;) .. &quot;.dat&quot;
+    local tbl = {}
+    table.load(name,tbl)
+    local areas = getAreaTable()
+    local areaID = areas[tbl.name] or addAreaName(tbl.name)
+    local rooms = {}
+    local ID
+    for k,v in pairs(tbl.rooms) do
+        ID = createRoomID()
+        rooms[k] = ID
+        addRoom(ID)
+        setRoomName(ID,v.name)
+        setRoomArea(ID,areaID)
+        setRoomCoordinates(ID,unpack(v.coords))
+        if type(v.stubs) == &quot;table&quot; then
+            for i,j in pairs(v.stubs) do
+                setExitStub(ID,j,true)
+            end
+        end
+        for i,j in pairs(v.doors) do
+            setDoor(ID,i,j)
+        end
+        setRoomUserData(ID,&quot;door up&quot;,v.door_up)
+        setRoomUserData(ID,&quot;door down&quot;,v.door_down)
+        setRoomUserData(ID,&quot;door in&quot;,v.door_in)
+        setRoomUserData(ID,&quot;door out&quot;,v.door_out)
+        setRoomUserData(ID,&quot;portals&quot;,v.portals)
+    end
+    for k,v in pairs(tbl.rooms) do
+        for i,j in pairs(v.exits) do
+            if rooms[j] then
+--                print(&quot;Setting Exit &quot; .. rooms[k] .. &quot; &quot; .. rooms[j] .. &quot; &quot; .. i)
+                connect_rooms(rooms[k],rooms[j],i)
+            end
+        end
+        for i,j in pairs(v.special) do
+            if rooms[j] then
+                addSpecialExit(rooms[k],rooms[j],i)
+            end
+        end
+    end
+    for k,v in pairs(tbl.exits) do
+        for i,j in pairs(v) do
+            if getRoomName(j[1]) == j[2] then
+                connect_rooms(rooms[k],j[1],i)
+            end
+        end
+    end
+    for k,v in pairs(tbl.special) do
+        for i,j in pairs(v) do
+            addSpecialExit(k,j[1],i)
+        end
+    end
+    map.fix_portals()
+    print(&quot;Area &quot; .. tbl.name .. &quot; imported from &quot; .. name)
+end
+
+function map.set_recall()
+    -- assigned the current room to be recall for the current character
+    map.recall[map.character] = currentRoom
+    table.save(getMudletHomeDir() .. &quot;/map_recalls.dat&quot;,map.recall)
+    print(&quot;Recall room set to: &quot; .. getRoomName(currentRoom) .. &quot;.&quot;)
+end
+
+function map.set_portal(name)
+    -- creates a new portal in the room
+    if mapping then
+        find_portal = name
+        move_queue = {name}
+        send(name)
+    end
+end
+
+function map.set_mode(mode)
+    -- switches mapping modes
+    if not table.contains({&quot;simple&quot;,&quot;normal&quot;,&quot;complex&quot;},mode) then error(&quot;Invalid Map Mode, must be 'simple', 'normal', or 'complex'.&quot;) end
+    map_mode = mode
+    print(&quot;Current mode set to: &quot; .. mode)
+end
+
+function map.start_mapping(area_name)
+    -- starts mapping, and sets the current area to the given one, or uses the current one
+    if not currentName then error(&quot;No room detected!&quot;) end
+    local rooms
+    move_queue = {}
+    area_name = area_name ~= &quot;&quot; and area_name or nil
+    if currentArea and not area_name then
+        local areas = getAreaTableSwap()
+        area_name = areas[currentArea]
+    end
+    if not area_name then print(&quot;Start Mapping Error: No area set!&quot;) return end
+    print(&quot;Now mapping in area: &quot; .. area_name)
+    mapping = true
+    find_area(area_name)
+    rooms = find_room(currentName, currentArea)
+    if table.is_empty(rooms) then
+        if currentRoom then
+            map.set_area(area_name)
+        else
+            create_room(currentName, currentExits, nil, {0,0,0})
+        end
+    elseif currentRoom and currentArea ~= getRoomArea(currentRoom) then
+        map.set_area(area_name)
+    end
+end
+
+function map.stop_mapping()
+    mapping = false
+    print(&quot;Mapping off.&quot;)
+end
+
+function map.clear_moves()
+    move_queue = {}
+    print(&quot;Move queue cleared.&quot;)
+end
+
+function map.set_area(name)
+    -- assigns the current room to the area given, creates the area if necessary
+    if mapping then
+        find_area(name)
+        if currentRoom and getRoomArea(currentRoom) ~= currentArea then
+            setRoomArea(currentRoom,currentArea)
+            set_room(currentRoom)
+        end
+    end
+end
+
+function map.set_door(dir,status,one_way)
+    -- adds a door on a given exit
+    if mapping then
+        if not currentRoom then error(&quot;Make Door: No room found.&quot;) end
+        dir = exitmap[dir] or dir
+        if not stubmap[dir] then error(&quot;Make Door: Invalid direction.&quot;) end
+        status = (status ~= &quot;&quot; and status) or &quot;closed&quot;
+        one_way = (one_way ~= &quot;&quot; and one_way) or &quot;no&quot;
+        if not table.contains({&quot;yes&quot;,&quot;no&quot;},one_way) then error(&quot;Make Door: Invalid one-way status, must be yes or no.&quot;) end
+
+        local exits = getRoomExits(currentRoom)
+        local target_room = exits[dir]
+        if target_room then
+            exits = getRoomExits(target_room)
+        end
+        if one_way == &quot;no&quot; and (target_room and exits[reverse_dirs[dir]] == currentRoom) then
+            add_door(target_room,reverse_dirs[dir],status)
+        end
+        add_door(currentRoom,dir,status)
+    end
+end
+
+function map.shift_room(dir)
+    -- shifts a room around on the map
+    if mapping then
+        dir = assert(exitmap[dir] or (table.contains(exitmap,dir) and dir),&quot;Exit Not Found&quot;)
+        local x,y,z = getRoomCoordinates(currentRoom)
+        dir = stubmap[dir]
+        local coords = coordmap[dir]
+        x = x + coords[1]
+        y = y + coords[2]
+        z = z + coords[3]
+        setRoomCoordinates(currentRoom,x,y,z)
+        centerview(currentRoom)
+    end
+end
+
+local function check_link(firstID, secondID, dir)
+    -- check to see if two rooms are connected in a given direction
+    if not firstID then error(&quot;Check Link Error: No first ID&quot;,2) end
+    if not secondID then error(&quot;Check Link Error: No second ID&quot;,2) end
+    local name = getRoomName(firstID)
+    local exits1 = table.union(getRoomExits(firstID),getRoomStubs(firstID))
+    local exits2 = table.union(getRoomExits(secondID),getRoomStubs(secondID))
+    local checkID = exits2[reverse_dirs[dir]]
+    local exits = {}
+    for k,v in pairs(exits1) do
+        table.insert(exits,k)
+    end
+    return checkID and check_room(checkID,name,exits)
+end
+
+function map.find_me(name, exits, dir)
+    -- tries to locate the player using the current room name and exits, and if provided, direction of movement
+    -- if direction of movement is given, narrows down possibilities using previous room info
+    if move ~= &quot;recall&quot; then move_queue = {} end
+    local check = dir and currentRoom and table.contains(exitmap,dir)
+    name = name or currentName
+    exits = exits or currentExits
+    local rooms = find_room(name)
+    local match_IDs = {}
+    for k,v in pairs(rooms) do
+        if check_room(k, name, exits) then
+            table.insert(match_IDs,k)
+        end
+    end
+    rooms = match_IDs
+    match_IDs = {}
+    if table.size(rooms) &gt; 1 and check then
+        for k,v in pairs(rooms) do
+            if check_link(currentRoom,v,dir) then
+                table.insert(match_IDs,v)
+            end
+        end
+    elseif random_move then
+        for k,v in pairs(getRoomExits(currentRoom)) do
+            if check_room(v,currentName,currentExits) then
+                table.insert(match_IDs,v)
+            end
+        end
+    end
+    if table.size(match_IDs) == 0 then
+        match_IDs = rooms
+    end
+    if not table.is_empty(match_IDs) and not find_portal then
+        set_room(match_IDs[1])
+    elseif find_portal then
+        if not table.is_empty(match_IDs) then
+            print(&quot;FOUND PORTAL DESTINATION, LINKING ROOMS&quot;)
+            addSpecialExit(currentRoom,match_IDs[1],find_portal)
+            local portals = getRoomUserData(match_IDs[1],&quot;portals&quot;) or &quot;&quot;
+            portals = portals .. &quot;,&quot; .. tostring(currentRoom)..&quot;:&quot;..find_portal
+            setRoomUserData(match_IDs[1],&quot;portals&quot;,portals)
+            set_room(match_IDs[1])
+        else
+            print(&quot;CREATING PORTAL DESTINATION&quot;)
+            create_room(currentName, currentExits, nil, {getRoomCoordinates(currentRoom)})
+        end
+        find_portal = false
+    else
+--       for k,v in pairs(rooms) do
+--           display(check_room(k,name,exits))
+--           if check then display(check_link(currentRoom,k,dir)) end
+--       end
+--       error(&quot;ROOM NOT FOUND!&quot;)
+    end
+end
+
+function map.fix_portals()
+    if mapping then
+        -- used to clear and update data for portal back-referencing
+        local rooms = getRooms()
+        local portals
+        for k,v in pairs(rooms) do
+            setRoomUserData(k,&quot;portals&quot;,&quot;&quot;)
+        end
+        for k,v in pairs(rooms) do
+            for cmd,room in pairs(getSpecialExitsSwap(k)) do
+                portals = getRoomUserData(room,&quot;portals&quot;) or &quot;&quot;
+                if portals ~= &quot;&quot; then portals = portals .. &quot;,&quot; end
+                portals = portals .. tostring(k) .. &quot;:&quot; .. cmd
+                setRoomUserData(room,&quot;portals&quot;,portals)
+                --print(room,portals)
+            end
+        end
+    end
+end
+
+function map.merge_rooms()
+    -- used to combine essentially identical rooms with the same coordinates
+    -- typically, these are generated due to mapping errors
+    if mapping then
+        local x,y,z = getRoomCoordinates(currentRoom)
+        local rooms = getRoomsByPosition(currentArea,x,y,z)
+        local exits, portals,room,cmd,curportals
+        for k,v in pairs(rooms) do
+            if v ~= currentRoom then
+                if getRoomName(v) == getRoomName(currentRoom) then
+                    for k1,v1 in pairs(getRoomExits(v)) do
+                        setExit(currentRoom,v1,stubmap[k1])
+                        exits = getRoomExits(v1)
+                        if exits[reverse_dirs[k1]] == v then
+                            setExit(v1,currentRoom,stubmap[reverse_dirs[k1]])
+                        end
+                    end
+                    for k1,v1 in pairs(getDoors(v)) do
+                        setDoor(currentRoom,k1,v1)
+                    end
+                    for k1,v1 in pairs(getSpecialExitsSwap(v)) do
+                        addSpecialExit(currentRoom,v1,k1)
+                    end
+                    portals = getRoomUserData(v,&quot;portals&quot;) or &quot;&quot;
+                    if portals ~= &quot;&quot; then
+                        portals = string.split(portals,&quot;,&quot;)
+                        for k1,v1 in ipairs(portals) do
+                            room,cmd = unpack(string.split(v1,&quot;:&quot;))
+                            addSpecialExit(tonumber(room),currentRoom,cmd)
+                            curportals = getRoomUserData(currentRoom,&quot;portals&quot;) or &quot;&quot;
+                            if not string.find(curportals,room) then
+                                curportals = curportals .. &quot;,&quot; .. room .. &quot;:&quot; .. cmd
+                                setRoomUserData(currentRoom,&quot;portals&quot;,curportals)
+                            end
+                        end
+                    end
+                    for _,door in ipairs({&quot;door up&quot;,&quot;door down&quot;,&quot;door in&quot;,&quot;door out&quot;}) do
+                        local tmp = getRoomUserData(v,door) or &quot;&quot;
+                        if tmp ~= &quot;&quot; then
+                            setRoomUserData(currentRoom,door,tmp)
+                        end
+                    end
+                    deleteRoom(v)
+                end
+            end
+        end
+    end
+end
+
+function doSpeedWalk()
+    -- we can do a lot here, this fires when a room is double clicked on, and is intended to speedwalk to it
+    print(&quot;Path to &quot; .. getRoomName(speedWalkPath[#speedWalkPath]) .. &quot;: &quot; .. table.concat(speedWalkDir, &quot;, &quot;))
+end
+
+function map.eventHandler(event,...)
+    if event == &quot;onPrompt&quot; and room_detected then
+        room_detected = false
+        capture_room_info(map.prompt.room, map.prompt.exits)
+    elseif event == &quot;onMoveFail&quot; then
+        table.remove(move_queue,1)
+    elseif event == &quot;onVisionFail&quot; then
+        vision_fail = true
+        room_detected = true
+    elseif event == &quot;onRandomMove&quot; then
+        random_move = true
+        move_queue = {}
+    elseif event == &quot;onForcedMove&quot; then
+        capture_move_cmd(arg[1],arg[2]==&quot;true&quot;)
+    elseif event == &quot;onNewRoom&quot; then
+        room_detected = true
+    elseif event == &quot;sysDataSendRequest&quot; then
+        capture_move_cmd(arg[1])
+    elseif event == &quot;sysDownloadDone&quot; and downloading then
+        loadMap(getMudletHomeDir() .. &quot;/map.dat&quot;)
+        downloading = false
+        print(&quot;Map File Loaded.&quot;)
+    elseif event == &quot;sysConnectionEvent&quot; then
+        config()
+    end
+end
+
+registerAnonymousEventHandler(&quot;sysDownloadDone&quot;, &quot;map.eventHandler&quot;)
+registerAnonymousEventHandler(&quot;sysConnectionEvent&quot;, &quot;map.eventHandler&quot;)
+registerAnonymousEventHandler(&quot;sysDataSendRequest&quot;, &quot;map.eventHandler&quot;)
+registerAnonymousEventHandler(&quot;onPrompt&quot;, &quot;map.eventHandler&quot;)
+registerAnonymousEventHandler(&quot;onLine&quot;,&quot; map.eventHandler&quot;)
+registerAnonymousEventHandler(&quot;onMoveFail&quot;,&quot; map.eventHandler&quot;)
+registerAnonymousEventHandler(&quot;onVisionFail&quot;,&quot; map.eventHandler&quot;)
+registerAnonymousEventHandler(&quot;onRandomMove&quot;,&quot; map.eventHandler&quot;)
+registerAnonymousEventHandler(&quot;onForcedMove&quot;,&quot; map.eventHandler&quot;)
+registerAnonymousEventHandler(&quot;onNewRoom&quot;,&quot; map.eventHandler&quot;)
+</script>
+            <eventHandlerList/>
+        </Script>
+    </ScriptPackage>
+    <KeyPackage/>
+</MudletPackage>
