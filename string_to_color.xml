@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<ScriptPackage>
+		<Script isActive="yes" isFolder="no">
+			<name>String to color</name>
+			<packageName></packageName>
+			<script>
+function string.tobyte(str)
+  return (str:gsub('.', function (c)
+	  return string.byte(c)
+  end))
+end
+
+function string.tocolor(str)
+  -- This next bit takes the string and 'unshuffles' it, breaking it into odds and evens
+  -- reverses the evens, then adds the odds to the new even set. So demonnic becomes cnoedmni
+	-- this makes sure that names which are similar in the beginning don't color the same
+	-- especially since we have to cut the number for the random seed due to OSX using a default
+	-- randomseed if you feed it something too large, which made every name longer than 7 characters
+	-- always the same color, no matter what it was.
+  local strTable = {}
+  local part1 = {}
+  local part2 = {}
+  str:gsub(".",function(c) table.insert(strTable,c) end)
+  for index,value in ipairs(strTable) do
+    if (index % 2 == 0) then
+      table.insert(part1, value)
+    else
+      table.insert(part2, value)
+    end
+  end
+	local newStr = string.reverse(table.concat(part1)) .. table.concat(part2)
+	-- end munging of the original string to get more uniqueness
+  math.randomseed(string.cut(string.tobyte(newStr),18))
+  local r = math.random(0,255)
+  local g = math.random(0,255)
+  local b = math.random(0,255)
+  math.randomseed(os.time())
+  return {r,g,b}
+end
+
+function colorMungeEcho(strForColor, strToEcho)
+  local color = "&lt;" .. table.concat(string.tocolor(strForColor), ",") .. "&gt;"
+  decho(color .. strToEcho .. "\n")
+end</script>
+			<eventHandlerList />
+		</Script>
+	</ScriptPackage>
+</MudletPackage>
