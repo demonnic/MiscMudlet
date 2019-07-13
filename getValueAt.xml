@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<TriggerPackage />
+	<TimerPackage />
+	<AliasPackage />
+	<ActionPackage />
+	<ScriptPackage>
+		<Script isActive="yes" isFolder="no">
+			<name>table access by string</name>
+			<packageName></packageName>
+			<script>function getValueAt(accessString)
+  local tempTable = accessString:split("%.")
+	local accessTable = {}
+	for i,v in ipairs(tempTable) do
+	  if tonumber(v) then
+	    accessTable[i] = tonumber(v)
+		else
+		  accessTable[i] = v
+		end
+	end
+	return digForValue(_G, accessTable)
+	
+end
+
+function digForValue(dataFrom, tableTo)
+  if table.size(tableTo) == 0 then
+	  return dataFrom
+	else
+	  newData = dataFrom[tableTo[1]]
+		table.remove(tableTo, 1)
+		return digForValue(newData, tableTo)
+	end
+end</script>
+			<eventHandlerList />
+		</Script>
+	</ScriptPackage>
+	<KeyPackage />
+	<VariablePackage>
+		<HiddenVariables />
+	</VariablePackage>
+</MudletPackage>
