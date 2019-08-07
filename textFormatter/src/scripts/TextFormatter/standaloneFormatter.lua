@@ -1,15 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE MudletPackage>
-<MudletPackage version="1.001">
-  <ScriptPackage>
-    <ScriptGroup isActive="yes" isFolder="yes">
-  <name>TextFormatter</name>
-      <script/>
-  <packageName/>
-<eventHandlerList>
-</eventHandlerList>
-      <Script isActive="yes" isFolder="no">
-  <name>standaloneFormatter</name>
-        <script>demonnic = demonnic or {}
+demonnic = demonnic or {}
 
 function demonnic:wordWrap(str, limit, indent, indent1)
   -- pulled from http://lua-users.org/wiki/StringRecipes
@@ -18,7 +7,7 @@ function demonnic:wordWrap(str, limit, indent, indent1)
   limit = limit or 72
   local here = 1-#indent1
   local function check(sp, st, word, fi)
-    if fi - here &gt; limit then
+    if fi - here > limit then
       here = st - #indent
       return "\n"..indent..word
     end
@@ -28,7 +17,7 @@ end
 
 function demonnic:fText(str, opts)
   local options = demonnic:fixFormatOptions(str, opts)  
-  if options.wrap and (options.strLen &gt; options.effWidth) then
+  if options.wrap and (options.strLen > options.effWidth) then
     local wrapped = demonnic:wordWrap(str, options.effWidth)
     local lines = wrapped:split("\n")
     local formatted = {}
@@ -65,20 +54,20 @@ function demonnic:fixFormatOptions(str, opts)
   if not options.mirror == false then options.mirror = options.mirror or true end--by default, we do want to use mirroring for the caps
   --setup default options for colors based on the color formatting type
   if table.contains(dec, options.formatType) then
-    options.capColor = options.capColor or "&lt;255,255,255&gt;"
-    options.spacerColor = options.spacerColor or "&lt;255,255,255&gt;"
-    options.textColor = options.textColor or "&lt;255,255,255&gt;"
-    options.colorPattern = "&lt;%d+,%d+,%d+:?%d*,?%d*,?%d*&gt;"
+    options.capColor = options.capColor or "<255,255,255>"
+    options.spacerColor = options.spacerColor or "<255,255,255>"
+    options.textColor = options.textColor or "<255,255,255>"
+    options.colorPattern = "<%d+,%d+,%d+:?%d*,?%d*,?%d*>"
   elseif table.contains(hex, options.formatType) then
     options.capColor = options.capColor or "|cFFFFFF"
     options.spacerColor = options.spacerColor or "|cFFFFFF"
     options.textColor = options.textColor or "|cFFFFFF"
     options.colorPattern = 'c|%d%d%d%d%d%d'
   elseif table.contains(col, options.formatType) then
-    options.capColor = options.capColor or "&lt;white&gt;"
-    options.spacerColor = options.spacerColor or "&lt;white&gt;"
-    options.textColor = options.textColor or "&lt;white&gt;"
-    options.colorPattern = "&lt;%w*_?%w*:?%w*_?%w*&gt;"
+    options.capColor = options.capColor or "<white>"
+    options.spacerColor = options.spacerColor or "<white>"
+    options.textColor = options.textColor or "<white>"
+    options.colorPattern = "<%w*_?%w*:?%w*_?%w*>"
   else
     options.capColor = ""
     options.spacerColor = ""
@@ -95,7 +84,7 @@ function demonnic:fixFormatOptions(str, opts)
   options.maxPad = 0
   options.capLen = string.len(options.cap)
   options.effWidth = options.width - ((options.capLen * 2) + 2)
-  if options.capLen &gt; options.leftPadLen then
+  if options.capLen > options.leftPadLen then
     options.cap = options.cap:sub(1, leftPadLen)
     options.capLen = string.len(options.cap)
   end
@@ -116,7 +105,7 @@ function demonnic:fLine(str,opts)
 
   if options.alignment == "center" then --we're going to center something
     if options.mirror then --if we're reversing the left cap and the right cap (IE {{[[ turns into ]]}} )
-      rightCap = string.gsub(rightCap, "&lt;", "&gt;")
+      rightCap = string.gsub(rightCap, "<", ">")
       rightCap = string.gsub(rightCap, "%[", "%]")
       rightCap = string.gsub(rightCap, "{", "}")
       rightCap = string.gsub(rightCap, "%(", "%)")
@@ -263,15 +252,15 @@ function demonnic:test_ftext()
   local nTable = {width = 40, cap = "(CAP)", inside = true, alignment = 'center'}
   local cTable = table.deepcopy(nTable)
     cTable.formatType="c"
-    cTable.capColor = "&lt;red:black&gt;"
-    cTable.spacerColor = "&lt;purple:green&gt;"
-    cTable.textColor = "&lt;purple:green&gt;"
+    cTable.capColor = "<red:black>"
+    cTable.spacerColor = "<purple:green>"
+    cTable.textColor = "<purple:green>"
   
   local dTable = table.deepcopy(nTable)
     dTable.formatType="d"
-    dTable.capColor = "&lt;0,0,182&gt;"
-    dTable.spacerColor = "&lt;0,182,0&gt;"
-    dTable.textColor = "&lt;182,0,0&gt;"
+    dTable.capColor = "<0,0,182>"
+    dTable.spacerColor = "<0,182,0>"
+    dTable.textColor = "<182,0,0>"
   
   local hTable = table.deepcopy(nTable)
     hTable.formatType="h"
@@ -290,166 +279,4 @@ function demonnic:test_ftext()
   decho(demonnic:dalign(testString, dTable) .. "\n")
   cecho(demonnic:calign(testString, cTable) .. "\n")
   hecho(demonnic:halign(testString, hTable) .. "\n")
-end</script>
-  <packageName/>
-<eventHandlerList>
-</eventHandlerList>
-</Script>
-      <Script isActive="yes" isFolder="no">
-  <name>reusableFormatter</name>
-        <script>demonnic.TextFormatter = {
-  options = {
-    formatType = "c",
-    wrap = true,
-    width = 80,
-    cap = "",
-    spacer = " ",
-    alignment = "center",
-    inside = true,
-    mirror = false,
-  },
-  validFormatTypes = { 'd', 'dec', 'decimal', 'h', 'hex', 'hexidecimal', 'c', 'color', 'colour', 'col', 'name'}
-}
-
-function demonnic.TextFormatter:setType(typeToSet)
-  local isNotValid = not table.contains(self.validFormatTypes, typeToSet)
-  if isNotValid then
-    error("demonnic.TextFormatter:setType: Invalid argument, valid types are:" .. table.concat(self.validFormatTypes, ", "))
-  end
-  self.options.formatType = typeToSet
 end
-
-function demonnic.TextFormatter:toBoolean(thing)
-  if type(thing) ~= "boolean" then
-    if thing == "true" then
-      thing = true
-    elseif thing == "false" then
-      thing = false
-    else
-      return nil
-    end
-  end
-  return thing
-end
-
-function demonnic.TextFormatter:checkString(str)
-  if type(str) ~= "string" then
-    if tostring(str) then
-      str = tostring(str)
-    else
-      return nil
-    end
-  end
-  return str
-end
-
-function demonnic.TextFormatter:setWrap(shouldWrap)
-  shouldWrap = self:toBoolean(shouldWrap)
-  if shouldWrap == nil then
-    error("demonnic.TextFormatter:setWrap(shouldWrap) Argument error, boolean expected, got " .. type(shouldWrap) .. ", if you want to set the number of characters wide to format for, use setWidth()")
-  end
-  self.options.wrap = shouldWrap
-end
-
-function demonnic.TextFormatter:setWidth(width)
-  if type(width) ~= "number" then
-    if tonumber(width) then
-      width = tonumber(width)
-    else
-      error("demonnic.TextFormatter:setWidth(width): Argument error, number expected, got " .. type(width))
-    end
-  end
-  self.options.width = width
-end
-
-function demonnic.TextFormatter:setCap(cap)
-  local cap = self:checkString(cap)
-  if cap == nil then error("demonnic.TextFormatter:setCap(cap): Argument error, string expect, got " .. type(cap)) end
-  self.options.cap = cap
-end
-
-function demonnic.TextFormatter:setCapColor(capColor)
-  local capColor = self:checkString(capColor)
-  if capColor == nil then error("demonnic.TextFormatter:setCapColor(capColor): Argument error, string expected, got " .. type(capColor)) end
-  self.options.capColor = capColor
-end
-
-function demonnic.TextFormatter:setSpacerColor(spacerColor)
-  local spacerColor = self:checkString(spacerColor)
-  if spacerColor == nil then error("demonnic.TextFormatter:setSpacerColor(spacerColor): Argument error, string expected, got " .. type(spacerColor)) end
-  self.options.spacerColor = spacerColor
-end
-
-function demonnic.TextFormatter:setTextColor(textColor)
-  local textColor = self:checkString(textColor)
-  if textColor == nil then error("demonnic.TextFormatter:setTextColor(textColor): Argument error, string expected, got " .. type(textColor)) end
-  self.options.textColor = textColor
-end
-
-function demonnic.TextFormatter:setSpacer(spacer)
-  local spacer = self:checkString(spacer)
-  if spacer == nil then error("demonnic.TextFormatter:setSpacer(spacer): Argument error, string expect, got " .. type(spacer)) end
-  self.options.spacer = spacer
-end
-
-function demonnic.TextFormatter:setAlignment(alignment)
-  local validAlignments = {
-    "left",
-    "right",
-    "center"
-  }
-  if not table.contains(validAlignments, alignment) then
-    error("demonnic.TextFormatter:setAlignment(alignment): Argument error: Only valid arguments for setAlignment are 'left', 'right', or 'center'. You sent" .. alignment)
-  end
-  self.options.alignment = alignment
-end
-
-function demonnic.TextFormatter:setInside(spacerInside)
-  spacerInside = self:toBoolean(spacerInside)
-  if spacerInside == nil then
-    error("demonnic.TextFormatter:setInside(spacerInside) Argument error, boolean expected, got " .. type(spacerInside))
-  end
-  self.options.inside = spacerInside
-end
-
-function demonnic.TextFormatter:setMirror(shouldMirror)
-  shouldMirror = self:toBoolean(shouldMirror)
-  if shouldMirror == nil then
-    error("demonnic.TextFormatter:setMirror(shouldMirror): Argument error, boolean expected, got " .. type(shouldMirror))
-  end
-  self.options.mirror = shouldMirror
-end
-
-function demonnic.TextFormatter:format(str)
-  return demonnic:fText(str, self.options)
-end
-
-setmetatable(demonnic.TextFormatter, demonnic.TextFormatter)
-function demonnic.TextFormatter:new(options)
-  me = {}
-  setmetatable(me, self)
-  self.__index = self
-  if type(options) == "table" then
-    for option,value in pairs(options) do
-      me.options[option] = value
-    end
-  elseif option ~= nil then
-    error("demonnic.TextFormatter:new(options): Argument error, table expected, got " .. type(options))
-  end
-  return me
-end</script>
-  <packageName/>
-<eventHandlerList>
-</eventHandlerList>
-</Script>
-</ScriptGroup>
-</ScriptPackage>
-  <AliasPackage>
-</AliasPackage>
-  <TimerPackage>
-</TimerPackage>
-  <TriggerPackage>
-</TriggerPackage>
-  <KeyPackage>
-</KeyPackage>
-</MudletPackage>
