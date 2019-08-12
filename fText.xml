@@ -10,6 +10,7 @@
       <Script isActive="yes" isFolder="no">
   <name>standaloneFormatter</name>
         <script>demonnic = demonnic or {}
+demonnic.text = {}
 
 function demonnic:wordWrap(str, limit, indent, indent1)
   -- pulled from http://lua-users.org/wiki/StringRecipes
@@ -61,6 +62,7 @@ function demonnic:fixFormatOptions(str, opts)
   options.cap = options.cap or "" --no cap by default
   options.spacer = options.spacer or " " --default spacer is the space character
   options.alignment = options.alignment or "center" --default alignment is centered
+  if options.nogap == nil then options.nogap = false end
   if options.inside == nil then options.inside = false end --by default, we don't put the spacer inside
   if not options.mirror == false then options.mirror = options.mirror or true end--by default, we do want to use mirroring for the caps
   --setup default options for colors based on the color formatting type
@@ -68,21 +70,25 @@ function demonnic:fixFormatOptions(str, opts)
     options.capColor = options.capColor or "&lt;255,255,255&gt;"
     options.spacerColor = options.spacerColor or "&lt;255,255,255&gt;"
     options.textColor = options.textColor or "&lt;255,255,255&gt;"
+    options.colorReset = "&lt;r&gt;"
     options.colorPattern = "&lt;%d+,%d+,%d+:?%d*,?%d*,?%d*&gt;"
   elseif table.contains(hex, options.formatType) then
-    options.capColor = options.capColor or "|cFFFFFF"
-    options.spacerColor = options.spacerColor or "|cFFFFFF"
-    options.textColor = options.textColor or "|cFFFFFF"
+    options.capColor = options.capColor or "#FFFFFF"
+    options.spacerColor = options.spacerColor or "#FFFFFF"
+    options.textColor = options.textColor or "#FFFFFF"
+    options.colorReset = "#r"
     options.colorPattern = 'c|%d%d%d%d%d%d'
   elseif table.contains(col, options.formatType) then
     options.capColor = options.capColor or "&lt;white&gt;"
     options.spacerColor = options.spacerColor or "&lt;white&gt;"
     options.textColor = options.textColor or "&lt;white&gt;"
+    options.colorReset = "&lt;reset&gt;"
     options.colorPattern = "&lt;%w*_?%w*:?%w*_?%w*&gt;"
   else
     options.capColor = ""
     options.spacerColor = ""
     options.textColor = ""
+    options.colorReset = ""
     options.colorPattern = ""
   end
   options.originalString = str
@@ -122,35 +128,41 @@ function demonnic:fLine(str,opts)
       rightCap = string.gsub(rightCap, "%(", "%)")
       rightCap = string.reverse(rightCap)
     end --otherwise, they'll be the same, so don't do anything
-    str = string.format(" %s ", str)
+    if not options.nogap then str = string.format(" %s ", str) end
     
   elseif options.alignment == "right" then --we'll right-align the text
     leftPadLen = leftPadLen + rightPadLen
     rightPadLen = 0
     rightCap = ""
-    str = string.format(" %s", str)
+    if not options.nogap then str = string.format(" %s", str) end
     
   else --Ok, so if it's not center or right, we assume it's left. We don't do justified. Sorry.
     rightPadLen = rightPadLen + leftPadLen
     leftPadLen = 0
     leftCap = ""
-    str = string.format("%s ", str)
+    if not options.nogap then str = string.format("%s ", str) end
   end--that's it, took care of both left, right, and center formattings, now to output the durn thing. 
-  
+  local fullLeftCap = string.format("%s%s%s", options.capColor, leftCap, options.colorReset)
+  local fullLeftSpacer = string.format("%s%s%s", options.spacerColor, string.rep(options.spacer, (leftPadLen - capLen)), options.colorReset)
+  local fullText = string.format("%s%s%s", options.textColor, str, options.colorReset)
+  local fullRightSpacer = string.format("%s%s%s", options.spacerColor, string.rep(options.spacer, (rightPadLen - capLen)), options.colorReset)
+  local fullRightCap = string.format("%s%s%s", options.capColor, rightCap, options.colorReset)
+
   if options.inside then 
-  --if we're placing the repated spacer inside
-  --"=====endcap some text endcap=====" 
-  --"=====endcap some text pacdne====="
-  --"=================endcap some text" 
-  --"some text endcap================="
-    return options.capColor .. leftCap .. options.spacerColor.. string.rep(options.spacer, (leftPadLen - capLen)) .. options.textColor .. str .. options.spacerColor ..string.rep(options.spacer, (rightPadLen - capLen)) .. options.capColor .. rightCap
-  else 
-  --otherwise, it''s be the spaces on the 'inside'
   -- "endcap===== some text =====endcap"
   -- "endcap===== some text =====pacdne" 
   -- "endcap================= some text" 
   -- "some text =================endcap"
-    return options.spacerColor .. string.rep(options.spacer, (leftPadLen - capLen)) .. options.capColor .. leftCap .. options.textColor .. str .. options.capColor .. rightCap .. options.spacerColor .. string.rep(options.spacer, (rightPadLen - capLen))
+    local finalString = string.format("%s%s%s%s%s", fullLeftCap, fullLeftSpacer, fullText, fullRightSpacer, fullRightCap)
+    return finalString
+  else 
+  --"=====endcap some text endcap=====" 
+  --"=====endcap some text pacdne====="
+  --"=================endcap some text" 
+  --"some text endcap================="
+
+    local finalString = string.format("%s%s%s%s%s", fullLeftSpacer, fullLeftCap, fullText, fullRightCap, fullRightSpacer)
+    return finalString
   end
 end
 
@@ -297,19 +309,9 @@ end</script>
 </Script>
       <Script isActive="yes" isFolder="no">
   <name>reusableFormatter</name>
-        <script>demonnic.TextFormatter = {
-  options = {
-    formatType = "c",
-    wrap = true,
-    width = 80,
-    cap = "",
-    spacer = " ",
-    alignment = "center",
-    inside = true,
-    mirror = false,
-  },
-  validFormatTypes = { 'd', 'dec', 'decimal', 'h', 'hex', 'hexidecimal', 'c', 'color', 'colour', 'col', 'name'}
-}
+        <script>demonnic.TextFormatter = {}
+demonnic.TextFormatter.validFormatTypes = { 'd', 'dec', 'decimal', 'h', 'hex', 'hexidecimal', 'c', 'color', 'colour', 'col', 'name'}
+
 
 function demonnic.TextFormatter:setType(typeToSet)
   local isNotValid = not table.contains(self.validFormatTypes, typeToSet)
@@ -344,9 +346,10 @@ function demonnic.TextFormatter:checkString(str)
 end
 
 function demonnic.TextFormatter:setWrap(shouldWrap)
+  local argumentType = type(shouldWrap)
   shouldWrap = self:toBoolean(shouldWrap)
   if shouldWrap == nil then
-    error("demonnic.TextFormatter:setWrap(shouldWrap) Argument error, boolean expected, got " .. type(shouldWrap) .. ", if you want to set the number of characters wide to format for, use setWidth()")
+    error("demonnic.TextFormatter:setWrap(shouldWrap) Argument error, boolean expected, got " .. argumentType .. ", if you want to set the number of characters wide to format for, use setWidth()")
   end
   self.options.wrap = shouldWrap
 end
@@ -363,32 +366,37 @@ function demonnic.TextFormatter:setWidth(width)
 end
 
 function demonnic.TextFormatter:setCap(cap)
+  local argumentType = type(cap)
   local cap = self:checkString(cap)
-  if cap == nil then error("demonnic.TextFormatter:setCap(cap): Argument error, string expect, got " .. type(cap)) end
+  if cap == nil then error("demonnic.TextFormatter:setCap(cap): Argument error, string expect, got " .. argumentType) end
   self.options.cap = cap
 end
 
 function demonnic.TextFormatter:setCapColor(capColor)
+  local argumentType = type(capColor)
   local capColor = self:checkString(capColor)
-  if capColor == nil then error("demonnic.TextFormatter:setCapColor(capColor): Argument error, string expected, got " .. type(capColor)) end
+  if capColor == nil then error("demonnic.TextFormatter:setCapColor(capColor): Argument error, string expected, got " .. argumentType) end
   self.options.capColor = capColor
 end
 
 function demonnic.TextFormatter:setSpacerColor(spacerColor)
+  local argumentType = type(spacerColor)
   local spacerColor = self:checkString(spacerColor)
-  if spacerColor == nil then error("demonnic.TextFormatter:setSpacerColor(spacerColor): Argument error, string expected, got " .. type(spacerColor)) end
+  if spacerColor == nil then error("demonnic.TextFormatter:setSpacerColor(spacerColor): Argument error, string expected, got " .. argumentType) end
   self.options.spacerColor = spacerColor
 end
 
 function demonnic.TextFormatter:setTextColor(textColor)
+  local argumentType = type(textColor)
   local textColor = self:checkString(textColor)
-  if textColor == nil then error("demonnic.TextFormatter:setTextColor(textColor): Argument error, string expected, got " .. type(textColor)) end
+  if textColor == nil then error("demonnic.TextFormatter:setTextColor(textColor): Argument error, string expected, got " .. argumentType) end
   self.options.textColor = textColor
 end
 
 function demonnic.TextFormatter:setSpacer(spacer)
+  local argumentType = type(spacer)
   local spacer = self:checkString(spacer)
-  if spacer == nil then error("demonnic.TextFormatter:setSpacer(spacer): Argument error, string expect, got " .. type(spacer)) end
+  if spacer == nil then error("demonnic.TextFormatter:setSpacer(spacer): Argument error, string expect, got " .. argumentType) end
   self.options.spacer = spacer
 end
 
@@ -405,17 +413,19 @@ function demonnic.TextFormatter:setAlignment(alignment)
 end
 
 function demonnic.TextFormatter:setInside(spacerInside)
+  local argumentType = type(spacerInside)
   spacerInside = self:toBoolean(spacerInside)
   if spacerInside == nil then
-    error("demonnic.TextFormatter:setInside(spacerInside) Argument error, boolean expected, got " .. type(spacerInside))
+    error("demonnic.TextFormatter:setInside(spacerInside) Argument error, boolean expected, got " .. argumentType)
   end
   self.options.inside = spacerInside
 end
 
 function demonnic.TextFormatter:setMirror(shouldMirror)
+  local argumentType = type(shouldMirror)
   shouldMirror = self:toBoolean(shouldMirror)
   if shouldMirror == nil then
-    error("demonnic.TextFormatter:setMirror(shouldMirror): Argument error, boolean expected, got " .. type(shouldMirror))
+    error("demonnic.TextFormatter:setMirror(shouldMirror): Argument error, boolean expected, got " .. argumentType)
   end
   self.options.mirror = shouldMirror
 end
@@ -424,17 +434,284 @@ function demonnic.TextFormatter:format(str)
   return demonnic:fText(str, self.options)
 end
 
-setmetatable(demonnic.TextFormatter, demonnic.TextFormatter)
 function demonnic.TextFormatter:new(options)
-  me = {}
+  if options == nil then options = {} end
+  if options and type(options) ~= "table" then
+    error("demonnic.TextFormatter:new(options): Argument error, table expected, got " .. type(options))
+  end
+  local me = {}
+  me.options = {
+    formatType = "c",
+    wrap = true,
+    width = 80,
+    cap = "",
+    spacer = " ",
+    alignment = "center",
+    inside = true,
+    mirror = false,
+  }
+  for option, value in pairs(options) do
+    me.options[option] = value
+  end
   setmetatable(me, self)
   self.__index = self
-  if type(options) == "table" then
-    for option,value in pairs(options) do
-      me.options[option] = value
+  return me
+end</script>
+  <packageName/>
+<eventHandlerList>
+</eventHandlerList>
+</Script>
+      <Script isActive="yes" isFolder="no">
+  <name>tableFormatter</name>
+        <script>demonnic = demonnic or {}
+demonnic.TableMaker = {
+  headCharacter = "*",
+  footCharacter = "*",
+  edgeCharacter = "*",
+  rowSeparator = "-",
+  separator = "|",
+
+  colorReset = "&lt;reset&gt;",
+  formatType = "c",
+  printHeaders = true,
+}
+
+function demonnic.TableMaker:checkPosition(position, func)
+  if position == nil then position = 0 end
+  if type(position) ~= "number" then
+    if tonumber(position) then
+      position = tonumber(position)
+    else
+      error(func .. ": Argument error: position expected as number, got " .. type(position))
     end
-  elseif option ~= nil then
-    error("demonnic.TextFormatter:new(options): Argument error, table expected, got " .. type(options))
+  end
+  return position
+end
+
+function demonnic.TableMaker:insert(tbl, pos, item)
+  if pos ~= 0 then
+    table.insert(tbl, pos, item)
+  else
+    table.insert(tbl, item)
+  end
+end
+
+function demonnic.TableMaker:addColumn(options, position)
+  if options == nil then options = {} end
+  if not type(options) == "table" then error("demonnic.TableMaker:addColumn(options, position): Argument error: options expected as table, got " .. type(options)) end
+  local options = table.deepcopy(options)
+  position = self:checkPosition(position, "demonnic.TableMaker:addColumn(options, position)")
+  options.width = options.width or 20
+  options.name = options.name or ""
+  local formatter = demonnic.TextFormatter:new(options)
+  self:insert(self.columns, position, formatter)
+end
+
+function demonnic.TableMaker:replaceColumn(options, position)
+  if position == nil then
+    error("demonnic.TableMaker:replaceColumn(options, position): Argument error: position as number expected, got nil")
+  end
+  position = self:checkPosition(position)
+  if type(options) ~= "table" then error("demonnic.TableMaker:replaceColumn(options, position): Argument error: options as table expected, got " .. type(options)) end
+  if #self.columns &lt; position then error("demonnic.TableMaker:replaceColumn(options, position): you cannot specify a position higher than the number of columns currently in the TableMaker. You sent:" .. position .. " and there are: " .. #self.columns .. "columns in the TableMaker") end
+  options.width = options.width or 20
+  options.name = options.name or ""
+  local formatter = demonnic.TextFormatter:new(options)
+  self.columns[position] = formatter
+end
+
+function demonnic.TableMaker:addRow(columnEntries, position)
+  local columnEntriesType = type(columnEntries)
+  if columnEntriesType ~= "table" then
+    error("demonnic.TableMaker:addRow(columnEntries, position): Argument error, columnEntries expected as table, got " .. columnEntriesType)
+  end
+  for _,entry in ipairs(columnEntries) do
+    if type(entry) ~= string then
+      if not tostring(entry) then error("demonnic.TableMaker:addRow(columnEntries, position): Argument error, columnEntries items expected as string, got:" .. type(entry)) end
+    end
+  end
+  position = self:checkPosition(position, "demonnic.TableMaker:addRow(columnEntries, position)")
+  self:insert(self.rows, position, columnEntries)
+end
+
+function demonnic.TableMaker:replaceRow(columnEntries, position)
+  if position == nil then
+    error("demonnic.TableMaker:replaceRow(columnEntries, position): ArgumentError: position expected as number, received nil")
+  end
+  position = self:checkPosition(position, "demonnic.TableMaker:replaceRow(columnEntries, position)")
+  if #self.rows &lt; position then
+    error("demonnic.TableMaker:replaceRow(columnEntries, position): position cannot be greater than the number of rows already in the tablemaker. You provided: " .. position .. " and there are " .. #self.rows .. "rows in the TableMaker")
+  end
+  for _,entry in ipairs(columnEntries) do
+    if type(entry) ~= string then
+      if not tostring(entry) then error("demonnic.TableMaker:replaceRow(columnEntries, position): Argument error, columnEntries items expected as string, got:" .. type(entry)) end
+    end
+  end
+  self.rows[position] = columnEntries
+end
+
+function demonnic.TableMaker:totalWidth()
+  local width = 0
+  local numberOfColumns = #self.columns
+  local separatorWidth = string.len(self.separator)
+  local edgeWidth = string.len(self.edgeCharacter) * 2
+  for _,column in ipairs(self.columns) do
+    width = width + column.options.width
+  end
+  separatorWidth = separatorWidth * (numberOfColumns - 1)
+  width = width + edgeWidth + separatorWidth
+  return width
+end
+
+function demonnic.TableMaker:scanRow(rowToScan)
+  local row = table.deepcopy(rowToScan)
+  local rowEntries = #row
+  local numberOfColumns = #self.columns
+  local columns = {}
+  local linesInRow = 0
+  local rowText = ""
+  local ec = self.frameColor .. self.edgeCharacter .. self.colorReset
+  local sep = self.separatorColor .. self.separator .. self.colorReset
+
+  if rowEntries &lt; numberOfColumns then
+    entriesNeeded = numberOfColumns - rowEntries
+    for i = 1,entriesNeeded do
+      table.insert(row, "")
+    end
+  end
+  for index,formatter in ipairs(self.columns) do
+    local str = row[index]
+    local column = ""
+    column = formatter:format(str)
+    table.insert(columns, column:split("\n"))
+  end
+  for _,rowLines in ipairs(columns) do
+    if linesInRow &lt; #rowLines then linesInRow = #rowLines end
+  end
+  for index,rowLines in ipairs(columns) do
+    if #rowLines &lt; linesInRow then
+      local neededLines = linesInRow - #rowLines
+      for i=1,neededLines do
+        table.insert(rowLines, self.columns[index]:format(""))
+      end
+    end
+  end
+  for i= 1,linesInRow do
+    local thisLine = ec
+    for index,column in ipairs(columns) do
+      if index == 1 then
+        thisLine = string.format("%s%s", thisLine, column[i])
+      else
+        thisLine = string.format("%s%s%s", thisLine, sep, column[i])
+      end
+    end
+    thisLine = string.format("%s%s", thisLine, ec)
+    if rowText == "" then
+      rowText = thisLine
+    else
+      rowText = string.format("%s\n%s", rowText, thisLine)
+    end
+  end
+  return rowText
+end
+
+function demonnic.TableMaker:makeHeader()
+  local totalWidth = self:totalWidth()
+  local ec = self.frameColor .. self.edgeCharacter .. self.colorReset
+  local sep = self.separatorColor .. self.separator .. self.colorReset
+  local header = self.frameColor .. string.rep(self.headCharacter, totalWidth) .. self.colorReset
+  local columnHeaders = ""
+  if self.printHeaders then
+    local columnEntries = {}
+    for _,v in ipairs(self.columns) do
+      table.insert(columnEntries, v:format(v.options.name))
+    end
+    local divWithNewlines = string.format("\n%s", self:createRowDivider())
+    columnHeaders = string.format("\n%s%s%s%s", ec, table.concat(columnEntries, sep), ec, divWithNewlines)
+  end
+  header = string.format("%s%s", header, columnHeaders)
+  return header
+end
+
+function demonnic.TableMaker:createRowDivider()
+  local columnPieces = {}
+  for _,v in ipairs(self.columns) do
+    local piece = string.rep(self.rowSeparator, v.options.width)
+    table.insert(columnPieces, piece)
+  end
+  local ec = self.frameColor .. self.edgeCharacter .. self.colorReset
+  local sep = self.separatorColor .. self.separator .. self.colorReset
+  return string.format("%s%s%s", ec, table.concat(columnPieces, sep), ec)
+end
+
+function demonnic.TableMaker:assemble()
+  local sheet = ""
+  local rows = {}
+  for _,row in ipairs(self.rows) do
+    table.insert(rows, self:scanRow(row))
+  end
+  local divWithNewlines = string.format("\n%s\n", self:createRowDivider())
+  local footer = string.format("%s%s%s", self.frameColor, string.rep(self.footCharacter, self:totalWidth()), self.colorReset)
+  sheet = string.format("%s\n%s\n%s", self:makeHeader(), table.concat(rows, divWithNewlines), footer)
+  return sheet
+end
+
+
+function demonnic.TableMaker:new(options)
+  local me = {}
+  setmetatable(me, self)
+  self.__index = self
+  if options == nil then options = {} end
+  if type(options) ~= "table" then
+    error("demonnic.TableMaker:new(options): ArgumentError: options expected as table, got " .. type(options))
+  end
+  local options = table.deepcopy(options)
+  local columns = false
+  if options.columns then
+    if type(options.columns) ~= "table" then error("demonnic.TableMaker:new(options): option error: You provided an options.columns entry of type " .. type(options.columns) .. " and columns must a table with entries suitable for demonnic.TableFormatter:addColumn().") end
+    columns = table.deepcopy(options.columns)
+    options.columns = nil
+  end
+  local rows = false
+  if options.rows then
+    if type(options.rows) ~= "table" then error("demonnic.tableMaker:new(options): option error: You provided an options.rows entry of type " .. type(options.rows) .. " and rows must be a table with entrys suitable for demonnic.TableFormatter:addRow()") end
+    rows = table.deepcopy(options.rows)
+    options.rows = nil
+  end
+  for option, value in pairs(options) do
+    me[option] = value
+  end
+  local dec = {"d", "decimal", "dec"}
+  local hex = {"h", "hexidecimal", "hex"}
+  local col = {"c", "color", "colour", "col", "name"}
+  if table.contains(dec, me.formatType) then
+    me.frameColor = me.frameColor or "&lt;255,255,255&gt;"
+    me.separatorColor = me.separatorColor or me.frameColor
+    me.colorReset = "&lt;r&gt;"
+  elseif table.contains(hex, me.formatType) then
+    me.frameColor = me.frameColor or "#ffffff"
+    me.separatorColor = me.separatorColor or me.frameColor
+    me.colorReset = "#r"
+  elseif table.contains(col, me.formatType) then
+    me.frameColor = me.frameColor or "&lt;white&gt;"
+    me.separatorColor = me.separatorColor or me.frameColor
+    me.colorReset = "&lt;reset&gt;"
+  else
+    me.frameColor = ""
+    me.separatorColor = ""
+    me.colorReset = ""
+  end
+  me.columns = {}
+  me.rows = {}
+  if columns then
+    for _,column in ipairs(columns) do
+      me:addColumn(column)
+    end
+  end
+  if rows then
+    for _,row in ipairs(rows) do
+      me:addRow(row)
+    end
   end
   return me
 end</script>
