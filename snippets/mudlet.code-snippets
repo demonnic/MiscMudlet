@@ -1430,7 +1430,7 @@
   "raiseWindow": {
     "prefix": ["raiseWindow"],
     "scope": "lua",
-    "body": ["raiseWindow(#{labelName})"],
+    "body": ["raiseWindow(${labelName})"],
     "description": "raiseWindow(labelName)"
   },
   "receiveMSP": {

@@ -1,0 +1,3588 @@
+# Generated with Atomizr – https://atom.io/packages/atomizr
+".source":
+	"pairs() Loop":
+		prefix: [
+			"pairs"
+		]
+		scope: "lua"
+		body: [
+			"for ${1:key},${2:value} in pairs(${3:tbl}) do"
+			"\t$0"
+			"end"
+		]
+		description: "pairs loop"
+	"ipairs() Loop":
+		prefix: [
+			"ipairs"
+		]
+		scope: "lua"
+		body: [
+			"for ${1:index},${2:value} in ipairs(${3:tbl}) do"
+			"\t$0"
+			"end"
+		]
+		description: "ipairs loop"
+	addAreaName:
+		prefix: [
+			"addAreaName"
+		]
+		scope: "lua"
+		body: [
+			"addAreaName($0)"
+		]
+		description: "addAreaName(areaName)"
+	addCustomLine:
+		prefix: [
+			"addCustomLine"
+		]
+		scope: "lua"
+		body: [
+			"addCustomLine(${1:roomID}, ${2:id_to}, ${3:direction}, ${4:style}, ${5:color}, ${6:arrow})"
+		]
+		description: "addCustomLine(roomID, id_to, direction, style, color, arrow)"
+	addMapEvent:
+		prefix: [
+			"addMapEvent"
+		]
+		scope: "lua"
+		body: [
+			"addMapEvent(${1:uniquename}, ${2:event_name}, ${3:parent}, ${4:display_name}, ${5:arguments})"
+		]
+		description: "addMapEvent(uniquename, event name, parent, display name, arguments)"
+	addMapMenu:
+		prefix: [
+			"addMapMenu"
+		]
+		scope: "lua"
+		body: [
+			"addMapMenu(${1:uniquename}, ${2:parent}, ${3:display_name})"
+		]
+		description: "addMapMenu(uniquename, parent, display name)"
+	addRoom:
+		prefix: [
+			"addRoom"
+		]
+		scope: "lua"
+		body: [
+			"addRoom(${1:roomID})"
+		]
+		description: "addRoom(roomID)"
+	addSpecialExit:
+		prefix: [
+			"addSpecialExit"
+		]
+		scope: "lua"
+		body: [
+			"addSpecialExit(${1:roomIDFrom}, ${2:roomIDTo}, ${3:moveCommand})"
+		]
+		description: "addSpecialExit(roomIDFrom, roomIDTo, moveCommand)"
+	addSupportedTelnetOption:
+		prefix: [
+			"addSupportedTelnetOption"
+		]
+		scope: "lua"
+		body: [
+			"addSupportedTelnetOption(${1:option})"
+		]
+		description: "addSupportedTelnetOption(option)"
+	addWordToDictionary:
+		prefix: [
+			"addWordToDictionary"
+		]
+		scope: "lua"
+		body: [
+			"addWordToDictionary(${1:word})"
+		]
+		description: "addWordToDictionary(word)"
+	adjustStopWatch:
+		prefix: [
+			"adjustStopWatch"
+		]
+		scope: "lua"
+		body: [
+			"adjustStopWatch(${1:watchID/watchName}, ${2:amount})"
+		]
+		description: "adjustStopWatch(watchID/watchName, amount)"
+	alert:
+		prefix: [
+			"alert"
+		]
+		scope: "lua"
+		body: [
+			"alert(${1:seconds})"
+		]
+		description: "alert(seconds)"
+	ansi2decho:
+		prefix: [
+			"ansi2decho"
+		]
+		scope: "lua"
+		body: [
+			"ansi2decho(${1:text}, ${2:default_colour})"
+		]
+		description: "ansi2decho(text, default_colour)"
+	appendBuffer:
+		prefix: [
+			"appendBuffer"
+		]
+		scope: "lua"
+		body: [
+			"appendBuffer(${1:name})"
+		]
+		description: "appendBuffer(name)"
+	appendCmdLine:
+		prefix: [
+			"appendCmdLine"
+		]
+		scope: "lua"
+		body: [
+			"appendCmdLine()"
+		]
+		description: "appendCmdLine()"
+	bg:
+		prefix: [
+			"bg"
+		]
+		scope: "lua"
+		body: [
+			"bg(${1:[window],}${2:colorName})"
+		]
+		description: "bg([window]colorName)"
+	calcFontSize:
+		prefix: [
+			"calcFontSize"
+		]
+		scope: "lua"
+		body: [
+			"calcFontSize(${1:window_or_fontsize}${2:, fontname})"
+		]
+		description: "calcFontSize(window_or_fontsize, [fontname])"
+	cecho:
+		prefix: [
+			"cecho"
+		]
+		scope: "lua"
+		body: [
+			"cecho(${1:[window], }${2:text})"
+		]
+		description: "cecho([window], text)"
+	cechoLink:
+		prefix: [
+			"cechoLink"
+		]
+		scope: "lua"
+		body: [
+			"cechoLink(${1:[windowName], }${2:text}, ${3:command}, ${4:hint}, ${5:true})"
+		]
+		description: "cechoLink([windowName], text, command, hint, true)"
+	cechoPopup:
+		prefix: [
+			"cechoPopup"
+		]
+		scope: "lua"
+		body: [
+			"cechoPopup(${1:[windowName], }${2:text}, ${3:commands}, ${4:hints}${5:, [useCurrentFormatElseDefault]})"
+		]
+		description: "cechoPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
+	centerview:
+		prefix: [
+			"centerview"
+		]
+		scope: "lua"
+		body: [
+			"centerview (${1:roomID})"
+		]
+		description: "centerview (roomID)"
+	cinsertLink:
+		prefix: [
+			"cinsertLink"
+		]
+		scope: "lua"
+		body: [
+			"cinsertLink(${1:[windowName], }${2:text}, ${3:command}, ${4:hint}, ${5:true})"
+		]
+		description: "cinsertLink([windowName], text, command, hint, true)"
+	cinsertPopup:
+		prefix: [
+			"cinsertPopup"
+		]
+		scope: "lua"
+		body: [
+			"cinsertPopup(${1:[windowName], }${2:text}, ${3:commands}, ${4:hints}${5:, [useCurrentFormatElseDefault]})"
+		]
+		description: "cinsertPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
+	cinsertText:
+		prefix: [
+			"cinsertText"
+		]
+		scope: "lua"
+		body: [
+			"cinsertText(${1:[window], }${2:text})"
+		]
+		description: "cinsertText([window], text)"
+	clearAreaUserData:
+		prefix: [
+			"clearAreaUserData"
+		]
+		scope: "lua"
+		body: [
+			"clearAreaUserData(${1:areaID})"
+		]
+		description: "clearAreaUserData(areaID)"
+	clearAreaUserDataItem:
+		prefix: [
+			"clearAreaUserDataItem"
+		]
+		scope: "lua"
+		body: [
+			"clearAreaUserDataItem(${1:areaID}, ${2:key})"
+		]
+		description: "clearAreaUserDataItem(areaID, key)"
+	clearCmdLine:
+		prefix: [
+			"clearCmdLine"
+		]
+		scope: "lua"
+		body: [
+			"clearCmdLine()"
+		]
+		description: "clearCmdLine()"
+	clearMapUserData:
+		prefix: [
+			"clearMapUserData"
+		]
+		scope: "lua"
+		body: [
+			"clearMapUserData()"
+		]
+		description: "clearMapUserData()"
+	clearMapUserDataItem:
+		prefix: [
+			"clearMapUserDataItem"
+		]
+		scope: "lua"
+		body: [
+			"clearUserDataItem(${1:mapID}, ${2:key})"
+		]
+		description: "clearUserDataItem(mapID, key)"
+	clearRoomUserData:
+		prefix: [
+			"clearRoomUserData"
+		]
+		scope: "lua"
+		body: [
+			"clearRoomUserData(${1:roomID})"
+		]
+		description: "clearRoomUserData(roomID)"
+	clearRoomUserDataItem:
+		prefix: [
+			"clearRoomUserDataItem"
+		]
+		scope: "lua"
+		body: [
+			"clearRoomUserDataItem(${1:roomID}, ${2:key})"
+		]
+		description: "clearRoomUserDataItem(roomID, key)"
+	clearSpecialExits:
+		prefix: [
+			"clearSpecialExits"
+		]
+		scope: "lua"
+		body: [
+			"clearSpecialExits(${1:roomID})"
+		]
+		description: "clearSpecialExits(roomID)"
+	clearUserWindow:
+		prefix: [
+			"clearUserWindow"
+		]
+		scope: "lua"
+		body: [
+			"clearUserWindow(${1:name})"
+		]
+		description: "clearUserWindow(name)"
+	clearWindow:
+		prefix: [
+			"clearWindow"
+		]
+		scope: "lua"
+		body: [
+			"clearWindow(${1:[windowName]})"
+		]
+		description: "clearWindow([windowName])"
+	closeMudlet:
+		prefix: [
+			"closeMudlet"
+		]
+		scope: "lua"
+		body: [
+			"closeMudlet()"
+		]
+		description: "closeMudlet()"
+	connectExitStub:
+		prefix: [
+			"connectExitStub"
+		]
+		scope: "lua"
+		body: [
+			"connectExitStub(${1:fromID}, ${2:toID}${3:, [direction]})"
+		]
+		description: "connectExitStub(fromID, toID, [direction])"
+	connectToServer:
+		prefix: [
+			"connectToServer"
+		]
+		scope: "lua"
+		body: [
+			"connectToServer(${1:host}, ${2:port}${3:, [save]})"
+		]
+		description: "connectToServer(host, port, [save])"
+	copy:
+		prefix: [
+			"copy"
+		]
+		scope: "lua"
+		body: [
+			"copy(${1:windowname})"
+		]
+		description: "copy([windowname])"
+	createBuffer:
+		prefix: [
+			"createBuffer"
+		]
+		scope: "lua"
+		body: [
+			"createBuffer(${1:name})"
+		]
+		description: "createBuffer(name)"
+	createConsole:
+		prefix: [
+			"createConsole"
+		]
+		scope: "lua"
+		body: [
+			"createConsole(${1:consoleName}, ${2:fontSize}, ${3:charsPerLine}, ${4:numberOfLines}, ${5:Xpos}, ${6:Ypos})"
+		]
+		description: "createConsole(consoleName, fontSize, charsPerLine, numberOfLines, Xpos, Ypos)"
+	createGauge:
+		prefix: [
+			"createGauge"
+		]
+		scope: "lua"
+		body: [
+			"createGauge(${name}, ${width}, ${height}, ${Xpos}, ${Ypos}, ${gaugeText}, ${r}, ${g}, ${b}, ${orientation})"
+		]
+		description: "createGauge(name, width, height, Xpos, Ypos, gaugeText, r, g, b, orientation)"
+	createLabel:
+		prefix: [
+			"createLabel"
+		]
+		scope: "lua"
+		body: [
+			"createLabel(${name}, ${Xpos}, ${Ypos}, ${width}, ${height}, ${fillBackground})"
+		]
+		description: "createLabel(name, Xpos, Ypos, width, height, fillBackground)"
+	createMapImageLabel:
+		prefix: [
+			"createMapImageLabel"
+		]
+		scope: "lua"
+		body: [
+			"createMapImageLabel(${areaID}, ${filePath}, ${posx}, ${posy}, ${posz}, ${width}, ${height}, ${zoom}, ${showOnTop})"
+		]
+		description: "createMapImageLabel(areaID, filePath, posx, posy, posz, width, height, zoom, showOnTop)"
+	createMapLabel:
+		prefix: [
+			"createMapLabel"
+		]
+		scope: "lua"
+		body: [
+			"createMapLabel(${areaID}, ${text}, ${posx}, ${posy}, ${posz}, ${fgRed}, ${fgGreen}, ${fgBlue}, ${bgRed}, ${bgGreen}, ${bgBlue}, ${zoom}, ${fontSize}, ${showOnTop}, ${noScaling)"
+		]
+		description: "createMapLabel(areaID, text, posx, posy, posz, fgRed, fgGreen, fgBlue, bgRed, bgGreen, bgBlue, zoom, fontSize, showOnTop, noScaling)"
+	createMapper:
+		prefix: [
+			"createMapper"
+		]
+		scope: "lua"
+		body: [
+			"createMapper(${x}, ${y}, ${width}, ${height})"
+		]
+		description: "createMapper(x, y, width, height)"
+	createMiniConsole:
+		prefix: [
+			"createMiniConsole"
+		]
+		scope: "lua"
+		body: [
+			"createMiniConsole(${name}, ${x}, ${y}, ${width}, ${height})"
+		]
+		description: "createMiniConsole(name, x, y, width, height)"
+	createRoomID:
+		prefix: [
+			"createRoomID"
+		]
+		scope: "lua"
+		body: [
+			"createRoomID(${[minimumStartingRoomId]})"
+		]
+		description: "createRoomID([minimumStartingRoomId])"
+	createStopWatch:
+		prefix: [
+			"createStopWatch"
+		]
+		scope: "lua"
+		body: [
+			"createStopWatch()"
+		]
+		description: "createStopWatch()"
+	creplaceLine:
+		prefix: [
+			"creplaceLine"
+		]
+		scope: "lua"
+		body: [
+			"creplaceLine(${text})"
+		]
+		description: "creplaceLine(text)"
+	debugc:
+		prefix: [
+			"debugc"
+		]
+		scope: "lua"
+		body: [
+			"debugc(${content})"
+		]
+		description: "debugc(content)"
+	decho:
+		prefix: [
+			"decho"
+		]
+		scope: "lua"
+		body: [
+			"decho (${[name of console,] }${text})"
+		]
+		description: "decho ([name of console,] text)"
+	dechoLink:
+		prefix: [
+			"dechoLink"
+		]
+		scope: "lua"
+		body: [
+			"dechoLink(${[windowName], }${text}, ${command}, ${hint}, ${true})"
+		]
+		description: "dechoLink([windowName], text, command, hint, true)"
+	dechoPopup:
+		prefix: [
+			"dechoPopup"
+		]
+		scope: "lua"
+		body: [
+			"dechoPopup(${[windowName], }${text}, ${commands}, ${hints}${, [useCurrentFormatElseDefault]})"
+		]
+		description: "dechoPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
+	deleteArea:
+		prefix: [
+			"deleteArea"
+		]
+		scope: "lua"
+		body: [
+			"deleteArea(${areaID or areaName})"
+		]
+		description: "deleteArea(areaID or areaName)"
+	deleteHTTP:
+		prefix: [
+			"deleteHTTP"
+		]
+		scope: "lua"
+		body: [
+			"deleteHTTP(${url}, ${headersTable})"
+		]
+		description: "deleteHTTP(url, headersTable)"
+	deleteLine:
+		prefix: [
+			"deleteLine"
+		]
+		scope: "lua"
+		body: [
+			"deleteLine(${[windowName]})"
+		]
+		description: "deleteLine([windowName])"
+	deleteMapLabel:
+		prefix: [
+			"deleteMapLabel"
+		]
+		scope: "lua"
+		body: [
+			"deleteMapLabel(${areaID}, ${labelID})"
+		]
+		description: "deleteMapLabel(areaID, labelID)"
+	deleteRoom:
+		prefix: [
+			"deleteRoom"
+		]
+		scope: "lua"
+		body: [
+			"deleteRoom(${roomID})"
+		]
+		description: "deleteRoom(roomID)"
+	deleteStopWatch:
+		prefix: [
+			"deleteStopWatch"
+		]
+		scope: "lua"
+		body: [
+			"deleteStopWatch(${watchID/Name})"
+		]
+		description: "deleteStopWatch(watchID/watchName)"
+	denyCurrentSend:
+		prefix: [
+			"denyCurrentSend"
+		]
+		scope: "lua"
+		body: [
+			"denyCurrentSend()"
+		]
+		description: "denyCurrentSend()"
+	deselect:
+		prefix: [
+			"deselect"
+		]
+		scope: "lua"
+		body: [
+			"deselect(%{[window name]})"
+		]
+		description: "deselect([window name])"
+	dinsertLink:
+		prefix: [
+			"dinsertLink"
+		]
+		scope: "lua"
+		body: [
+			"dinsertLink(${[windowName], }${text}, ${command}, ${hint}, ${true})"
+		]
+		description: "dinsertLink([windowName], text, command, hint, true)"
+	dinsertPopup:
+		prefix: [
+			"dinsertPopup"
+		]
+		scope: "lua"
+		body: [
+			"dinsertPopup(${[windowName], }${text}, ${commands}, ${hints}${, [useCurrentFormatElseDefault]})"
+		]
+		description: "dinsertPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
+	disableAlias:
+		prefix: [
+			"disableAlias"
+		]
+		scope: "lua"
+		body: [
+			"disableAlias(${name})"
+		]
+		description: "disableAlias(name)"
+	disableClickthrough:
+		prefix: [
+			"disableClickthrough"
+		]
+		scope: "lua"
+		body: [
+			"disableClickthrough(${label})"
+		]
+		description: "disableClickthrough(label)"
+	disableKey:
+		prefix: [
+			"disableKey"
+		]
+		scope: "lua"
+		body: [
+			"disableKey(${name})"
+		]
+		description: "disableKey(name)"
+	disableScrollBar:
+		prefix: [
+			"disableScrollBar"
+		]
+		scope: "lua"
+		body: [
+			"disableScrollBar(${windowName})"
+		]
+		description: "disableScrollBar(windowName)"
+	disableTimer:
+		prefix: [
+			"disableTimer"
+		]
+		scope: "lua"
+		body: [
+			"disableTimer(${name})"
+		]
+		description: "disableTimer(name)"
+	disableTrigger:
+		prefix: [
+			"disableTrigger"
+		]
+		scope: "lua"
+		body: [
+			"disableTrigger(${name})"
+		]
+		description: "disableTrigger(name)"
+	disconnect:
+		prefix: [
+			"disconnect"
+		]
+		scope: "lua"
+		body: [
+			"disconnect()"
+		]
+		description: "disconnect()"
+	display:
+		prefix: [
+			"display"
+		]
+		scope: "lua"
+		body: [
+			"display(${content})"
+		]
+		description: "display(content)"
+	downloadFile:
+		prefix: [
+			"downloadFile"
+		]
+		scope: "lua"
+		body: [
+			"downloadFile(${saveto}, ${url})"
+		]
+		description: "downloadFile(saveto, url)"
+	echo:
+		prefix: [
+			"echo"
+		]
+		scope: "lua"
+		body: [
+			"echo(${[miniconsole/labelName], }${text})"
+		]
+		description: "echo([miniconsoleName or labelName], text)"
+	echoLink:
+		prefix: [
+			"echoLink"
+		]
+		scope: "lua"
+		body: [
+			"echoLink(${[windowName], }${text}, ${command}, ${hint}${, [useCurrentFormatElseDefault]})"
+		]
+		description: "echoLink([windowName], text, command, hint, [useCurrentFormatElseDefault])"
+	echoPopup:
+		prefix: [
+			"echoPopup"
+		]
+		scope: "lua"
+		body: [
+			"echoPopup(${[windowName], }${text}, ${commands}, ${hints}${, [useCurrentFormatElseDefault]})"
+		]
+		description: "echoPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
+	echoUserWindow:
+		prefix: [
+			"echoUserWindow"
+		]
+		scope: "lua"
+		body: [
+			"echoUserWindow(${windowName})"
+		]
+		description: "echoUserWindow(windowName)"
+	enableAlias:
+		prefix: [
+			"enableAlias"
+		]
+		scope: "lua"
+		body: [
+			"enableAlias(${name})"
+		]
+		description: "enableAlias(name)"
+	enableClickthrough:
+		prefix: [
+			"enableClickthrough"
+		]
+		scope: "lua"
+		body: [
+			"enableClickthrough(${label})"
+		]
+		description: "enableClickthrough(label)"
+	enableKey:
+		prefix: [
+			"enableKey"
+		]
+		scope: "lua"
+		body: [
+			"enableKey(${name})"
+		]
+		description: "enableKey(name)"
+	enableScrollBar:
+		prefix: [
+			"enableScrollBar"
+		]
+		scope: "lua"
+		body: [
+			"enableScrollBar(${windowName})"
+		]
+		description: "enableScrollBar(windowName)"
+	enableTimer:
+		prefix: [
+			"enableTimer"
+		]
+		scope: "lua"
+		body: [
+			"enableTimer(${name})"
+		]
+		description: "enableTimer(name)"
+	enableTrigger:
+		prefix: [
+			"enableTrigger"
+		]
+		scope: "lua"
+		body: [
+			"enableTrigger(${name})"
+		]
+		description: "enableTrigger(name)"
+	exists:
+		prefix: [
+			"exists"
+		]
+		scope: "lua"
+		body: [
+			"exists(${name}, ${type})"
+		]
+		description: "exists(name, type)"
+	expandAlias:
+		prefix: [
+			"expandAlias"
+		]
+		scope: "lua"
+		body: [
+			"expandAlias(${command}${, [echoBackToBuffer]})"
+		]
+		description: "expandAlias(command, [echoBackToBuffer])"
+	exportAreaImage:
+		prefix: [
+			"exportAreaImage"
+		]
+		scope: "lua"
+		body: [
+			"exportAreaImage(${areaID})"
+		]
+		description: "exportAreaImage(areaID)"
+	feedTriggers:
+		prefix: [
+			"feedTriggers"
+		]
+		scope: "lua"
+		body: [
+			"feedTriggers(${text}${[, dataIsUtf8Encoded = true]})"
+		]
+		description: "feedTriggers(text[, dataIsUtf8Encoded = true])"
+	fg:
+		prefix: [
+			"fg"
+		]
+		scope: "lua"
+		body: [
+			"fg(${[window], }${colorName})"
+		]
+		description: "fg([window], colorName)"
+	getAllAreaUserData:
+		prefix: [
+			"getAllAreaUserData"
+		]
+		scope: "lua"
+		body: [
+			"getAllAreaUserData(${areaID})"
+		]
+		description: "getAllAreaUserData(areaID)"
+	getAllMapUserData:
+		prefix: [
+			"getAllMapUserData"
+		]
+		scope: "lua"
+		body: [
+			"getAllMapUserData()"
+		]
+		description: "getAllMapUserData()"
+	getAllRoomEntrances:
+		prefix: [
+			"getAllRoomEntrances"
+		]
+		scope: "lua"
+		body: [
+			"getAllRoomEntrances(${roomID})"
+		]
+		description: "getAllRoomEntrances(roomID)"
+	getAllRoomUserData:
+		prefix: [
+			"getAllRoomUserData"
+		]
+		scope: "lua"
+		body: [
+			"getAllRoomUserData(${roomID})"
+		]
+		description: "getAllRoomUserData(roomID)"
+	getAreaExits:
+		prefix: [
+			"getAreaExits"
+		]
+		scope: "lua"
+		body: [
+			"getAreaExits(${areaID}, ${showExits})"
+		]
+		description: "getAreaExits(areaID, showExits)"
+	getAreaRooms:
+		prefix: [
+			"getAreaRooms"
+		]
+		scope: "lua"
+		body: [
+			"getAreaRooms(${areaid})"
+		]
+		description: "getAreaRooms(area id)"
+	getAreaTable:
+		prefix: [
+			"getAreaTable"
+		]
+		scope: "lua"
+		body: [
+			"getAreaTable()"
+		]
+		description: "getAreaTable()"
+	getAreaTableSwap:
+		prefix: [
+			"getAreaTableSwap"
+		]
+		scope: "lua"
+		body: [
+			"getAreaTableSwap()"
+		]
+		description: "getAreaTableSwap()"
+	getAreaUserData:
+		prefix: [
+			"getAreaUserData"
+		]
+		scope: "lua"
+		body: [
+			"getAreaUserData(${areaID}, ${key})"
+		]
+		description: "getAreaUserData(areaID, key)"
+	getAvailableFonts:
+		prefix: [
+			"getAvailableFonts"
+		]
+		scope: "lua"
+		body: [
+			"getAvailableFonts()"
+		]
+		description: "getAvailableFonts()"
+	getBgColor:
+		prefix: [
+			"getBgColor"
+		]
+		scope: "lua"
+		body: [
+			"getBgColor(${windowName})"
+		]
+		description: "getBgColor(windowName)"
+	getBorderBottom:
+		prefix: [
+			"getBorderBottom"
+		]
+		scope: "lua"
+		body: [
+			"getBorderBottom()"
+		]
+		description: "getBorderBottom()"
+	getBorderLeft:
+		prefix: [
+			"getBorderLeft"
+		]
+		scope: "lua"
+		body: [
+			"getBorderLeft()"
+		]
+		description: "getBorderLeft()"
+	getBorderRight:
+		prefix: [
+			"getBorderRight"
+		]
+		scope: "lua"
+		body: [
+			"getBorderRight()"
+		]
+		description: "getBorderRight()"
+	getBorderSizes:
+		prefix: [
+			"getBorderSizes"
+		]
+		scope: "lua"
+		body: [
+			"getBorderSizes()"
+		]
+		description: "getBorderSizes()"
+	getBorderTop:
+		prefix: [
+			"getBorderTop"
+		]
+		scope: "lua"
+		body: [
+			"getBorderTop()"
+		]
+		description: "getBorderTop()"
+	getButtonState:
+		prefix: [
+			"getButtonState"
+		]
+		scope: "lua"
+		body: [
+			"getButtonState()"
+		]
+		description: "getButtonState()"
+	getCmdLine:
+		prefix: [
+			"getCmdLine"
+		]
+		scope: "lua"
+		body: [
+			"getCmdLine()"
+		]
+		description: "getCmdLine()"
+	getColorWildcard:
+		prefix: [
+			"getColorWildcard"
+		]
+		scope: "lua"
+		body: [
+			"getColorWildcard(${ansicolornumber})"
+		]
+		description: "getColorWildcard(ansi color number)"
+	getColumnCount:
+		prefix: [
+			"getColumnCount"
+		]
+		scope: "lua"
+		body: [
+			"getColumnCount(${[windowName]})"
+		]
+		description: "getColumnCount([windowName])"
+	getColumnNumber:
+		prefix: [
+			"getColumnNumber"
+		]
+		scope: "lua"
+		body: [
+			"getColumnNumber(${[windowName]})"
+		]
+		description: "getColumnNumber([windowName])"
+	getCommandSeparator:
+		prefix: [
+			"getCommandSeparator"
+		]
+		scope: "lua"
+		body: [
+			"getCommandSeparator()"
+		]
+		description: "getCommandSeparator()"
+	getConnectionInfo:
+		prefix: [
+			"getConnectionInfo"
+		]
+		scope: "lua"
+		body: [
+			"getConnectionInfo()"
+		]
+		description: "getConnectionInfo()"
+	getCurrentLine:
+		prefix: [
+			"getCurrentLine"
+		]
+		scope: "lua"
+		body: [
+			"getCurrentLine()"
+		]
+		description: "getCurrentLine()"
+	getCustomEnvColorTable:
+		prefix: [
+			"getCustomEnvColorTable"
+		]
+		scope: "lua"
+		body: [
+			"getCustomEnvColorTable()"
+		]
+		description: "getCustomEnvColorTable()"
+	getCustomLines:
+		prefix: [
+			"getCustomLines"
+		]
+		scope: "lua"
+		body: [
+			"getCustomLines(${roomID})"
+		]
+		description: "getCustomLines(roomID)"
+	getDictionaryWordList:
+		prefix: [
+			"getDictionaryWordList"
+		]
+		scope: "lua"
+		body: [
+			"getDictionaryWordList()"
+		]
+		description: "getDictionaryWordList()"
+	getDoors:
+		prefix: [
+			"getDoors"
+		]
+		scope: "lua"
+		body: [
+			"getDoors(${roomID})"
+		]
+		description: "getDoors(roomID)"
+	getEpoch:
+		prefix: [
+			"getEpoch"
+		]
+		scope: "lua"
+		body: [
+			"getEpoch()"
+		]
+		description: "getEpoch()"
+	getExitStubs:
+		prefix: [
+			"getExitStubs"
+		]
+		scope: "lua"
+		body: [
+			"getExitStubs(${roomid})"
+		]
+		description: "getExitStubs(roomid)"
+	getExitStubs1:
+		prefix: [
+			"getExitStubs1"
+		]
+		scope: "lua"
+		body: [
+			"getExitStubs1(${roomid})"
+		]
+		description: "getExitStubs1(roomid)"
+	getExitWeights:
+		prefix: [
+			"getExitWeights"
+		]
+		scope: "lua"
+		body: [
+			"getExitWeights(${roomid})"
+		]
+		description: "getExitWeights(roomid)"
+	getFgColor:
+		prefix: [
+			"getFgColor"
+		]
+		scope: "lua"
+		body: [
+			"getFgColor(${windowName})"
+		]
+		description: "getFgColor(windowName)"
+	getFont:
+		prefix: [
+			"getFont"
+		]
+		scope: "lua"
+		body: [
+			"getFont(${windowName})"
+		]
+		description: "getFont(windowName)"
+	getFontSize:
+		prefix: [
+			"getFontSize"
+		]
+		scope: "lua"
+		body: [
+			"getFontSize(${windowName})"
+		]
+		description: "getFontSize(windowName)"
+	getGridMode:
+		prefix: [
+			"getGridMode"
+		]
+		scope: "lua"
+		body: [
+			"getGridMode(${areaID})"
+		]
+		description: "getGridMode(areaID)"
+	getIrcChannels:
+		prefix: [
+			"getIrcChannels"
+		]
+		scope: "lua"
+		body: [
+			"getIrcChannels()"
+		]
+		description: "getIrcChannels()"
+	getIrcConnectedHost:
+		prefix: [
+			"getIrcConnectedHost"
+		]
+		scope: "lua"
+		body: [
+			"getIrcConnectedHost()"
+		]
+		description: "getIrcConnectedHost()"
+	getIrcNick:
+		prefix: [
+			"getIrcNick"
+		]
+		scope: "lua"
+		body: [
+			"getIrcNick()"
+		]
+		description: "getIrcNick()"
+	getIrcServer:
+		prefix: [
+			"getIrcServer"
+		]
+		scope: "lua"
+		body: [
+			"getIrcServer()"
+		]
+		description: "getIrcServer()"
+	getLastLineNumber:
+		prefix: [
+			"getLastLineNumber"
+		]
+		scope: "lua"
+		body: [
+			"getLastLineNumber(${windowName})"
+		]
+		description: "getLastLineNumber(windowName)"
+	getLineCount:
+		prefix: [
+			"getLineCount"
+		]
+		scope: "lua"
+		body: [
+			"getLineCount()"
+		]
+		description: "getLineCount()"
+	getLineNumber:
+		prefix: [
+			"getLineNumber"
+		]
+		scope: "lua"
+		body: [
+			"getLineNumber(${[windowName]})"
+		]
+		description: "getLineNumber([windowName])"
+	getLines:
+		prefix: [
+			"getLines"
+		]
+		scope: "lua"
+		body: [
+			"getLines(${[windowName,] }${from_line_number}, ${to_line_number})"
+		]
+		description: "getLines([windowName,] from_line_number, to_line_number)"
+	getMainConsoleWidth:
+		prefix: [
+			"getMainConsoleWidth"
+		]
+		scope: "lua"
+		body: [
+			"getMainConsoleWidth()"
+		]
+		description: "getMainConsoleWidth()"
+	getMainWindowSize:
+		prefix: [
+			"getMainWindowSize"
+		]
+		scope: "lua"
+		body: [
+			"getMainWindowSize()"
+		]
+		description: "getMainWindowSize()"
+	getMapEvents:
+		prefix: [
+			"getMapEvents"
+		]
+		scope: "lua"
+		body: [
+			"getMapEvents()"
+		]
+		description: "getMapEvents()"
+	getMapLabel:
+		prefix: [
+			"getMapLabel"
+		]
+		scope: "lua"
+		body: [
+			"getMapLabel(${areaID}, ${labelID})"
+		]
+		description: "getMapLabel(areaID, labelID)"
+	getMapLabels:
+		prefix: [
+			"getMapLabels"
+		]
+		scope: "lua"
+		body: [
+			"getMapLabels(${areaID})"
+		]
+		description: "getMapLabels(areaID)"
+	getMapSelection:
+		prefix: [
+			"getMapSelection"
+		]
+		scope: "lua"
+		body: [
+			"getMapSelection()"
+		]
+		description: "getMapSelection()"
+	getMapUserData:
+		prefix: [
+			"getMapUserData"
+		]
+		scope: "lua"
+		body: [
+			"getMapUserData(${key})"
+		]
+		description: "getMapUserData(key)"
+	getModulePath:
+		prefix: [
+			"getModulePath"
+		]
+		scope: "lua"
+		body: [
+			"getModulePath(${module name})"
+		]
+		description: "getModulePath(module name)"
+	getModulePriority:
+		prefix: [
+			"getModulePriority"
+		]
+		scope: "lua"
+		body: [
+			"getModulePriority(${module name})"
+		]
+		description: "getModulePriority(module name)"
+	getMousePosition:
+		prefix: [
+			"getMousePosition"
+		]
+		scope: "lua"
+		body: [
+			"getMousePosition()"
+		]
+		description: "getMousePosition()"
+	getMudletHomeDir:
+		prefix: [
+			"getMudletHomeDir"
+		]
+		scope: "lua"
+		body: [
+			"getMudletHomeDir()"
+		]
+		description: "getMudletHomeDir()"
+	getMudletLuaDefaultPaths:
+		prefix: [
+			"getMudletLuaDefaultPaths"
+		]
+		scope: "lua"
+		body: [
+			"getMudletLuaDefaultPaths()"
+		]
+		description: "getMudletLuaDefaultPaths()"
+	getMudletVersion:
+		prefix: [
+			"getMudletVersion"
+		]
+		scope: "lua"
+		body: [
+			"getMudletVersion(${style})"
+		]
+		description: "getMudletVersion(style)"
+	getNetworkLatency:
+		prefix: [
+			"getNetworkLatency"
+		]
+		scope: "lua"
+		body: [
+			"getNetworkLatency()"
+		]
+		description: "getNetworkLatency()"
+	getOS:
+		prefix: [
+			"getOS"
+		]
+		scope: "lua"
+		body: [
+			"getOS()"
+		]
+		description: "getOS()"
+	getPath:
+		prefix: [
+			"getPath"
+		]
+		scope: "lua"
+		body: [
+			"getPath(${roomID from}, ${roomID to})"
+		]
+		description: "getPath(roomID from, roomID to)"
+	getPlayerRoom:
+		prefix: [
+			"getPlayerRoom"
+		]
+		scope: "lua"
+		body: [
+			"getPlayerRoom()"
+		]
+		description: "getPlayerRoom()"
+	getProfileName:
+		prefix: [
+			"getProfileName"
+		]
+		scope: "lua"
+		body: [
+			"getProfileName()"
+		]
+		description: "getProfileName()"
+	getRoomArea:
+		prefix: [
+			"getRoomArea"
+		]
+		scope: "lua"
+		body: [
+			"getRoomArea(${roomID})"
+		]
+		description: "getRoomArea(roomID)"
+	getRoomAreaName:
+		prefix: [
+			"getRoomAreaName"
+		]
+		scope: "lua"
+		body: [
+			"getRoomAreaName(${areaID/Name})"
+		]
+		description: "getRoomAreaName(areaID or areaName)"
+	getRoomChar:
+		prefix: [
+			"getRoomChar"
+		]
+		scope: "lua"
+		body: [
+			"getRoomChar(${roomID})"
+		]
+		description: "getRoomChar(roomID)"
+	getRoomCoordinates:
+		prefix: [
+			"getRoomCoordinates"
+		]
+		scope: "lua"
+		body: [
+			"getRoomCoordinates(${roomID})"
+		]
+		description: "getRoomCoordinates(room ID)"
+	getRoomEnv:
+		prefix: [
+			"getRoomEnv"
+		]
+		scope: "lua"
+		body: [
+			"getRoomEnv(${roomID})"
+		]
+		description: "getRoomEnv(roomID)"
+	getRoomExits:
+		prefix: [
+			"getRoomExits"
+		]
+		scope: "lua"
+		body: [
+			"getRoomExits(${roomID})"
+		]
+		description: "getRoomExits(roomID)"
+	getRoomHashByID:
+		prefix: [
+			"getRoomHashByID"
+		]
+		scope: "lua"
+		body: [
+			"getRoomHashByID(${roomID})"
+		]
+		description: "getRoomHashByID(roomID)"
+	getRoomIDbyHash:
+		prefix: [
+			"getRoomIDbyHash"
+		]
+		scope: "lua"
+		body: [
+			"getRoomIDbyHash(%{hash})"
+		]
+		description: "getRoomIDbyHash(hash)"
+	getRoomName:
+		prefix: [
+			"getRoomName"
+		]
+		scope: "lua"
+		body: [
+			"getRoomName(${roomID})"
+		]
+		description: "getRoomName(roomID)"
+	getRooms:
+		prefix: [
+			"getRooms"
+		]
+		scope: "lua"
+		body: [
+			"getRooms()"
+		]
+		description: "getRooms()"
+	getRoomsByPosition:
+		prefix: [
+			"getRoomsByPosition"
+		]
+		scope: "lua"
+		body: [
+			"getRoomsByPosition(${areaID}, ${x}, ${y}, ${z})"
+		]
+		description: "getRoomsByPosition(areaID, x, y, z)"
+	getRoomUserData:
+		prefix: [
+			"getRoomUserData"
+		]
+		scope: "lua"
+		body: [
+			"getRoomUserData(${roomID}, ${key})"
+		]
+		description: "getRoomUserData(roomID, key)"
+	getRoomUserDataKeys:
+		prefix: [
+			"getRoomUserDataKeys"
+		]
+		scope: "lua"
+		body: [
+			"getRoomUserDataKeys(${roomID})"
+		]
+		description: "getRoomUserDataKeys(roomID)"
+	getRoomWeight:
+		prefix: [
+			"getRoomWeight"
+		]
+		scope: "lua"
+		body: [
+			"getRoomWeight(${roomID})"
+		]
+		description: "getRoomWeight(roomID)"
+	getRowCount:
+		prefix: [
+			"getRowCount"
+		]
+		scope: "lua"
+		body: [
+			"getRowCount(${[windowName]})"
+		]
+		description: "getRowCount([windowName])"
+	getSelection:
+		prefix: [
+			"getSelection"
+		]
+		scope: "lua"
+		body: [
+			"getSelection(${[windowName]})"
+		]
+		description: "getSelection([windowName])"
+	getServerEncoding:
+		prefix: [
+			"getServerEncoding"
+		]
+		scope: "lua"
+		body: [
+			"getServerEncoding()"
+		]
+		description: "getServerEncoding()"
+	getServerEncodingsList:
+		prefix: [
+			"getServerEncodingsList"
+		]
+		scope: "lua"
+		body: [
+			"getServerEncodingsList()"
+		]
+		description: "getServerEncodingsList()"
+	getSpecialExits:
+		prefix: [
+			"getSpecialExits"
+		]
+		scope: "lua"
+		body: [
+			"getSpecialExits(${roomID})"
+		]
+		description: "getSpecialExits(${roomID})"
+	getSpecialExitsSwap:
+		prefix: [
+			"getSpecialExitsSwap"
+		]
+		scope: "lua"
+		body: [
+			"getSpecialExitsSwap(${roomID})"
+		]
+		description: "getSpecialExitsSwap(roomID)"
+	getStopWatchBrokenDownTime:
+		prefix: [
+			"getStopWatchBrokenDownTime"
+		]
+		scope: "lua"
+		body: [
+			"getStopWatchBrokenDownTime(${watchID/Name})"
+		]
+		description: "getStopWatchBrokenDownTime(watchID or watchName)"
+	getStopWatches:
+		prefix: [
+			"getStopWatches"
+		]
+		scope: "lua"
+		body: [
+			"getStopWatches()"
+		]
+		description: "getStopWatches()"
+	getStopWatchTime:
+		prefix: [
+			"getStopWatchTime"
+		]
+		scope: "lua"
+		body: [
+			"getStopWatchTime(${watchID/Name})"
+		]
+		description: "getStopWatchTime(watchID/Name)"
+	getTextFormat:
+		prefix: [
+			"getTextFormat"
+		]
+		scope: "lua"
+		body: [
+			"getTextFormat(${[windowName]})"
+		]
+		description: "getTextFormat([windowName])"
+	getTime:
+		prefix: [
+			"getTime"
+		]
+		scope: "lua"
+		body: [
+			"getTime(${returntype}, ${format})"
+		]
+		description: "getTime(returntype, format)"
+	getTimestamp:
+		prefix: [
+			"getTimestamp"
+		]
+		scope: "lua"
+		body: [
+			"getTimestamp(${[console_name], }${lineNumber})"
+		]
+		description: "getTimestamp([console_name], lineNumber)"
+	getWindowsCodepage:
+		prefix: [
+			"getWindowsCodepage"
+		]
+		scope: "lua"
+		body: [
+			"getWindowsCodepage()"
+		]
+		description: "getWindowsCodepage()"
+	gotoRoom:
+		prefix: [
+			"gotoRoom"
+		]
+		scope: "lua"
+		body: [
+			"gotoRoom(${roomID})"
+		]
+		description: "gotoRoom(roomID)"
+	handleWindowResizeEvent:
+		prefix: [
+			"handleWindowResizeEvent"
+		]
+		scope: "lua"
+		body: [
+			"handleWindowResizeEvent()"
+		]
+		description: "handleWindowResizeEvent()"
+	hasExitLock:
+		prefix: [
+			"hasExitLock"
+		]
+		scope: "lua"
+		body: [
+			"hasExitLock(${roomID}, ${direction})"
+		]
+		description: "hasExitLock(roomID, direction)"
+	hasFocus:
+		prefix: [
+			"hasFocus"
+		]
+		scope: "lua"
+		body: [
+			"hasFocus()"
+		]
+		description: "hasFocus()"
+	hasSpecialExitLock:
+		prefix: [
+			"hasSpecialExitLock"
+		]
+		scope: "lua"
+		body: [
+			"hasSpecialExitLock(${fromID}, ${toID}, ${moveCommand})"
+		]
+		description: "hasSpecialExitLock(from roomID, to roomID, moveCommand)"
+	hecho:
+		prefix: [
+			"hecho"
+		]
+		scope: "lua"
+		body: [
+			"hecho(${[windowName], }${text})"
+		]
+		description: "hecho([windowName], text)"
+	hechoLink:
+		prefix: [
+			"hechoLink"
+		]
+		scope: "lua"
+		body: [
+			"hechoLink(${[windowName], }${text}, ${command}, ${hint}, ${true})"
+		]
+		description: "hechoLink([windowName], text, command, hint, true)"
+	hechoPopup:
+		prefix: [
+			"hechoPopup"
+		]
+		scope: "lua"
+		body: [
+			"hechoPopup(${[windowName], }${text}, ${commands}, ${hints}${, [useCurrentFormatElseDefault]})"
+		]
+		description: "hechoPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
+	hideToolBar:
+		prefix: [
+			"hideToolBar"
+		]
+		scope: "lua"
+		body: [
+			"hideToolBar(${name})"
+		]
+		description: "hideToolBar(name)"
+	hideWindow:
+		prefix: [
+			"hideWindow"
+		]
+		scope: "lua"
+		body: [
+			"hideWindow(${name})"
+		]
+		description: "hideWindow(name)"
+	highlightRoom:
+		prefix: [
+			"highlightRoom"
+		]
+		scope: "lua"
+		body: [
+			"highlightRoom(${roomID}, ${color1Red}, ${color1Green}, ${color1Blue}, ${color2Red}, ${color2Green}, ${color2Blue}, ${highlightRadius}, ${color1Alpha}, ${color2Alpha})"
+		]
+		description: "highlightRoom(roomID, color1Red, color1Green, color1Blue, color2Red, color2Green, color2Blue, highlightRadius, color1Alpha, color2Alpha)"
+	hinsertLink:
+		prefix: [
+			"hinsertLink"
+		]
+		scope: "lua"
+		body: [
+			"hinsertLink(${[windowName], }${text}, ${command}, ${hint}, ${true})"
+		]
+		description: "hinsertLink([windowName], text, command, hint, true)"
+	hinsertPopup:
+		prefix: [
+			"hinsertPopup"
+		]
+		scope: "lua"
+		body: [
+			"hinsertPopup(${[windowName], }text, ${commands}, ${hints}${, [useCurrentFormatElseDefault]})"
+		]
+		description: "hinsertPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
+	insertLink:
+		prefix: [
+			"insertLink"
+		]
+		scope: "lua"
+		body: [
+			"insertLink(${[windowName], }${text}, ${command}, ${hint}${, [useCurrentLinkFormat]})"
+		]
+		description: "insertLink([windowName], text, command, hint, [useCurrentLinkFormat])"
+	insertPopup:
+		prefix: [
+			"insertPopup"
+		]
+		scope: "lua"
+		body: [
+			"insertPopup(${[windowName], }${text}, ${commands}, ${hints}${, [useCurrentLinkFormat]})"
+		]
+		description: "insertPopup([windowName], text, {commands}, {hints}, [useCurrentLinkFormat])"
+	insertText:
+		prefix: [
+			"insertText"
+		]
+		scope: "lua"
+		body: [
+			"insertText(${[windowName], }${text})"
+		]
+		description: "insertText([windowName], text)"
+	installModule:
+		prefix: [
+			"installModule"
+		]
+		scope: "lua"
+		body: [
+			"installModule(${location})"
+		]
+		description: "installModule(location)"
+	installPackage:
+		prefix: [
+			"installPackage"
+		]
+		scope: "lua"
+		body: [
+			"installPackage(${location})"
+		]
+		description: "installPackage(location)"
+	invokeFileDialog:
+		prefix: [
+			"invokeFileDialog"
+		]
+		scope: "lua"
+		body: [
+			"invokeFileDialog(${fileOrFolder}, ${dialogTitle})"
+		]
+		description: "invokeFileDialog(fileOrFolder, dialogTitle)"
+	ioprint:
+		prefix: [
+			"ioprint"
+		]
+		scope: "lua"
+		body: [
+			"ioprint(${text, some more text, ...})"
+		]
+		description: "ioprint(text, some more text, ...)"
+	isActive:
+		prefix: [
+			"isActive"
+		]
+		scope: "lua"
+		body: [
+			"isActive(${name}, ${type})"
+		]
+		description: "isActive(name, type)"
+	isAnsiBgColor:
+		prefix: [
+			"isAnsiBgColor"
+		]
+		scope: "lua"
+		body: [
+			"isAnsiBgColor(${ansiBgColorCode})"
+		]
+		description: "isAnsiBgColor(ansiBgColorCode)"
+	isAnsiFgColor:
+		prefix: [
+			"isAnsiFgColor"
+		]
+		scope: "lua"
+		body: [
+			"isAnsiFgColor(${ansiFgColorCode})"
+		]
+		description: "isAnsiBgColor(ansiFgColorCode)"
+	isPrompt:
+		prefix: [
+			"isPrompt"
+		]
+		scope: "lua"
+		body: [
+			"isPrompt()"
+		]
+		description: "isPrompt()"
+	killAlias:
+		prefix: [
+			"killAlias"
+		]
+		scope: "lua"
+		body: [
+			"killAlias(${aliasID})"
+		]
+		description: "killAlias(aliasID)"
+	killAnonymousEventHandler:
+		prefix: [
+			"killAnonymousEventHandler"
+		]
+		scope: "lua"
+		body: [
+			"killAnonymousEventHandler(${handlerID})"
+		]
+		description: "killAnonymousEventHandler(handlerID)"
+	killKey:
+		prefix: [
+			"killKey"
+		]
+		scope: "lua"
+		body: [
+			"killKey(${name})"
+		]
+		description: "killKey(name)"
+	killTimer:
+		prefix: [
+			"killTimer"
+		]
+		scope: "lua"
+		body: [
+			"killTimer(${id})"
+		]
+		description: "killTimer(id)"
+	killTrigger:
+		prefix: [
+			"killTrigger"
+		]
+		scope: "lua"
+		body: [
+			"killTrigger(${id})"
+		]
+		description: "killTrigger(id)"
+	loadMap:
+		prefix: [
+			"loadMap"
+		]
+		scope: "lua"
+		body: [
+			"loadMap(${fileLocation})"
+		]
+		description: "loadMap(fileLocation)"
+	loadWindowLayout:
+		prefix: [
+			"loadWindowLayout"
+		]
+		scope: "lua"
+		body: [
+			"loadWindowLayout()"
+		]
+		description: "loadWindowLayout()"
+	lockExit:
+		prefix: [
+			"lockExit"
+		]
+		scope: "lua"
+		body: [
+			"lockExit(${roomID}, ${direction}, ${lockIfTrue})"
+		]
+		description: "lockExit(roomID, direction, lockIfTrue)"
+	lockRoom:
+		prefix: [
+			"lockRoom"
+		]
+		scope: "lua"
+		body: [
+			"lockRoom (${roomID}, ${lockIfTrue})"
+		]
+		description: "lockRoom (roomID, lockIfTrue)"
+	lockSpecialExit:
+		prefix: [
+			"lockSpecialExit"
+		]
+		scope: "lua"
+		body: [
+			"lockSpecialExit(${fromID}, ${toID}, ${specialExitCommand}, ${lockIfTrue})"
+		]
+		description: "lockSpecialExit(fromID, toID, specialExitCommand, lockIfTrue)"
+	lowerWindow:
+		prefix: [
+			"lowerWindow"
+		]
+		scope: "lua"
+		body: [
+			"lowerWindow(${labelName})"
+		]
+		description: "lowerWindow(labelName)"
+	moveCursor:
+		prefix: [
+			"moveCursor"
+		]
+		scope: "lua"
+		body: [
+			"moveCursor(${[windowName], }${x}, ${y})"
+		]
+		description: "moveCursor([windowName], x, y)"
+	moveCursorDown:
+		prefix: [
+			"moveCursorDown"
+		]
+		scope: "lua"
+		body: [
+			"moveCursorDown(${[windowName,] }${[lines,] }${[keepHorizontal]})"
+		]
+		description: "moveCursorDown([windowName,] [lines,] [keepHorizontal])"
+	moveCursorEnd:
+		prefix: [
+			"moveCursorEnd"
+		]
+		scope: "lua"
+		body: [
+			"moveCursorEnd(${[windowName]})"
+		]
+		description: "moveCursorEnd([windowName])"
+	moveCursorUp:
+		prefix: [
+			"moveCursorUp"
+		]
+		scope: "lua"
+		body: [
+			"moveCursorUp(${[windowName,] }${[lines,] }${[keepHorizontal]})"
+		]
+		description: "moveCursorUp([windowName,] [lines,] [keepHorizontal])"
+	moveGauge:
+		prefix: [
+			"moveGauge"
+		]
+		scope: "lua"
+		body: [
+			"moveGauge(${gaugeName}, ${newX}, ${newY})"
+		]
+		description: "moveGauge(gaugeName, newX, newY)"
+	moveWindow:
+		prefix: [
+			"moveWindow"
+		]
+		scope: "lua"
+		body: [
+			"moveWindow(${name}, ${x}, ${y})"
+		]
+		description: "moveWindow(name, x, y)"
+	mudletOlderThan:
+		prefix: [
+			"mudletOlderThan"
+		]
+		scope: "lua"
+		body: [
+			"mudletOlderThan(${major}${, [minor]}${, [patch]})"
+		]
+		description: "mudletOlderThan(major, [minor], [patch])"
+	openUrl:
+		prefix: [
+			"openUrl"
+		]
+		scope: "lua"
+		body: [
+			"openUrl(${url})"
+		]
+		description: "openUrl(url)"
+	openUserWindow:
+		prefix: [
+			"openUserWindow"
+		]
+		scope: "lua"
+		body: [
+			"openUserWindow(${windowName}${, [restoreLayout]})"
+		]
+		description: "openUserWindow(windowName, [restoreLayout])"
+	openWebPage:
+		prefix: [
+			"openWebPage"
+		]
+		scope: "lua"
+		body: [
+			"openWebPage(${URL})"
+		]
+		description: "openWebPage(URL)"
+	paste:
+		prefix: [
+			"paste"
+		]
+		scope: "lua"
+		body: [
+			"paste(${windowName})"
+		]
+		description: "paste(windowName)"
+	permAlias:
+		prefix: [
+			"permAlias"
+		]
+		scope: "lua"
+		body: [
+			"permAlias(${name}, ${parent}, ${regex}, ${luaCode})"
+		]
+		description: "permAlias(name, parent, regex, lua code)"
+	permBeginOfLineStringTrigger:
+		prefix: [
+			"permBeginOfLineStringTrigger"
+		]
+		scope: "lua"
+		body: [
+			"permBeginOfLineStringTrigger(${name}, ${parent}, ${patternTable}, ${luaCode})"
+		]
+		description: "permBeginOfLineStringTrigger(name, parent, pattern table, lua code)"
+	permGroup:
+		prefix: [
+			"permGroup"
+		]
+		scope: "lua"
+		body: [
+			"permGroup(${name}, ${itemtype}${, [parent]})"
+		]
+		description: "permGroup(name, itemtype, [parent])"
+	permKey:
+		prefix: [
+			"permKey"
+		]
+		scope: "lua"
+		body: [
+			"permKey(${name}, ${parent}${, [modifier]}, ${keyCode}, ${luaCode})"
+		]
+		description: "permKey(name, parent, [modifier], key code, lua code)"
+	permPromptTrigger:
+		prefix: [
+			"permPromptTrigger"
+		]
+		scope: "lua"
+		body: [
+			"permPromptTrigger(${name}, ${parent}, ${luaCode})"
+		]
+		description: "permPromptTrigger(name, parent, lua code)"
+	permRegexTrigger:
+		prefix: [
+			"permRegexTrigger"
+		]
+		scope: "lua"
+		body: [
+			"permRegexTrigger(${name}, ${parent}, ${patternTable}, ${luaCode})"
+		]
+		description: "permRegexTrigger(name, parent, patternTable, luaCode)"
+	permSubstringTrigger:
+		prefix: [
+			"permSubstringTrigger"
+		]
+		scope: "lua"
+		body: [
+			"permSubstringTrigger(${name}, ${parent}, ${patternTable}, ${luaCode})"
+		]
+		description: "permSubstringTrigger( name, parent, patternTable, luaCode )"
+	permTimer:
+		prefix: [
+			"permTimer"
+		]
+		scope: "lua"
+		body: [
+			"permTimer(${name}, ${parent}, ${seconds}, ${luaCode})"
+		]
+		description: "permTimer(name, parent, seconds, lua code)"
+	playSoundFile:
+		prefix: [
+			"playSoundFile"
+		]
+		scope: "lua"
+		body: [
+			"playSoundFile(${fileName}, ${volume})"
+		]
+		description: "playSoundFile(fileName, volume)"
+	postHTTP:
+		prefix: [
+			"postHTTP"
+		]
+		scope: "lua"
+		body: [
+			"postHTTP(${dataToSend}, ${url}, ${headersTable}, ${file})"
+		]
+		description: "postHTTP(dataToSend, url, headersTable, file)"
+	prefix:
+		prefix: [
+			"prefix"
+		]
+		scope: "lua"
+		body: [
+			"prefix(${text}${, [writingFunction]}${, [foregroundColor]}${, [backgroundColor]}${, [windowName]})"
+		]
+		description: "prefix(text, [writingFunction], [foregroundColor], [backgroundColor], [windowName])"
+	print:
+		prefix: [
+			"print"
+		]
+		scope: "lua"
+		body: [
+			"print(${text, some more text, ...})"
+		]
+		description: "print(text, some more text, ...)"
+	printCmdLine:
+		prefix: [
+			"printCmdLine"
+		]
+		scope: "lua"
+		body: [
+			"printCmdLine(${text})"
+		]
+		description: "printCmdLine(text)"
+	putHTTP:
+		prefix: [
+			"putHTTP"
+		]
+		scope: "lua"
+		body: [
+			"putHTTP(${dataToSend}, ${url}, ${headersTable}, ${file})"
+		]
+		description: "putHTTP(dataToSend, url, headersTable, file)"
+	raiseEvent:
+		prefix: [
+			"raiseEvent"
+		]
+		scope: "lua"
+		body: [
+			"raiseEvent(${event_name}${, arg-1, … arg-n})"
+		]
+		description: "raiseEvent(event_name, arg-1, … arg-n)"
+	raiseGlobalEvent:
+		prefix: [
+			"raiseGlobalEvent"
+		]
+		scope: "lua"
+		body: [
+			"raiseGlobalEvent(${event_name}${, arg-1, … arg-n})"
+		]
+		description: "raiseGlobalEvent(event_name, arg-1, … arg-n)"
+	raiseWindow:
+		prefix: [
+			"raiseWindow"
+		]
+		scope: "lua"
+		body: [
+			"raiseWindow(${labelName})"
+		]
+		description: "raiseWindow(labelName)"
+	receiveMSP:
+		prefix: [
+			"receiveMSP"
+		]
+		scope: "lua"
+		body: [
+			"receiveMSP(${command})"
+		]
+		description: "receiveMSP(command)"
+	reconnect:
+		prefix: [
+			"reconnect"
+		]
+		scope: "lua"
+		body: [
+			"reconnect()"
+		]
+		description: "reconnect()"
+	registerAnonymousEventHandler:
+		prefix: [
+			"registerAnonymousEventHandler"
+		]
+		scope: "lua"
+		body: [
+			"registerAnonymousEventHandler(${event name}, ${functionReference}${, [one shot]})"
+		]
+		description: "registerAnonymousEventHandler(event name, functionReference, [one shot])"
+	reloadModule:
+		prefix: [
+			"reloadModule"
+		]
+		scope: "lua"
+		body: [
+			"reloadModule(${moduleName})"
+		]
+		description: "reloadModule(moduleName)"
+	remainingTime:
+		prefix: [
+			"remainingTime"
+		]
+		scope: "lua"
+		body: [
+			"remainingTime(${timerID/Name})"
+		]
+		description: "remainingTime(timerID/Name)"
+	removeCustomLine:
+		prefix: [
+			"removeCustomLine"
+		]
+		scope: "lua"
+		body: [
+			"removeCustomLine(${roomID}, ${direction})"
+		]
+		description: "removeCustomLine(roomID, direction)"
+	removeMapEvent:
+		prefix: [
+			"removeMapEvent"
+		]
+		scope: "lua"
+		body: [
+			"removeMapEvent(${eventName})"
+		]
+		description: "removeMapEvent(eventName)"
+	removeSpecialExit:
+		prefix: [
+			"removeSpecialExit"
+		]
+		scope: "lua"
+		body: [
+			"removespecialexit(${roomid}, ${command})"
+		]
+		description: "removespecialexit(roomid, command)"
+	removeWordFromDictionary:
+		prefix: [
+			"removeWordFromDictionary"
+		]
+		scope: "lua"
+		body: [
+			"removeWordFromDictionary(${word})"
+		]
+		description: "removeWordFromDictionary(word)"
+	replace:
+		prefix: [
+			"replace"
+		]
+		scope: "lua"
+		body: [
+			"replace(${[windowName], }${with}${, [keepcolor]})"
+		]
+		description: "replace([windowName], with, [keepcolor])"
+	replaceAll:
+		prefix: [
+			"replaceAll"
+		]
+		scope: "lua"
+		body: [
+			"replaceAll(${what}, ${with})"
+		]
+		description: "replaceAll(what, with)"
+	replaceWildcard:
+		prefix: [
+			"replaceWildcard"
+		]
+		scope: "lua"
+		body: [
+			"replaceWildcard(${which}, ${replacement})"
+		]
+		description: "replaceWildcard(which, replacement)"
+	resetFormat:
+		prefix: [
+			"resetFormat"
+		]
+		scope: "lua"
+		body: [
+			"resetFormat()"
+		]
+		description: "resetFormat()"
+	resetProfile:
+		prefix: [
+			"resetProfile"
+		]
+		scope: "lua"
+		body: [
+			"resetProfile()"
+		]
+		description: "resetProfile()"
+	resetProfileIcon:
+		prefix: [
+			"resetProfileIcon"
+		]
+		scope: "lua"
+		body: [
+			"resetProfileIcon()"
+		]
+		description: "resetProfileIcon()"
+	resetRoomArea:
+		prefix: [
+			"resetRoomArea"
+		]
+		scope: "lua"
+		body: [
+			"resetRoomArea(${areaID})"
+		]
+		description: "resetRoomArea(areaID)"
+	resetStopWatch:
+		prefix: [
+			"resetStopWatch"
+		]
+		scope: "lua"
+		body: [
+			"resetStopWatch(${watchID})"
+		]
+		description: "resetStopWatch(watchID)"
+	resizeWindow:
+		prefix: [
+			"resizeWindow"
+		]
+		scope: "lua"
+		body: [
+			"resizeWindow(${windowName}, ${width}, ${height})"
+		]
+		description: "resizeWindow(windowName, width, height)"
+	restartIrc:
+		prefix: [
+			"restartIrc"
+		]
+		scope: "lua"
+		body: [
+			"restartIrc()"
+		]
+		description: "restartIrc()"
+	roomExists:
+		prefix: [
+			"roomExists"
+		]
+		scope: "lua"
+		body: [
+			"roomExists(${roomID})"
+		]
+		description: "roomExists(roomID)"
+	roomLocked:
+		prefix: [
+			"roomLocked"
+		]
+		scope: "lua"
+		body: [
+			"roomLocked(${roomID})"
+		]
+		description: "roomLocked(roomID)"
+	saveMap:
+		prefix: [
+			"saveMap"
+		]
+		scope: "lua"
+		body: [
+			"saveMap(${[location], [version]})"
+		]
+		description: "saveMap([location], [version])"
+	saveProfile:
+		prefix: [
+			"saveProfile"
+		]
+		scope: "lua"
+		body: [
+			"saveProfile()"
+		]
+		description: "saveProfile()"
+	saveWindowLayout:
+		prefix: [
+			"saveWindowLayout"
+		]
+		scope: "lua"
+		body: [
+			"saveWindowLayout()"
+		]
+		description: "saveWindowLayout()"
+	searchAreaUserData:
+		prefix: [
+			"searchAreaUserData"
+		]
+		scope: "lua"
+		body: [
+			"searchAreaUserData()"
+		]
+		description: "searchAreaUserData()"
+	searchRoom:
+		prefix: [
+			"searchRoom"
+		]
+		scope: "lua"
+		body: [
+			"searchRoom(${roomID/Name})"
+		]
+		description: "searchRoom(roomID/Name)"
+	searchRoomUserData:
+		prefix: [
+			"searchRoomUserData"
+		]
+		scope: "lua"
+		body: [
+			"searchRoomUserData(${[key], [value]})"
+		]
+		description: "searchRoomUserData([key], [value])"
+	selectCaptureGroup:
+		prefix: [
+			"selectCaptureGroup"
+		]
+		scope: "lua"
+		body: [
+			"selectCaptureGroup(${groupNumber})"
+		]
+		description: "selectCaptureGroup(groupNumber)"
+	selectCurrentLine:
+		prefix: [
+			"selectCurrentLine"
+		]
+		scope: "lua"
+		body: [
+			"selectCurrentLine(${[windowName]})"
+		]
+		description: "selectCurrentLine([windowName])"
+	selectSection:
+		prefix: [
+			"selectSection"
+		]
+		scope: "lua"
+		body: [
+			"selectSection(${[windowName], }${fromPosition}, ${length})"
+		]
+		description: "selectSection( [windowName], fromPosition, length )"
+	selectString:
+		prefix: [
+			"selectString"
+		]
+		scope: "lua"
+		body: [
+			"selectString(${[windowName], }${text}, ${number_of_match})"
+		]
+		description: "selectString([windowName], text, number_of_match)"
+	send:
+		prefix: [
+			"send"
+		]
+		scope: "lua"
+		body: [
+			"send(${command}${, [showOnScreen]})"
+		]
+		description: "send(command, showOnScreen)"
+	sendAll:
+		prefix: [
+			"sendAll"
+		]
+		scope: "lua"
+		body: [
+			"sendAll(${thing1}, ${thing2, thing3, [echo back or not]})"
+		]
+		description: "sendAll(list of things to send, [echo back or not])"
+	sendATCP:
+		prefix: [
+			"sendATCP"
+		]
+		scope: "lua"
+		body: [
+			"sendATCP(${message}, ${what})"
+		]
+		description: "sendATCP(message, what)"
+	sendGMCP:
+		prefix: [
+			"sendGMCP"
+		]
+		scope: "lua"
+		body: [
+			"sendGMCP(${command})"
+		]
+		description: "sendGMCP(command)"
+	sendIrc:
+		prefix: [
+			"sendIrc"
+		]
+		scope: "lua"
+		body: [
+			"sendIrc(${target}, ${message})"
+		]
+		description: "sendIrc(target, message)"
+	sendMSDP:
+		prefix: [
+			"sendMSDP"
+		]
+		scope: "lua"
+		body: [
+			"sendMSDP(${variable}${, [value][, value...]})"
+		]
+		description: "sendMSDP(variable[, value][, value...])"
+	sendSocket:
+		prefix: [
+			"sendSocket"
+		]
+		scope: "lua"
+		body: [
+			"sendSocket(${data})"
+		]
+		description: "sendSocket(data)"
+	sendTelnetChannel102:
+		prefix: [
+			"sendTelnetChannel102"
+		]
+		scope: "lua"
+		body: [
+			"sendTelnetChannel102(${msg})"
+		]
+		description: "sendTelnetChannel102(msg)"
+	setAppStyleSheet:
+		prefix: [
+			"setAppStyleSheet"
+		]
+		scope: "lua"
+		body: [
+			"setAppStyleSheet(${stylesheet}${, [tag]})"
+		]
+		description: "setAppStyleSheet(stylesheet [, tag])"
+	setAreaName:
+		prefix: [
+			"setAreaName"
+		]
+		scope: "lua"
+		body: [
+			"setAreaName(${areaID/Name}, ${newName})"
+		]
+		description: "setAreaName(areaID or areaName, newName)"
+	setAreaUserData:
+		prefix: [
+			"setAreaUserData"
+		]
+		scope: "lua"
+		body: [
+			"setAreaUserData(${areaID}, ${key}, ${value})"
+		]
+		description: "setAreaUserData(areaID, key (as a string), value (as a string))"
+	setBackgroundColor:
+		prefix: [
+			"setBackgroundColor"
+		]
+		scope: "lua"
+		body: [
+			"setBackgroundColor(${[windowName], }${r}, ${g}, ${b}, ${transparency})"
+		]
+		description: "setBackgroundColor([windowName], r, g, b, transparency)"
+	setBackgroundImage:
+		prefix: [
+			"setBackgroundImage"
+		]
+		scope: "lua"
+		body: [
+			"setBackgroundImage(${labelName}, ${imageLocation})"
+		]
+		description: "setBackgroundImage(labelName, imageLocation)"
+	setBgColor:
+		prefix: [
+			"setBgColor"
+		]
+		scope: "lua"
+		body: [
+			"setBgColor(${[windowName], }${r}, ${g}, ${b})"
+		]
+		description: "setBgColor([windowName], r, g, b)"
+	setBold:
+		prefix: [
+			"setBold"
+		]
+		scope: "lua"
+		body: [
+			"setBold(${windowName}, ${boolean})"
+		]
+		description: "setBold(windowName, boolean)"
+	setBorderBottom:
+		prefix: [
+			"setBorderBottom"
+		]
+		scope: "lua"
+		body: [
+			"setBorderBottom(${size})"
+		]
+		description: "setBorderBottom(size)"
+	setBorderColor:
+		prefix: [
+			"setBorderColor"
+		]
+		scope: "lua"
+		body: [
+			"setBorderColor(${red}, ${green}, ${blue})"
+		]
+		description: "setBorderColor(red, green, blue)"
+	setBorderLeft:
+		prefix: [
+			"setBorderLeft"
+		]
+		scope: "lua"
+		body: [
+			"setBorderLeft(${size})"
+		]
+		description: "setBorderLeft(size)"
+	setBorderRight:
+		prefix: [
+			"setBorderRight"
+		]
+		scope: "lua"
+		body: [
+			"setBorderRight(${size})"
+		]
+		description: "setBorderRight(size)"
+	setBorderSizes:
+		prefix: [
+			"setBorderSizes"
+		]
+		scope: "lua"
+		body: [
+			"setBorderSizes(${top}, ${right}, ${bottom}, ${left})"
+		]
+		description: "setBorderSizes(top, right, bottom, left)"
+	setBorderTop:
+		prefix: [
+			"setBorderTop"
+		]
+		scope: "lua"
+		body: [
+			"setBorderTop(${size})"
+		]
+		description: "setBorderTop(size)"
+	setButtonStyleSheet:
+		prefix: [
+			"setButtonStyleSheet"
+		]
+		scope: "lua"
+		body: [
+			"setButtonStyleSheet(${button}, ${markup})"
+		]
+		description: "setButtonStyleSheet(button, markup)"
+	setConsoleBufferSize:
+		prefix: [
+			"setConsoleBufferSize"
+		]
+		scope: "lua"
+		body: [
+			"setConsoleBufferSize(${consoleName}, ${linesLimit}, ${sizeOfBatchDeletion})"
+		]
+		description: "setConsoleBufferSize(consoleName, linesLimit, sizeOfBatchDeletion)"
+	setCustomEnvColor:
+		prefix: [
+			"setCustomEnvColor"
+		]
+		scope: "lua"
+		body: [
+			"setCustomEnvColor(${environmentID}, ${r}, ${g}, ${b}, ${a})"
+		]
+		description: "setCustomEnvColor(environmentID, r,g,b,a)"
+	setDoor:
+		prefix: [
+			"setDoor"
+		]
+		scope: "lua"
+		body: [
+			"setDoor(${roomID}, ${exitCommand}, ${doorStatus})"
+		]
+		description: "setDoor(roomID, exitCommand, doorStatus)"
+	setExit:
+		prefix: [
+			"setExit"
+		]
+		scope: "lua"
+		body: [
+			"setExit(${fromID}, ${toID}, ${direction})"
+		]
+		description: "setExit(from roomID, to roomID, direction)"
+	setExitStub:
+		prefix: [
+			"setExitStub"
+		]
+		scope: "lua"
+		body: [
+			"setExitStub(${roomID}, ${direction}, ${set/unset})"
+		]
+		description: "setExitStub(roomID, direction, set/unset)"
+	setExitWeight:
+		prefix: [
+			"setExitWeight"
+		]
+		scope: "lua"
+		body: [
+			"setExitWeight(${roomID}, ${exitCommand}, ${weight})"
+		]
+		description: "setExitWeight(roomID, exitCommand, weight)"
+	setFgColor:
+		prefix: [
+			"setFgColor"
+		]
+		scope: "lua"
+		body: [
+			"setFgColor(${[windowName], }${red}, ${green}, ${blue})"
+		]
+		description: "setFgColor([windowName], red, green, blue)"
+	setFont:
+		prefix: [
+			"setFont"
+		]
+		scope: "lua"
+		body: [
+			"setFont(${name}, ${font})"
+		]
+		description: "setFont(name, font)"
+	setFontSize:
+		prefix: [
+			"setFontSize"
+		]
+		scope: "lua"
+		body: [
+			"setFontSize(${name}, ${size})"
+		]
+		description: "setFontSize(name, size)"
+	setGauge:
+		prefix: [
+			"setGauge"
+		]
+		scope: "lua"
+		body: [
+			"setGauge(${gaugeName}, ${currentValue}, ${maxValue}, ${gaugeText})"
+		]
+		description: "setGauge(gaugeName, currentValue, maxValue, gaugeText)"
+	setGaugeStyleSheet:
+		prefix: [
+			"setGaugeStyleSheet"
+		]
+		scope: "lua"
+		body: [
+			"setGaugeStyleSheet(${gaugeName}, ${css}, ${cssback}, ${csstext})"
+		]
+		description: "setGaugeStyleSheet(gaugeName, css, cssback, csstext)"
+	setGaugeText:
+		prefix: [
+			"setGaugeText"
+		]
+		scope: "lua"
+		body: [
+			"setGaugeText(${gaugename}, ${css}, ${ccstext})"
+		]
+		description: "setGaugeText(gaugename, css, ccstext )"
+	setGridMode:
+		prefix: [
+			"setGridMode"
+		]
+		scope: "lua"
+		body: [
+			"setGridMode(${areaID|, ${true/false})"
+		]
+		description: "setGridMode(areaID, true/false)"
+	setHexBgColor:
+		prefix: [
+			"setHexBgColor"
+		]
+		scope: "lua"
+		body: [
+			"setHexBgColor(${[windowName], }${hexColorString})"
+		]
+		description: "setHexBgColor([windowName], hexColorString)"
+	setHexFgColor:
+		prefix: [
+			"setHexFgColor"
+		]
+		scope: "lua"
+		body: [
+			"setHexFgColor(${[windowName], }${hexColorString})"
+		]
+		description: "setHexFgColor([windowName], hexColorString)"
+	setIrcChannels:
+		prefix: [
+			"setIrcChannels"
+		]
+		scope: "lua"
+		body: [
+			"setIrcChannels(${channels})"
+		]
+		description: "setIrcChannels(channels)"
+	setIrcNick:
+		prefix: [
+			"setIrcNick"
+		]
+		scope: "lua"
+		body: [
+			"setIrcNick(${nickname})"
+		]
+		description: "setIrcNick(${nickname})"
+	setIrcServer:
+		prefix: [
+			"setIrcServer"
+		]
+		scope: "lua"
+		body: [
+			"setIrcServer(${hostname}, ${port})"
+		]
+		description: "setIrcServer(hostname, port)"
+	setItalics:
+		prefix: [
+			"setItalics"
+		]
+		scope: "lua"
+		body: [
+			"setItalics(${windowName}, ${bool})"
+		]
+		description: "setItalics(windowName, bool)"
+	setLabelClickCallback:
+		prefix: [
+			"setLabelClickCallback"
+		]
+		scope: "lua"
+		body: [
+			"setLabelClickCallback(${labelName}, ${luaFunctionName}${, [any arguments]})"
+		]
+		description: "setLabelClickCallback(labelName, luaFunctionName, [any arguments])"
+	setLabelDoubleClickCallback:
+		prefix: [
+			"setLabelDoubleClickCallback"
+		]
+		scope: "lua"
+		body: [
+			"setLabelDoubleClickCallback(${labelName}, ${luaFunctionName}${, [any arguments]})"
+		]
+		description: "setLabelDoubleClickCallback(labelName, luaFunctionName, [any arguments])"
+	setLabelMoveClickCallback:
+		prefix: [
+			"setLabelMoveClickCallback"
+		]
+		scope: "lua"
+		body: [
+			"setLabelMoveClickCallback(${labelName}, ${luaFunctionName}${, [any arguments]})"
+		]
+		description: "setLabelMoveClickCallback(labelName, luaFunctionName, [any arguments])"
+	setLabelOnEnter:
+		prefix: [
+			"setLabelOnEnter"
+		]
+		scope: "lua"
+		body: [
+			"setLabelOnEnter(${labelName}, ${luaFunctionName}${, [any arguments]})"
+		]
+		description: "setLabelOnEnter(labelName, luaFunctionName, [any arguments])"
+	setLabelOnLeave:
+		prefix: [
+			"setLabelOnLeave"
+		]
+		scope: "lua"
+		body: [
+			"setLabelOnLeave(${labelName}, ${luaFunctionName}${, [any arguments]})"
+		]
+		description: "setLabelOnLeave(labelName, luaFunctionName, [any arguments])"
+	setLabelReleaseCallback:
+		prefix: [
+			"setLabelReleaseCallback"
+		]
+		scope: "lua"
+		body: [
+			"setLabelReleaseCallback(${labelName}, ${luaFunctionName}${, [any arguments]})"
+		]
+		description: "setLabelReleaseCallback(labelName, luaFunctionName, [any arguments])"
+	setLabelStyleSheet:
+		prefix: [
+			"setLabelStyleSheet"
+		]
+		scope: "lua"
+		body: [
+			"setLabelStyleSheet(${label}, ${markup})"
+		]
+		description: "setLabelStyleSheet(label, markup)"
+	setLabelWheelCallback:
+		prefix: [
+			"setLabelWheelCallback"
+		]
+		scope: "lua"
+		body: [
+			"setLabelWheelCallback(${labelName}, ${luaFunctionName}${, [any arguments]})"
+		]
+		description: "setLabelWheelCallback(labelName, luaFunctionName, [any arguments])"
+	setLink:
+		prefix: [
+			"setLink"
+		]
+		scope: "lua"
+		body: [
+			"setLink(${[windowName], }${command}, ${tooltip})"
+		]
+		description: "setLink([windowName], command, tooltip)"
+	setMainWindowSize:
+		prefix: [
+			"setMainWindowSize"
+		]
+		scope: "lua"
+		body: [
+			"setMainWindowSize(${mainWidth}, ${mainHeight})"
+		]
+		description: "setMainWindowSize(mainWidth, mainHeight)"
+	setMapUserData:
+		prefix: [
+			"setMapUserData"
+		]
+		scope: "lua"
+		body: [
+			"setMapUserData(${key}, ${value})"
+		]
+		description: "setMapUserData(key, value)"
+	setMapZoom:
+		prefix: [
+			"setMapZoom"
+		]
+		scope: "lua"
+		body: [
+			"setMapZoom(${zoom})"
+		]
+		description: "setMapZoom(zoom)"
+	setMergeTables:
+		prefix: [
+			"setMergeTables"
+		]
+		scope: "lua"
+		body: [
+			"setMergeTables(${module})"
+		]
+		description: "setMergeTables(module)"
+	setMiniConsoleFontSize:
+		prefix: [
+			"setMiniConsoleFontSize"
+		]
+		scope: "lua"
+		body: [
+			"setMiniConsoleFontSize(${name}, ${fontSize})"
+		]
+		description: "setMiniConsoleFontSize(name, fontSize)"
+	setModulePriority:
+		prefix: [
+			"setModulePriority"
+		]
+		scope: "lua"
+		body: [
+			"setModulePriority(${moduleName}, ${priority})"
+		]
+		description: "setModulePriority(moduleName, priority)"
+	setOverline:
+		prefix: [
+			"setOverline"
+		]
+		scope: "lua"
+		body: [
+			"setOverline(${[windowName], }${boolean})"
+		]
+		description: "setOverline([windowName], boolean)"
+	setPopup:
+		prefix: [
+			"setPopup"
+		]
+		scope: "lua"
+		body: [
+			"setPopup(${windowName}, ${lua code}, ${hints})"
+		]
+		description: "setPopup(windowName, {lua code}, {hints})"
+	setProfileIcon:
+		prefix: [
+			"setProfileIcon"
+		]
+		scope: "lua"
+		body: [
+			"setProfileIcon(${iconPath})"
+		]
+		description: "setProfileIcon(iconPath)"
+	setReverse:
+		prefix: [
+			"setReverse"
+		]
+		scope: "lua"
+		body: [
+			"setReverse(${[windowName], }${boolean})"
+		]
+		description: "setReverse([windowName], boolean)"
+	setRoomArea:
+		prefix: [
+			"setRoomArea"
+		]
+		scope: "lua"
+		body: [
+			"setRoomArea(${roomID}, ${newAreaID/Name})"
+		]
+		description: "setRoomArea(roomID, newAreaID or newAreaName)"
+	setRoomChar:
+		prefix: [
+			"setRoomChar"
+		]
+		scope: "lua"
+		body: [
+			"setRoomChar(${roomID}, ${character})"
+		]
+		description: "setRoomChar(roomID, character)"
+	setRoomCoordinates:
+		prefix: [
+			"setRoomCoordinates"
+		]
+		scope: "lua"
+		body: [
+			"setRoomCoordinates(${roomID}, ${x} ${y}, ${z})"
+		]
+		description: "setRoomCoordinates(roomID, x, y, z)"
+	setRoomEnv:
+		prefix: [
+			"setRoomEnv"
+		]
+		scope: "lua"
+		body: [
+			"setRoomEnv(${roomID}, ${newEnvID})"
+		]
+		description: "setRoomEnv(roomID, newEnvID)"
+	setRoomIDbyHash:
+		prefix: [
+			"setRoomIDbyHash"
+		]
+		scope: "lua"
+		body: [
+			"setRoomIDbyHash(${roomID}, ${hash})"
+		]
+		description: "setRoomIDbyHash(roomID, hash)"
+	setRoomName:
+		prefix: [
+			"setRoomName"
+		]
+		scope: "lua"
+		body: [
+			"setRoomName(${roomID}, ${newName})"
+		]
+		description: "setRoomName(roomID, newName)"
+	setRoomUserData:
+		prefix: [
+			"setRoomUserData"
+		]
+		scope: "lua"
+		body: [
+			"setRoomUserData(${roomID}, ${key}, ${value})"
+		]
+		description: "setRoomUserData(roomID, key (as a string), value (as a string))"
+	setRoomWeight:
+		prefix: [
+			"setRoomWeight"
+		]
+		scope: "lua"
+		body: [
+			"setRoomWeight(${roomID}, ${weight})"
+		]
+		description: "setRoomWeight(roomID, weight)"
+	setServerEncoding:
+		prefix: [
+			"setServerEncoding"
+		]
+		scope: "lua"
+		body: [
+			"setServerEncoding(${encoding})"
+		]
+		description: "setServerEncoding(encoding)"
+	setStopWatchName:
+		prefix: [
+			"setStopWatchName"
+		]
+		scope: "lua"
+		body: [
+			"setStopWatchName(${watchID/currentStopWatchName}, ${newStopWatchName})"
+		]
+		description: "setStopWatchName(watchID/currentStopWatchName, newStopWatchName)"
+	setStopWatchPersistence:
+		prefix: [
+			"setStopWatchPersistence"
+		]
+		scope: "lua"
+		body: [
+			"setStopWatchPersistence(${watchID/Name}, ${state})"
+		]
+		description: "setStopWatchPersistence(watchID/watchName, state)"
+	setStrikeOut:
+		prefix: [
+			"setStrikeOut"
+		]
+		scope: "lua"
+		body: [
+			"setStrikeOut(${[windowName], }${boolean})"
+		]
+		description: "setStrikeOut([windowName], boolean)"
+	setTextFormat:
+		prefix: [
+			"setTextFormat"
+		]
+		scope: "lua"
+		body: [
+			"setTextFormat(${windowName}, ${r1}, ${g1}, ${b1}, ${r2}, ${g2}, ${b2}, ${bold}, ${underline}, ${italics}${, [strikeout]}${, [overline]}${, [reverse]})"
+		]
+		description: "setTextFormat(windowName, r1, g1, b1, r2, g2, b2, bold, underline, italics, [strikeout], [overline], [reverse])"
+	setTriggerStayOpen:
+		prefix: [
+			"setTriggerStayOpen"
+		]
+		scope: "lua"
+		body: [
+			"setTriggerStayOpen(${name}, ${number})"
+		]
+		description: "setTriggerStayOpen(name, number)"
+	setUnderline:
+		prefix: [
+			"setUnderline"
+		]
+		scope: "lua"
+		body: [
+			"setUnderline(${windowName}, ${bool})"
+		]
+		description: "setUnderline(windowName, bool)"
+	setWindowWrap:
+		prefix: [
+			"setWindowWrap"
+		]
+		scope: "lua"
+		body: [
+			"setWindowWrap(${windowName}, ${wrapAt})"
+		]
+		description: "setWindowWrap(windowName, wrapAt)"
+	shms:
+		prefix: [
+			"shms"
+		]
+		scope: "lua"
+		body: [
+			"shms(seconds, bool)"
+		]
+		description: "shms(seconds, bool)"
+	showCaptureGroups:
+		prefix: [
+			"showCaptureGroups"
+		]
+		scope: "lua"
+		body: [
+			"showCaptureGroups()"
+		]
+		description: "showCaptureGroups()"
+	showColors:
+		prefix: [
+			"showColors"
+		]
+		scope: "lua"
+		body: [
+			"showColors(${[columns], [filterColor], [sort]})"
+		]
+		description: "showColors([columns], [filterColor], [sort])"
+	showMultimatches:
+		prefix: [
+			"showMultimatches"
+		]
+		scope: "lua"
+		body: [
+			"showMultimatches()"
+		]
+		description: "showMultimatches()"
+	showToolBar:
+		prefix: [
+			"showToolBar"
+		]
+		scope: "lua"
+		body: [
+			"showToolBar(${name})"
+		]
+		description: "showToolBar(name)"
+	showWindow:
+		prefix: [
+			"showWindow"
+		]
+		scope: "lua"
+		body: [
+			"showWindow(${name})"
+		]
+		description: "showWindow(name)"
+	spawn:
+		prefix: [
+			"spawn"
+		]
+		scope: "lua"
+		body: [
+			"spawn(${readFunction}, ${processToSpawn},${[, ...arguments]})"
+		]
+		description: "spawn(readFunction, processToSpawn[, ...arguments])"
+	speedwalk:
+		prefix: [
+			"speedwalk"
+		]
+		scope: "lua"
+		body: [
+			"speedwalk(${dirString}, ${backwards}, ${delay}, ${show})"
+		]
+		description: "speedwalk(dirString, backwards, delay, show)"
+	spellCheckWord:
+		prefix: [
+			"spellCheckWord"
+		]
+		scope: "lua"
+		body: [
+			"spellCheckWord(${word}${, [customDictionary]})"
+		]
+		description: "spellCheckWord(word, [customDictionary])"
+	spellSuggestWord:
+		prefix: [
+			"spellSuggestWord"
+		]
+		scope: "lua"
+		body: [
+			"spellSuggestWord(${word}${, [customDictionary]})"
+		]
+		description: "spellSuggestWord(word, [customDictionary])"
+	startLogging:
+		prefix: [
+			"startLogging"
+		]
+		scope: "lua"
+		body: [
+			"startLogging(${state})"
+		]
+		description: "startLogging(state)"
+	startStopWatch:
+		prefix: [
+			"startStopWatch"
+		]
+		scope: "lua"
+		body: [
+			"startStopWatch(${watchID})"
+		]
+		description: "startStopWatch(watchID)"
+	stopSounds:
+		prefix: [
+			"stopSounds"
+		]
+		scope: "lua"
+		body: [
+			"stopSounds()"
+		]
+		description: "stopSounds()"
+	stopStopWatch:
+		prefix: [
+			"stopStopWatch"
+		]
+		scope: "lua"
+		body: [
+			"stopStopWatch(${watchID/Name})"
+		]
+		description: "stopStopWatch(watchID/Name)"
+	suffix:
+		prefix: [
+			"suffix"
+		]
+		scope: "lua"
+		body: [
+			"suffix(${text}${, [writingFunction]}${, [foregroundColor]}${, [backgroundColor]}${, [windowName]})"
+		]
+		description: "suffix(text, [writingFunction], [foregroundColor], [backgroundColor], [windowName])"
+	tempAlias:
+		prefix: [
+			"tempAlias"
+		]
+		scope: "lua"
+		body: [
+			"tempAlias(${regex}, ${code to do})"
+		]
+		description: "tempAlias(regex, code to do)"
+	tempAnsiColorTrigger:
+		prefix: [
+			"tempAnsiColorTrigger"
+		]
+		scope: "lua"
+		body: [
+			"tempAnsiColorTrigger(${foregroundColor}, ${backgroundColor}, ${code}, ${expireAfter})"
+		]
+		description: "tempAnsiColorTrigger(foregroundColor, backgroundColor, code, expireAfter)"
+	tempBeginOfLineTrigger:
+		prefix: [
+			"tempBeginOfLineTrigger"
+		]
+		scope: "lua"
+		body: [
+			"tempBeginOfLineTrigger(${part of line}, ${code}, ${expireAfter})"
+		]
+		description: "tempBeginOfLineTrigger(part of line, code, expireAfter)"
+	tempButton:
+		prefix: [
+			"tempButton"
+		]
+		scope: "lua"
+		body: [
+			"tempButton(${toolbar name}, ${button text}, ${orientation})"
+		]
+		description: "tempButton(toolbar name, button text, orientation)"
+	tempButtonToolbar:
+		prefix: [
+			"tempButtonToolbar"
+		]
+		scope: "lua"
+		body: [
+			"tempButtonToolbar(${name}, ${location}, ${orientation})"
+		]
+		description: "tempButtonToolbar(name, location, orientation)"
+	tempColorTrigger:
+		prefix: [
+			"tempColorTrigger"
+		]
+		scope: "lua"
+		body: [
+			"tempColorTrigger(${foregroundColor}, ${backgroundColor}, ${code}, ${expireAfter})"
+		]
+		description: "tempColorTrigger(foregroundColor, backgroundColor, code, expireAfter)"
+	tempComplexRegexTrigger:
+		prefix: [
+			"tempComplexRegexTrigger"
+		]
+		scope: "lua"
+		body: [
+			"tempComplexRegexTrigger(${name}, ${regex}, ${code}, ${multiline}, ${fg color}, ${bg color}, ${filter}, ${match all}, ${highlight fg color}, ${highlight bg color}, ${play sound file}, ${fire length}, ${line delta}, ${expireAfter})"
+		]
+		description: "tempComplexRegexTrigger(name, regex, code, multiline, fg color, bg color, filter, match all, highlight fg color, highlight bg color, play sound file, fire length, line delta, expireAfter)"
+	tempExactMatchTrigger:
+		prefix: [
+			"tempExactMatchTrigger"
+		]
+		scope: "lua"
+		body: [
+			"tempExactMatchTrigger(${exact line}, ${code}, ${expireAfter})"
+		]
+		description: "tempExactMatchTrigger(exact line, code, expireAfter)"
+	tempKey:
+		prefix: [
+			"tempKey"
+		]
+		scope: "lua"
+		body: [
+			"tempKey(${[modifier], }${key code}, ${lua code})"
+		]
+		description: "tempKey([modifier], key code, lua code)"
+	tempLineTrigger:
+		prefix: [
+			"tempLineTrigger"
+		]
+		scope: "lua"
+		body: [
+			"tempLineTrigger(${from}, ${howMany}, ${code}, ${expireAfter})"
+		]
+		description: "tempLineTrigger(from, howMany, code, expireAfter)"
+	tempPromptTrigger:
+		prefix: [
+			"tempPromptTrigger"
+		]
+		scope: "lua"
+		body: [
+			"tempPromptTrigger(${code}, ${expireAfter})"
+		]
+		description: "tempPromptTrigger(code, expireAfter)"
+	tempRegexTrigger:
+		prefix: [
+			"tempRegexTrigger"
+		]
+		scope: "lua"
+		body: [
+			"tempRegexTrigger(${regex}, ${code}, ${expireAfter})"
+		]
+		description: "tempRegexTrigger(regex, code, expireAfter)"
+	tempTimer:
+		prefix: [
+			"tempTimer"
+		]
+		scope: "lua"
+		body: [
+			"tempTimer(${time}, ${code to do}${, [repeating]})"
+		]
+		description: "tempTimer(time, code to do[, repeating])"
+	tempTrigger:
+		prefix: [
+			"tempTrigger"
+		]
+		scope: "lua"
+		body: [
+			"tempTrigger(${substring}, ${code}, ${expireAfter})"
+		]
+		description: "tempTrigger(substring, code, expireAfter)"
+	timeframe:
+		prefix: [
+			"timeframe"
+		]
+		scope: "lua"
+		body: [
+			"timeframe(${vname}, ${true_time}, ${nil_time}${, other_value_time_pairs})"
+		]
+		description: "timeframe(vname, true_time, nil_time, ...)"
+	translateTable:
+		prefix: [
+			"translateTable"
+		]
+		scope: "lua"
+		body: [
+			"translateTable(${directions}${, [languagecode]})"
+		]
+		description: "translateTable(directions, [languagecode])"
+	ttsClearQueue:
+		prefix: [
+			"ttsClearQueue"
+		]
+		scope: "lua"
+		body: [
+			"ttsClearQueue(${[index]})"
+		]
+		description: "ttsClearQueue([index])"
+	ttsGetCurrentLine:
+		prefix: [
+			"ttsGetCurrentLine"
+		]
+		scope: "lua"
+		body: [
+			"ttsGetCurrentLine()"
+		]
+		description: "ttsGetCurrentLine()"
+	ttsGetCurrentVoice:
+		prefix: [
+			"ttsGetCurrentVoice"
+		]
+		scope: "lua"
+		body: [
+			"ttsGetCurrentVoice()"
+		]
+		description: "ttsGetCurrentVoice()"
+	ttsGetQueue:
+		prefix: [
+			"ttsGetQueue"
+		]
+		scope: "lua"
+		body: [
+			"ttsGetQueue(${[index]})"
+		]
+		description: "ttsGetQueue([index])"
+	ttsGetState:
+		prefix: [
+			"ttsGetState"
+		]
+		scope: "lua"
+		body: [
+			"ttsGetState()"
+		]
+		description: "ttsGetState()"
+	ttsGetVoices:
+		prefix: [
+			"ttsGetVoices"
+		]
+		scope: "lua"
+		body: [
+			"ttsGetVoices()"
+		]
+		description: "ttsGetVoices()"
+	ttsPause:
+		prefix: [
+			"ttsPause"
+		]
+		scope: "lua"
+		body: [
+			"ttsPause()"
+		]
+		description: "ttsPause()"
+	ttsQueue:
+		prefix: [
+			"ttsQueue"
+		]
+		scope: "lua"
+		body: [
+			"ttsQueue(${text to queue}${, [index]})"
+		]
+		description: "ttsQueue(text to queue, [index])"
+	ttsResume:
+		prefix: [
+			"ttsResume"
+		]
+		scope: "lua"
+		body: [
+			"ttsResume()"
+		]
+		description: "ttsResume()"
+	ttsSetPitch:
+		prefix: [
+			"ttsSetPitch"
+		]
+		scope: "lua"
+		body: [
+			"ttsSetPitch(${pitch})"
+		]
+		description: "ttsSetPitch(pitch)"
+	ttsSetRate:
+		prefix: [
+			"ttsSetRate"
+		]
+		scope: "lua"
+		body: [
+			"ttsSetRate(${rate})"
+		]
+		description: "ttsSetRate(rate)"
+	ttsSetVoiceByIndex:
+		prefix: [
+			"ttsSetVoiceByIndex"
+		]
+		scope: "lua"
+		body: [
+			"ttsSetVoiceByIndex(${index})"
+		]
+		description: "ttsSetVoiceByIndex(index)"
+	ttsSetVoiceByName:
+		prefix: [
+			"ttsSetVoiceByName"
+		]
+		scope: "lua"
+		body: [
+			"ttsSetVoiceByName(${name})"
+		]
+		description: "ttsSetVoiceByName(name)"
+	ttsSetVolume:
+		prefix: [
+			"ttsSetVolume"
+		]
+		scope: "lua"
+		body: [
+			"ttsSetVolume(${volume})"
+		]
+		description: "ttsSetVolume(volume)"
+	ttsSkip:
+		prefix: [
+			"ttsSkip"
+		]
+		scope: "lua"
+		body: [
+			"ttsSkip()"
+		]
+		description: "ttsSkip()"
+	ttsSpeak:
+		prefix: [
+			"ttsSpeak"
+		]
+		scope: "lua"
+		body: [
+			"ttsSpeak(${text to speak})"
+		]
+		description: "ttsSpeak(text to speak)"
+	unHighlightRoom:
+		prefix: [
+			"unHighlightRoom"
+		]
+		scope: "lua"
+		body: [
+			"unHighlightRoom(${roomID})"
+		]
+		description: "unHighlightRoom(roomID)"
+	uninstallModule:
+		prefix: [
+			"uninstallModule"
+		]
+		scope: "lua"
+		body: [
+			"uninstallModule(${name})"
+		]
+		description: "uninstallModule(name)"
+	uninstallPackage:
+		prefix: [
+			"uninstallPackage"
+		]
+		scope: "lua"
+		body: [
+			"uninstallPackage(${name})"
+		]
+		description: "uninstallPackage(name)"
+	updateMap:
+		prefix: [
+			"updateMap"
+		]
+		scope: "lua"
+		body: [
+			"updateMap()"
+		]
+		description: "updateMap()"
+	wrapLine:
+		prefix: [
+			"wrapLine"
+		]
+		scope: "lua"
+		body: [
+			"wrapLine(${windowName}, ${lineNumber})"
+		]
+		description: "wrapLine(windowName, lineNumber)"
