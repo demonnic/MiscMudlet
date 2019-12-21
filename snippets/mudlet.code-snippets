@@ -1,4 +1,25 @@
 {
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+  // }
+  // "newSnippet": {
+  //   "prefix": ["newSnip"],
+  //   "body": ["\"${1:name}\": {", "\t\"prefix\": [\"${2:prefix}\"],", "\t\"scope\": \"lua\",", "\t\"body\": [\"${3:body}\"],", "\t\"description\": \"${4:description}\"","}"],
+  //   "description": "creates a new snippet"
+  // },
   "pairs() Loop": {
     "prefix": ["pairs"],
     "scope": "lua",
@@ -242,7 +263,7 @@
   "createGauge": {
     "prefix": ["createGauge"],
     "scope": "lua",
-    "body": ["createGauge(${name}, ${width}, ${height}, ${Xpos}, ${Ypos}, ${gaugeText}, ${r}, ${g}, ${b}, ${orientation})"],
+    "body": ["createGauge(${1:name}, ${2:width}, ${3:height}, ${4:Xpos}, ${5:Ypos}, ${6:gaugeText}, ${7:r}, ${8:g}, ${9:b}, ${10:orientation})"],
     "description": "createGauge(name, width, height, Xpos, Ypos, gaugeText, r, g, b, orientation)"
   },
   "createLabel": {
@@ -302,19 +323,19 @@
   "decho": {
     "prefix": ["decho"],
     "scope": "lua",
-    "body": ["decho (${[name of console,] }${text})"],
+    "body": ["decho (${1:[name of console,] }${2:text})"],
     "description": "decho ([name of console,] text)"
   },
   "dechoLink": {
     "prefix": ["dechoLink"],
     "scope": "lua",
-    "body": ["dechoLink(${[windowName], }${text}, ${command}, ${hint}, ${true})"],
+    "body": ["dechoLink(${1:[windowName], }${2:text}, ${3:command}, ${4:hint}, ${5:true})"],
     "description": "dechoLink([windowName], text, command, hint, true)"
   },
   "dechoPopup": {
     "prefix": ["dechoPopup"],
     "scope": "lua",
-    "body": ["dechoPopup(${[windowName], }${text}, ${commands}, ${hints}${, [useCurrentFormatElseDefault]})"],
+    "body": ["dechoPopup(${1:[windowName], }${2:text}, ${3:commands}, ${4:hints}${5:, [useCurrentFormatElseDefault]})"],
     "description": "dechoPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
   },
   "deleteArea": {
@@ -368,13 +389,13 @@
   "dinsertLink": {
     "prefix": ["dinsertLink"],
     "scope": "lua",
-    "body": ["dinsertLink(${[windowName], }${text}, ${command}, ${hint}, ${true})"],
+    "body": ["dinsertLink(${1:[windowName], }${2:text}, ${3:command}, ${4:hint}, ${5:true})"],
     "description": "dinsertLink([windowName], text, command, hint, true)"
   },
   "dinsertPopup": {
     "prefix": ["dinsertPopup"],
     "scope": "lua",
-    "body": ["dinsertPopup(${[windowName], }${text}, ${commands}, ${hints}${, [useCurrentFormatElseDefault]})"],
+    "body": ["dinsertPopup(${1:[windowName], }${2:text}, ${3:commands}, ${4:hints}${5:, [useCurrentFormatElseDefault]})"],
     "description": "dinsertPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
   },
   "disableAlias": {
@@ -434,19 +455,19 @@
   "echo": {
     "prefix": ["echo"],
     "scope": "lua",
-    "body": ["echo(${[miniconsole/labelName], }${text})"],
+    "body": ["echo(${1:[miniconsole/labelName], }${2:text})"],
     "description": "echo([miniconsoleName or labelName], text)"
   },
   "echoLink": {
     "prefix": ["echoLink"],
     "scope": "lua",
-    "body": ["echoLink(${[windowName], }${text}, ${command}, ${hint}${, [useCurrentFormatElseDefault]})"],
+    "body": ["echoLink(${1:[windowName], }${2:text}, ${3:command}, ${4:hint}${5:, [useCurrentFormatElseDefault]})"],
     "description": "echoLink([windowName], text, command, hint, [useCurrentFormatElseDefault])"
   },
   "echoPopup": {
     "prefix": ["echoPopup"],
     "scope": "lua",
-    "body": ["echoPopup(${[windowName], }${text}, ${commands}, ${hints}${, [useCurrentFormatElseDefault]})"],
+    "body": ["echoPopup(${1:[windowName], }${2:text}, ${3:commands}, ${4:hints}${5:, [useCurrentFormatElseDefault]})"],
     "description": "echoPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
   },
   "echoUserWindow": {
@@ -500,7 +521,7 @@
   "expandAlias": {
     "prefix": ["expandAlias"],
     "scope": "lua",
-    "body": ["expandAlias(${command}${, [echoBackToBuffer]})"],
+    "body": ["expandAlias(${1:command}${2:, [echoBackToBuffer]})"],
     "description": "expandAlias(command, [echoBackToBuffer])"
   },
   "exportAreaImage": {
@@ -512,13 +533,13 @@
   "feedTriggers": {
     "prefix": ["feedTriggers"],
     "scope": "lua",
-    "body": ["feedTriggers(${text}${[, dataIsUtf8Encoded = true]})"],
+    "body": ["feedTriggers(${1:text}${2:[, dataIsUtf8Encoded = true]})"],
     "description": "feedTriggers(text[, dataIsUtf8Encoded = true])"
   },
   "fg": {
     "prefix": ["fg"],
     "scope": "lua",
-    "body": ["fg(${[window], }${colorName})"],
+    "body": ["fg(${1:[window], }${2:colorName})"],
     "description": "fg([window], colorName)"
   },
   "getAllAreaUserData": {
@@ -782,7 +803,7 @@
   "getLines": {
     "prefix": ["getLines"],
     "scope": "lua",
-    "body": ["getLines(${[windowName,] }${from_line_number}, ${to_line_number})"],
+    "body": ["getLines(${1:[windowName,] }${2:from_line_number}, ${3:to_line_number})"],
     "description": "getLines([windowName,] from_line_number, to_line_number)"
   },
   "getMainConsoleWidth": {
@@ -1046,7 +1067,7 @@
   "getTimestamp": {
     "prefix": ["getTimestamp"],
     "scope": "lua",
-    "body": ["getTimestamp(${[console_name], }${lineNumber})"],
+    "body": ["getTimestamp(${1:[console_name], }${2:lineNumber})"],
     "description": "getTimestamp([console_name], lineNumber)"
   },
   "getWindowsCodepage": {
@@ -1088,19 +1109,19 @@
   "hecho": {
     "prefix": ["hecho"],
     "scope": "lua",
-    "body": ["hecho(${[windowName], }${text})"],
+    "body": ["hecho(${1:[windowName], }${2:text})"],
     "description": "hecho([windowName], text)"
   },
   "hechoLink": {
     "prefix": ["hechoLink"],
     "scope": "lua",
-    "body": ["hechoLink(${[windowName], }${text}, ${command}, ${hint}, ${true})"],
+    "body": ["hechoLink(${1:[windowName], }${2:text}, ${3:command}, ${4:hint}, ${5:true})"],
     "description": "hechoLink([windowName], text, command, hint, true)"
   },
   "hechoPopup": {
     "prefix": ["hechoPopup"],
     "scope": "lua",
-    "body": ["hechoPopup(${[windowName], }${text}, ${commands}, ${hints}${, [useCurrentFormatElseDefault]})"],
+    "body": ["hechoPopup(${1:[windowName], }${2:text}, ${3:commands}, ${4:hints}${5:, [useCurrentFormatElseDefault]})"],
     "description": "hechoPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
   },
   "hideToolBar": {
@@ -1124,31 +1145,31 @@
   "hinsertLink": {
     "prefix": ["hinsertLink"],
     "scope": "lua",
-    "body": ["hinsertLink(${[windowName], }${text}, ${command}, ${hint}, ${true})"],
+    "body": ["hinsertLink(${1:[windowName], }${2:text}, ${3:command}, ${4:hint}, ${5:true})"],
     "description": "hinsertLink([windowName], text, command, hint, true)"
   },
   "hinsertPopup": {
     "prefix": ["hinsertPopup"],
     "scope": "lua",
-    "body": ["hinsertPopup(${[windowName], }text, ${commands}, ${hints}${, [useCurrentFormatElseDefault]})"],
+    "body": ["hinsertPopup(${1:[windowName], }${2:text}, ${3:commands}, ${4:hints}${5:, [useCurrentFormatElseDefault]})"],
     "description": "hinsertPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
   },
   "insertLink": {
     "prefix": ["insertLink"],
     "scope": "lua",
-    "body": ["insertLink(${[windowName], }${text}, ${command}, ${hint}${, [useCurrentLinkFormat]})"],
+    "body": ["insertLink(${1:[windowName], }${2:text}, ${3:command}, ${4:hint}${5:, [useCurrentLinkFormat]})"],
     "description": "insertLink([windowName], text, command, hint, [useCurrentLinkFormat])"
   },
   "insertPopup": {
     "prefix": ["insertPopup"],
     "scope": "lua",
-    "body": ["insertPopup(${[windowName], }${text}, ${commands}, ${hints}${, [useCurrentLinkFormat]})"],
+    "body": ["insertPopup(${1:[windowName], }${2:text}, ${3:commands}, ${4:hints}${5:, [useCurrentLinkFormat]})"],
     "description": "insertPopup([windowName], text, {commands}, {hints}, [useCurrentLinkFormat])"
   },
   "insertText": {
     "prefix": ["insertText"],
     "scope": "lua",
-    "body": ["insertText(${[windowName], }${text})"],
+    "body": ["insertText(${1:[windowName], }${2:text})"],
     "description": "insertText([windowName], text)"
   },
   "installModule": {
@@ -1268,13 +1289,13 @@
   "moveCursor": {
     "prefix": ["moveCursor"],
     "scope": "lua",
-    "body": ["moveCursor(${[windowName], }${x}, ${y})"],
+    "body": ["moveCursor(${1:[windowName], }${2:x}, ${3:y})"],
     "description": "moveCursor([windowName], x, y)"
   },
   "moveCursorDown": {
     "prefix": ["moveCursorDown"],
     "scope": "lua",
-    "body": ["moveCursorDown(${[windowName,] }${[lines,] }${[keepHorizontal]})"],
+    "body": ["moveCursorDown(${1:[windowName,] }${2:[lines,] }${3:[keepHorizontal]})"],
     "description": "moveCursorDown([windowName,] [lines,] [keepHorizontal])"
   },
   "moveCursorEnd": {
@@ -1286,7 +1307,7 @@
   "moveCursorUp": {
     "prefix": ["moveCursorUp"],
     "scope": "lua",
-    "body": ["moveCursorUp(${[windowName,] }${[lines,] }${[keepHorizontal]})"],
+    "body": ["moveCursorUp(${1:[windowName,] }${2:[lines,] }${3:[keepHorizontal]})"],
     "description": "moveCursorUp([windowName,] [lines,] [keepHorizontal])"
   },
   "moveGauge": {
@@ -1304,7 +1325,7 @@
   "mudletOlderThan": {
     "prefix": ["mudletOlderThan"],
     "scope": "lua",
-    "body": ["mudletOlderThan(${major}${, [minor]}${, [patch]})"],
+    "body": ["mudletOlderThan(${1:major}${2:, [minor]}${3:, [patch]})"],
     "description": "mudletOlderThan(major, [minor], [patch])"
   },
   "openUrl": {
@@ -1316,7 +1337,7 @@
   "openUserWindow": {
     "prefix": ["openUserWindow"],
     "scope": "lua",
-    "body": ["openUserWindow(${windowName}${, [restoreLayout]})"],
+    "body": ["openUserWindow(${1:windowName}${2:, [restoreLayout]})"],
     "description": "openUserWindow(windowName, [restoreLayout])"
   },
   "openWebPage": {
@@ -1346,13 +1367,13 @@
   "permGroup": {
     "prefix": ["permGroup"],
     "scope": "lua",
-    "body": ["permGroup(${name}, ${itemtype}${, [parent]})"],
+    "body": ["permGroup(${1:name}, ${2:itemtype}${3:, [parent]})"],
     "description": "permGroup(name, itemtype, [parent])"
   },
   "permKey": {
     "prefix": ["permKey"],
     "scope": "lua",
-    "body": ["permKey(${name}, ${parent}${, [modifier]}, ${keyCode}, ${luaCode})"],
+    "body": ["permKey(${1:name}, ${2:parent}${3:, [modifier]}, ${4:keyCode}, ${5:luaCode})"],
     "description": "permKey(name, parent, [modifier], key code, lua code)"
   },
   "permPromptTrigger": {
@@ -1394,7 +1415,7 @@
   "prefix": {
     "prefix": ["prefix"],
     "scope": "lua",
-    "body": ["prefix(${text}${, [writingFunction]}${, [foregroundColor]}${, [backgroundColor]}${, [windowName]})"],
+    "body": ["prefix(${1:text}${2:, [writingFunction]}${3:, [foregroundColor]}${4:, [backgroundColor]}${5:, [windowName]})"],
     "description": "prefix(text, [writingFunction], [foregroundColor], [backgroundColor], [windowName])"
   },
   "print": {
@@ -1418,13 +1439,13 @@
   "raiseEvent": {
     "prefix": ["raiseEvent"],
     "scope": "lua",
-    "body": ["raiseEvent(${event_name}${, arg-1, … arg-n})"],
+    "body": ["raiseEvent(${1:event_name}${2:, arg-1, … arg-n})"],
     "description": "raiseEvent(event_name, arg-1, … arg-n)"
   },
   "raiseGlobalEvent": {
     "prefix": ["raiseGlobalEvent"],
     "scope": "lua",
-    "body": ["raiseGlobalEvent(${event_name}${, arg-1, … arg-n})"],
+    "body": ["raiseGlobalEvent(${1:event_name}${2:, arg-1, … arg-n})"],
     "description": "raiseGlobalEvent(event_name, arg-1, … arg-n)"
   },
   "raiseWindow": {
@@ -1448,7 +1469,7 @@
   "registerAnonymousEventHandler": {
     "prefix": ["registerAnonymousEventHandler"],
     "scope": "lua",
-    "body": ["registerAnonymousEventHandler(${event name}, ${functionReference}${, [one shot]})"],
+    "body": ["registerAnonymousEventHandler(${1:eventname}, ${2:functionReference}${3:, [one shot]})"],
     "description": "registerAnonymousEventHandler(event name, functionReference, [one shot])"
   },
   "reloadModule": {
@@ -1490,7 +1511,7 @@
   "replace": {
     "prefix": ["replace"],
     "scope": "lua",
-    "body": ["replace(${[windowName], }${with}${, [keepcolor]})"],
+    "body": ["replace(${1:[windowName], }${2:with}${3:, [keepcolor]})"],
     "description": "replace([windowName], with, [keepcolor])"
   },
   "replaceAll": {
@@ -1610,19 +1631,19 @@
   "selectSection": {
     "prefix": ["selectSection"],
     "scope": "lua",
-    "body": ["selectSection(${[windowName], }${fromPosition}, ${length})"],
+    "body": ["selectSection(${1:[windowName], }${2:fromPosition}, ${3:length})"],
     "description": "selectSection( [windowName], fromPosition, length )"
   },
   "selectString": {
     "prefix": ["selectString"],
     "scope": "lua",
-    "body": ["selectString(${[windowName], }${text}, ${number_of_match})"],
+    "body": ["selectString(${1:[windowName], }${2:text}, ${3:number_of_match})"],
     "description": "selectString([windowName], text, number_of_match)"
   },
   "send": {
     "prefix": ["send"],
     "scope": "lua",
-    "body": ["send(${command}${, [showOnScreen]})"],
+    "body": ["send(${1:command}${2:, [showOnScreen]})"],
     "description": "send(command, showOnScreen)"
   },
   "sendAll": {
@@ -1652,7 +1673,7 @@
   "sendMSDP": {
     "prefix": ["sendMSDP"],
     "scope": "lua",
-    "body": ["sendMSDP(${variable}${, [value][, value...]})"],
+    "body": ["sendMSDP(${1:variable}${2:, [value][, value...]})"],
     "description": "sendMSDP(variable[, value][, value...])"
   },
   "sendSocket": {
@@ -1670,7 +1691,7 @@
   "setAppStyleSheet": {
     "prefix": ["setAppStyleSheet"],
     "scope": "lua",
-    "body": ["setAppStyleSheet(${stylesheet}${, [tag]})"],
+    "body": ["setAppStyleSheet(${1:stylesheet}${2:, [tag]})"],
     "description": "setAppStyleSheet(stylesheet [, tag])"
   },
   "setAreaName": {
@@ -1688,7 +1709,7 @@
   "setBackgroundColor": {
     "prefix": ["setBackgroundColor"],
     "scope": "lua",
-    "body": ["setBackgroundColor(${[windowName], }${r}, ${g}, ${b}, ${transparency})"],
+    "body": ["setBackgroundColor(${1:[windowName], }${2:r}, ${3:g}, ${4:b}, ${5:transparency})"],
     "description": "setBackgroundColor([windowName], r, g, b, transparency)"
   },
   "setBackgroundImage": {
@@ -1700,7 +1721,7 @@
   "setBgColor": {
     "prefix": ["setBgColor"],
     "scope": "lua",
-    "body": ["setBgColor(${[windowName], }${r}, ${g}, ${b})"],
+    "body": ["setBgColor(${1:[windowName], }${2:r}, ${3:g}, ${4:b})"],
     "description": "setBgColor([windowName], r, g, b)"
   },
   "setBold": {
@@ -1790,7 +1811,7 @@
   "setFgColor": {
     "prefix": ["setFgColor"],
     "scope": "lua",
-    "body": ["setFgColor(${[windowName], }${red}, ${green}, ${blue})"],
+    "body": ["setFgColor(${1:[windowName], }${2:red}, ${3:green}, ${4:blue})"],
     "description": "setFgColor([windowName], red, green, blue)"
   },
   "setFont": {
@@ -1832,13 +1853,13 @@
   "setHexBgColor": {
     "prefix": ["setHexBgColor"],
     "scope": "lua",
-    "body": ["setHexBgColor(${[windowName], }${hexColorString})"],
+    "body": ["setHexBgColor(${1:[windowName], }${2:hexColorString})"],
     "description": "setHexBgColor([windowName], hexColorString)"
   },
   "setHexFgColor": {
     "prefix": ["setHexFgColor"],
     "scope": "lua",
-    "body": ["setHexFgColor(${[windowName], }${hexColorString})"],
+    "body": ["setHexFgColor(${1:[windowName], }${2:hexColorString})"],
     "description": "setHexFgColor([windowName], hexColorString)"
   },
   "setIrcChannels": {
@@ -1868,37 +1889,37 @@
   "setLabelClickCallback": {
     "prefix": ["setLabelClickCallback"],
     "scope": "lua",
-    "body": ["setLabelClickCallback(${labelName}, ${luaFunctionName}${, [any arguments]})"],
+    "body": ["setLabelClickCallback(${1:labelName}, ${2:luaFunctionName}${3:, [any arguments]})"],
     "description": "setLabelClickCallback(labelName, luaFunctionName, [any arguments])"
   },
   "setLabelDoubleClickCallback": {
     "prefix": ["setLabelDoubleClickCallback"],
     "scope": "lua",
-    "body": ["setLabelDoubleClickCallback(${labelName}, ${luaFunctionName}${, [any arguments]})"],
+    "body": ["setLabelDoubleClickCallback(${1:labelName}, ${2:luaFunctionName}${3:, [any arguments]})"],
     "description": "setLabelDoubleClickCallback(labelName, luaFunctionName, [any arguments])"
   },
   "setLabelMoveClickCallback": {
     "prefix": ["setLabelMoveClickCallback"],
     "scope": "lua",
-    "body": ["setLabelMoveClickCallback(${labelName}, ${luaFunctionName}${, [any arguments]})"],
+    "body": ["setLabelMoveClickCallback(${1:labelName}, ${2:luaFunctionName}${3:, [any arguments]})"],
     "description": "setLabelMoveClickCallback(labelName, luaFunctionName, [any arguments])"
   },
   "setLabelOnEnter": {
     "prefix": ["setLabelOnEnter"],
     "scope": "lua",
-    "body": ["setLabelOnEnter(${labelName}, ${luaFunctionName}${, [any arguments]})"],
+    "body": ["setLabelOnEnter(${1:labelName}, ${2:luaFunctionName}${3:, [any arguments]})"],
     "description": "setLabelOnEnter(labelName, luaFunctionName, [any arguments])"
   },
   "setLabelOnLeave": {
     "prefix": ["setLabelOnLeave"],
     "scope": "lua",
-    "body": ["setLabelOnLeave(${labelName}, ${luaFunctionName}${, [any arguments]})"],
+    "body": ["setLabelOnLeave(${1:labelName}, ${2:luaFunctionName}${3:, [any arguments]})"],
     "description": "setLabelOnLeave(labelName, luaFunctionName, [any arguments])"
   },
   "setLabelReleaseCallback": {
     "prefix": ["setLabelReleaseCallback"],
     "scope": "lua",
-    "body": ["setLabelReleaseCallback(${labelName}, ${luaFunctionName}${, [any arguments]})"],
+    "body": ["setLabelReleaseCallback(${1:labelName}, ${2:luaFunctionName}${3:, [any arguments]})"],
     "description": "setLabelReleaseCallback(labelName, luaFunctionName, [any arguments])"
   },
   "setLabelStyleSheet": {
@@ -1910,13 +1931,13 @@
   "setLabelWheelCallback": {
     "prefix": ["setLabelWheelCallback"],
     "scope": "lua",
-    "body": ["setLabelWheelCallback(${labelName}, ${luaFunctionName}${, [any arguments]})"],
+    "body": ["setLabelWheelCallback(${1:labelName}, ${2:luaFunctionName}${3:, [any arguments]})"],
     "description": "setLabelWheelCallback(labelName, luaFunctionName, [any arguments])"
   },
   "setLink": {
     "prefix": ["setLink"],
     "scope": "lua",
-    "body": ["setLink(${[windowName], }${command}, ${tooltip})"],
+    "body": ["setLink(${1:[windowName], }${2:command}, ${3:tooltip})"],
     "description": "setLink([windowName], command, tooltip)"
   },
   "setMainWindowSize": {
@@ -1958,7 +1979,7 @@
   "setOverline": {
     "prefix": ["setOverline"],
     "scope": "lua",
-    "body": ["setOverline(${[windowName], }${boolean})"],
+    "body": ["setOverline(${1:[windowName], }${2:boolean})"],
     "description": "setOverline([windowName], boolean)"
   },
   "setPopup": {
@@ -1976,7 +1997,7 @@
   "setReverse": {
     "prefix": ["setReverse"],
     "scope": "lua",
-    "body": ["setReverse(${[windowName], }${boolean})"],
+    "body": ["setReverse(${1:[windowName], }${2:boolean})"],
     "description": "setReverse([windowName], boolean)"
   },
   "setRoomArea": {
@@ -2048,13 +2069,13 @@
   "setStrikeOut": {
     "prefix": ["setStrikeOut"],
     "scope": "lua",
-    "body": ["setStrikeOut(${[windowName], }${boolean})"],
+    "body": ["setStrikeOut(${1:[windowName], }${2:boolean})"],
     "description": "setStrikeOut([windowName], boolean)"
   },
   "setTextFormat": {
     "prefix": ["setTextFormat"],
     "scope": "lua",
-    "body": ["setTextFormat(${windowName}, ${r1}, ${g1}, ${b1}, ${r2}, ${g2}, ${b2}, ${bold}, ${underline}, ${italics}${, [strikeout]}${, [overline]}${, [reverse]})"],
+    "body": ["setTextFormat(${windowName}, ${1:r1}, ${2:g1}, ${3:b1}, ${4:r2}, ${5:g2}, ${6:b2}, ${7:bold}, ${8:underline}, ${9:italics}${10:, [strikeout]}${11:, [overline]}${12:, [reverse]})"],
     "description": "setTextFormat(windowName, r1, g1, b1, r2, g2, b2, bold, underline, italics, [strikeout], [overline], [reverse])"
   },
   "setTriggerStayOpen": {
@@ -2126,13 +2147,13 @@
   "spellCheckWord": {
     "prefix": ["spellCheckWord"],
     "scope": "lua",
-    "body": ["spellCheckWord(${word}${, [customDictionary]})"],
+    "body": ["spellCheckWord(${1:word}${2:, [customDictionary]})"],
     "description": "spellCheckWord(word, [customDictionary])"
   },
   "spellSuggestWord": {
     "prefix": ["spellSuggestWord"],
     "scope": "lua",
-    "body": ["spellSuggestWord(${word}${, [customDictionary]})"],
+    "body": ["spellSuggestWord(${1:word}${2:, [customDictionary]})"],
     "description": "spellSuggestWord(word, [customDictionary])"
   },
   "startLogging": {
@@ -2162,7 +2183,7 @@
   "suffix": {
     "prefix": ["suffix"],
     "scope": "lua",
-    "body": ["suffix(${text}${, [writingFunction]}${, [foregroundColor]}${, [backgroundColor]}${, [windowName]})"],
+    "body": ["suffix(${1:text}${2:, [writingFunction]}${3:, [foregroundColor]}${4:, [backgroundColor]}${5:, [windowName]})"],
     "description": "suffix(text, [writingFunction], [foregroundColor], [backgroundColor], [windowName])"
   },
   "tempAlias": {
@@ -2216,7 +2237,7 @@
   "tempKey": {
     "prefix": ["tempKey"],
     "scope": "lua",
-    "body": ["tempKey(${[modifier], }${key code}, ${lua code})"],
+    "body": ["tempKey(${1:[modifier], }${2:key code}, ${3:lua code})"],
     "description": "tempKey([modifier], key code, lua code)"
   },
   "tempLineTrigger": {
@@ -2240,7 +2261,7 @@
   "tempTimer": {
     "prefix": ["tempTimer"],
     "scope": "lua",
-    "body": ["tempTimer(${time}, ${code to do}${, [repeating]})"],
+    "body": ["tempTimer(${1:time}, ${2:code to do}${3:, [repeating]})"],
     "description": "tempTimer(time, code to do[, repeating])"
   },
   "tempTrigger": {
@@ -2252,13 +2273,13 @@
   "timeframe": {
     "prefix": ["timeframe"],
     "scope": "lua",
-    "body": ["timeframe(${vname}, ${true_time}, ${nil_time}${, other_value_time_pairs})"],
+    "body": ["timeframe(${1:vname}, ${2:true_time}, ${3:nil_time}${4:, other_value_time_pairs})"],
     "description": "timeframe(vname, true_time, nil_time, ...)"
   },
   "translateTable": {
     "prefix": ["translateTable"],
     "scope": "lua",
-    "body": ["translateTable(${directions}${, [languagecode]})"],
+    "body": ["translateTable(${1:directions}${2:, [languagecode]})"],
     "description": "translateTable(directions, [languagecode])"
   },
   "ttsClearQueue": {
@@ -2306,7 +2327,7 @@
   "ttsQueue": {
     "prefix": ["ttsQueue"],
     "scope": "lua",
-    "body": ["ttsQueue(${text to queue}${, [index]})"],
+    "body": ["ttsQueue(${1:text to queue}${2:, [index]})"],
     "description": "ttsQueue(text to queue, [index])"
   },
   "ttsResume": {
