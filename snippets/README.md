@@ -15,8 +15,8 @@ I have created a set of snippets for coding Mudlet scripts inside of VSCode, I w
 ### VSCode
 
 Copy the mudlet.code-snippets to your code snippets directory. Then the snippets will be available for use in lua files. For me this was:
-* Linux: `$HOME/.config/Code/User/snippets`
-* Windows: `%HOME%\AppData\Roaming\Code\User\snippets\lua.json`
+* Linux: `$HOME/.config/Code/User/snippets/`
+* Windows: `%HOME%\AppData\Roaming\Code\User\snippets\`
 * OSX: `$HOME/Library/Application Support/Code/User/snippets/`
 
 If you're not familiar, $HOME on linux and osx is typically `/home/<username>`, and on Windows %HOME% is typically `C:\Users\<username>`
