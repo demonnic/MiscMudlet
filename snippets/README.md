@@ -4,7 +4,7 @@ I have created a set of snippets for coding Mudlet scripts inside of VSCode, I w
 
 [x]- Coverage for everything the Mudlet editor has code completion for (As of Mudlet 4.4)
 
-[ ]- Coverage for the table.xxxx functions
+[x]- Coverage for the table.xxxx functions
 
 [x]- Coverage for the string.xxxx functions
 

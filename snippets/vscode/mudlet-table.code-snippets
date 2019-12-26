@@ -1,0 +1,164 @@
+{
+	"table.complement": {
+    "prefix": ["table.complement"],
+    "scope": "lua",
+    "body": ["table.complement(${1:set1}, ${2:set2})"],
+    "description": "table.complement(set1, set2)"
+  },
+  "table.concat-short": {
+    "prefix": ["table.concat"],
+    "scope": "lua",
+    "body": ["table.concat(${1:table}${2:, delimiter})"],
+    "description": "table.concat(table, [delimiter])"
+  },
+  "table.concat-long": {
+    "prefix": ["table.concat-long"],
+    "scope": "lua",
+    "body": ["table.concat(${1:table}, ${2:delimiter}, ${3:startingIndex}, ${4:endingIndex})"],
+    "description": "table.concat(table, delimiter, startingIndex, endingIndex)"
+  },
+  "table.contains": {
+    "prefix": ["table.contains"],
+    "scope": "lua",
+    "body": ["table.contains(${1:table}, ${2:value})"],
+    "description": "table.contains (table, value)"
+  },
+  "table.deepcopy": {
+    "prefix": ["table.deepcopy"],
+    "scope": "lua",
+    "body": ["table.deepcopy(${1:table})"],
+    "description": "table.deepcopy(table)"
+  },
+  "table.intersection": {
+    "prefix": ["table.intersection"],
+    "scope": "lua",
+    "body": ["table.intersection(${1:set1}, ${2:set2})"],
+    "description": "table.intersection(set1, set2)"
+  },
+  "table.insert": {
+    "prefix": ["table.insert"],
+    "scope": "lua",
+    "body": ["table.insert(${1:table}, ${2:value})"],
+    "description": "table.insert(table, value)"
+  },
+  "table.insert-full": {
+    "prefix": ["table.insert-full"],
+    "scope": "lua",
+    "body": ["table.insert(${1:table}, ${2:position}, ${3:value})"],
+    "description": "table.insert(table, position, value)"
+  },
+  "table.index_of": {
+    "prefix": ["table.index_of"],
+    "scope": "lua",
+    "body": ["table.index_of(${1:table}, ${2:value})"],
+    "description": "table.index_of(table, value)"
+  },
+  "table.is_empty": {
+    "prefix": ["table.is_empty"],
+    "scope": "lua",
+    "body": ["table.is_empty(${1:table})"],
+    "description": "table.is_empty(table)"
+  },
+  "table.keys": {
+    "prefix": ["table.keys"],
+    "scope": "lua",
+    "body": ["table.keys(${1:table})"],
+    "description": "table.keys(table)"
+  },
+  "table.load": {
+    "prefix": ["table.load"],
+    "scope": "lua",
+    "body": ["table.load(${1:fileLocation}, ${2:table})"],
+    "description": "table.load(fileLocation, table)"
+  },
+  "table.maxn": {
+    "prefix": ["table.maxn"],
+    "scope": "lua",
+    "body": ["table.maxn(${1:table})"],
+    "description": "table.maxn(table)"
+  },
+  "table.n_filter-full": {
+    "prefix": ["table.n_filter-full"],
+    "scope": "lua",
+    "body": ["table.n_filter(${1:table}, function(${2:element}${3:, [index]}${4:, table})", "\t$0", "end)"],
+    "description": "table.n_filter(table, function(element[, index[, table]]))"
+  },
+  "table.n_filter-short": {
+    "prefix": ["table.n_filter-short"],
+    "scope": "lua",
+    "body": ["table.n_filter(${1:table}, ${2:function(element, [index], [table]})"],
+    "description": "table.n_filter(table, function(element[, index[, table]]))"
+  },
+  "table.n_flatten": {
+    "prefix": ["table.n_flatten"],
+    "scope": "lua",
+    "body": ["table.n_flatten(${1:table})"],
+    "description": "table.n_flatten(table)"
+  },
+  "table.n_union": {
+    "prefix": ["table.n_union"],
+    "scope": "lua",
+    "body": ["table.n_union(${1:table1}, ${2:table2})"],
+    "description": "table.n_union(table1, table2)"
+  },
+  "table.n_complement": {
+    "prefix": ["table.n_complement"],
+    "scope": "lua",
+    "body": ["table.n_complement(set1, set2)"],
+    "description": "table.n_complement(set1, set2)"
+  },
+  "table.n_intersection": {
+    "prefix": ["table.n_intersection"],
+    "scope": "lua",
+    "body": ["table.n_intersection(${1:t1},${2:t2}${3:,t3})"],
+    "description": "table.n_intersection(t1,t2)"
+  },
+  "table.remove": {
+    "prefix": ["table.remove"],
+    "scope": "lua",
+    "body": ["table.remove(${1:table}, ${2:value_position})"],
+    "description": "table.remove(table, value_position)"
+  },
+  "table.save": {
+    "prefix": ["table.save"],
+    "scope": "lua",
+    "body": ["table.save(${2:fileLocation}, ${2:table})"],
+    "description": "table.save(fileLocation, table)"
+  },
+  "table.sort-basic": {
+    "prefix": ["table.sort-basic"],
+    "scope": "lua",
+    "body": ["table.sort(${1:table})"],
+    "description": "table.sort(${1:table})"
+  },
+  "table.sort": {
+    "prefix": ["table.sort"],
+    "scope": "lua",
+    "body": ["table.sort(${1:table}, function(a,b)", "\t$2", "end)", "$0"],
+    "description": "description"
+  },
+  "table.sort-oneline": {
+    "prefix": ["table.sort-oneline"],
+    "scope": "lua",
+    "body": ["table.sort(${1:table}, function(a,b) $2 end)$0"],
+    "description": "table.sort(table, function(a,b) end)"
+  },
+  "table.size": {
+    "prefix": ["table.size"],
+    "scope": "lua",
+      "body": ["table.size(${1:table)"],
+    "description": "table.size(table)"
+  },
+  "table.update": {
+    "prefix": ["table.update"],
+    "scope": "lua",
+    "body": ["table.update(${1:table1}, ${2:table2})"],
+    "description": "table.update(table1, table2)"
+  },
+  "table.union": {
+    "prefix": ["table.union"],
+    "scope": "lua",
+    "body": ["table.union(${1:table1},${2:table2}${3:,table3, table4...})"],
+    "description": "table.union(table1, table2, ...)"
+  }
+}
