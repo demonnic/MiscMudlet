@@ -6,7 +6,7 @@ I have created a set of snippets for coding Mudlet scripts inside of VSCode, I w
 
 [ ]- Coverage for the table.xxxx functions
 
-[ ]- Coverage for the string.xxxx functions
+[x]- Coverage for the string.xxxx functions
 
 [x]- Coverage for Geyser.xxxx:new() functions
 

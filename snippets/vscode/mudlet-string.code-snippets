@@ -1,0 +1,342 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+  // }
+  "string.byte": {
+    "prefix": ["string.byte"],
+    "scope": "lua",
+    "body": ["string.byte(${1:string}${2:, [startIndex]}${3:, [endIndex]})"],
+    "description": "Returns the internal ASCII numerical codes for the string fromIndex to endIndex slice"
+  },
+  "utf8.byte": {
+    "prefix": ["utf8.byte"],
+    "scope": "lua",
+    "body": ["utf8.byte(${1:string}${2:, [startIndex]}${3:, [endIndex]})"],
+    "description": "Returns the internal Unicode numerical codes for the string fromIndex to endIndex slice"
+  },
+  "string.char": {
+    "prefix": ["string.char"],
+    "scope": "lua",
+    "body": ["string.char(${1:numericCode1}${2:, numericCode2, numericCode3, ...})$0"],
+    "description": "Returns the ASCII chars found at the numericCode reference"
+  },
+  "utf8.char": {
+    "prefix": ["utf8.char"],
+    "scope": "lua",
+    "body": ["utf8.char(${1:numericCode1}${2:, numericCode2, numericCode3, ...})$0"],
+    "description": "Returns the Unicode chars found at the numericCode reference"
+  },
+  "string.cut": {
+    "prefix": ["string.cut"],
+    "scope": "lua",
+    "body": ["string.cut(${1:string}, ${2:maxLen})"],
+    "description": "string.cut(string, maxLen)"
+  },
+  "string.dump": {
+    "prefix": ["string.dump"],
+    "scope": "lua",
+    "body": ["string.dump(${1:functionToDumpToString})"],
+    "description": "string.dump(functionToDumpToString)"
+  },
+  "string.enclose": {
+    "prefix": ["string.enclose"],
+    "scope": "lua",
+    "body": ["string.enclose(${1:String})"],
+    "description": "string.enclose(String)"
+  },
+  "string.ends": {
+    "prefix": ["string.ends"],
+    "scope": "lua",
+    "body": ["string.ends(${String}, ${Suffix})"],
+    "description": "string.ends(String, Suffix)"
+  },
+  "string.find": {
+    "prefix": ["string.find"],
+    "scope": "lua",
+    "body": ["string.find(${1:text}, ${2:pattern})"],
+    "description": "string.find(text, pattern)"
+  },
+  "string:find": {
+    "prefix": [":find"],
+    "scope": "lua",
+    "body": [":find(${1:pattern})"],
+    "description": "string:find(pattern)"
+  },
+  "string.find-full": {
+    "prefix": ["string.find-full"],
+    "scope": "lua",
+    "body": ["string.find(${1:text}, ${2:pattern}, ${3:startIndex}, ${4:plaintextPattern?})"],
+    "description": "string.find(text, pattern, startIndex, plaintextPattern?)"
+  },
+  "utf8.find": {
+    "prefix": ["utf8.find"],
+    "scope": "lua",
+    "body": ["utf8.find(${1:text}, ${2:pattern})"],
+    "description": "utf8.find(text, pattern)"
+  },
+  "utf8.find-full": {
+    "prefix": ["utf8.find-full"],
+    "scope": "lua",
+    "body": ["utf8.find(${1:text}, ${2:pattern}, ${3:startIndex}, ${4:plaintextPattern?})"],
+    "description": "utf8.find(text, pattern, startIndex, plaintextPattern?)"
+  },
+  "string.findPattern": {
+    "prefix": ["string.findPattern"],
+    "scope": "lua",
+    "body": ["string.findPattern(${1:text}, ${2:pattern})"],
+    "description": "string.findPattern(text, pattern)"
+  },
+  "string.format": {
+    "prefix": ["string.format"],
+    "scope": "lua",
+    "body": ["string.format(${!:formatstring},${2:item1, item2,...})"],
+    "description": "string.format(formatstring,item1, item2, ...)"
+  },
+  "string.genNocasePattern": {
+    "prefix": ["string.genNocasePattern"],
+    "scope": "lua",
+    "body": ["string.genNocasePattern(${1:stringToGenPatternFor})"],
+    "description": "string.genNocasePattern(stringToGenPatternFor)"
+  },
+  "string.gmatch": {
+    "prefix": ["string.gmatch"],
+    "scope": "lua",
+    "body": ["string.gmatch(${1:text}, ${2:pattern})"],
+    "description": "string.gmatch(text, pattern)"
+  },
+  "string:gmatch": {
+    "prefix": [":gmatch"],
+    "scope": "lua",
+    "body": [":gmatch(${1:pattern})"],
+    "description": "string:gmatch(pattern)"
+  },
+  "utf8.gmatch": {
+    "prefix": ["utf8.gmatch"],
+    "scope": "lua",
+    "body": ["utf8.gmatch(${1:text}, ${2:pattern})"],
+    "description": "utf8.gmatch(text, pattern)"
+  },
+  "string.gsub": {
+    "prefix": ["string.gsub"],
+    "scope": "lua",
+    "body": ["string.gsub(${1:text}, ${2:pattern}, ${3:repl})"],
+    "description": "string.gsub(text, pattern, repl)"
+  },
+  "string:gsub": {
+    "prefix": [":gsub"],
+    "scope": "lua",
+    "body": [":gsub(${${1:pattern}, ${2:repl})"],
+    "description": "string:gsub(pattern, repl)"
+  },
+  "utf8.gsub": {
+    "prefix": ["utf8.gsub"],
+    "scope": "lua",
+    "body": ["utf8.gsub(${1:text}, ${2:pattern}, ${3:repl})"],
+    "description": "utf8.gsub(text, pattern, repl)"
+  },
+  "string.len": {
+    "prefix": ["string.len"],
+    "scope": "lua",
+    "body": ["string.len(${1:text})"],
+    "description": "string.len(text)"
+  },
+  "utf8.len": {
+    "prefix": ["utf8.len"],
+    "scope": "lua",
+    "body": ["utf8.len(${1:text})"],
+    "description": "utf8.len(text)"
+  },
+  "string.lower": {
+    "prefix": ["string.lower"],
+    "scope": "lua",
+    "body": ["string.lower(${1:string})"],
+    "description": "string.lower(string)"
+  },
+  "utf8.lower": {
+    "prefix": ["utf8.lower"],
+    "scope": "lua",
+    "body": ["utf8.lower(${1:string})"],
+    "description": "utf8.lower(string)"
+  },
+  "string.match": {
+    "prefix": ["string.match"],
+    "scope": "lua",
+    "body": ["string.match(${1:text}, ${2:pattern}${3:, startIndex})"],
+    "description": "string.match(text, pattern [, startIndex])"
+  },
+  "utf8.match": {
+    "prefix": ["utf8.match"],
+    "scope": "lua",
+    "body": ["utf8.match(${1:text}, ${2:pattern}${3:, startIndex})"],
+    "description": "utf8.match(text, pattern [, startIndex])"
+  },
+  "string.rep": {
+    "prefix": ["string.rep"],
+    "scope": "lua",
+    "body": ["string.rep(${1:String}, ${2:numberOfRepititions})"],
+    "description": "string.rep(String, numberOfRepititions)"
+  },
+  "string.reverse": {
+    "prefix": ["string.reverse"],
+    "scope": "lua",
+    "body": ["string.reverse(${1:string})"],
+    "description": "string.reverse(string)"
+  },
+  "utf8.reverse": {
+    "prefix": ["utf8.reverse"],
+    "scope": "lua",
+    "body": ["utf8.reverse(${1:string})"],
+    "description": "utf8.reverse(string)"
+  },
+  "string.split": {
+    "prefix": ["string.split"],
+    "scope": "lua",
+    "body": ["string.split(${1:string}, ${2:delimiter})"],
+    "description": "string.split(string, delimiter)"
+  },
+  "string:split": {
+    "prefix": [":split"],
+    "scope": "lua",
+    "body": [":split(${1:delimiter})"],
+    "description": "string:split(delimiter)"
+  },
+  "string.starts": {
+    "prefix": ["string.starts"],
+    "scope": "lua",
+    "body": ["string.starts(${1:string}, ${2:prefix})"],
+    "description": "string.starts(string, prefix)"
+  },
+  "string:starts": {
+    "prefix": [":starts"],
+    "scope": "lua",
+    "body": [":starts(${1:prefix})"],
+    "description": "string:starts(prefix)"
+  },
+  "string.sub": {
+    "prefix": ["string.sub"],
+    "scope": "lua",
+    "body": ["string.sub(${1:text}, ${2:from}${3:, [to]})"],
+    "description": "string.sub(text, from [, to])"
+  },
+  "string:sub": {
+    "prefix": [":sub"],
+    "scope": "lua",
+    "body": [":sub(${1:from}${2:, [to]})"],
+    "description": "string:sub(from [, to])"
+  },
+  "utf8.sub": {
+    "prefix": ["utf8.sub"],
+    "scope": "lua",
+    "body": ["utf8.sub(${1:text}, ${2:from}${3:, [to]})"],
+    "description": "utf8.sub(text, from [, to])"
+  },
+  "string.title": {
+    "prefix": ["string.title"],
+    "scope": "lua",
+    "body": ["string.title(${1:string})"],
+    "description": "string.title(string)"
+  },
+  "string.trim": {
+    "prefix": ["string.trim"],
+    "scope": "lua",
+    "body": ["string.trim(${1:string})"],
+    "description": "string.trim(string)"
+  },
+  "string.upper": {
+    "prefix": ["string.upper"],
+    "scope": "lua",
+    "body": ["string.upper(text)"],
+    "description": "string.upper(text)"
+  },
+  "utf8.upper": {
+    "prefix": ["utf8.upper"],
+    "scope": "lua",
+    "body": ["utf8.upper(text)"],
+    "description": "utf8.upper(text)"
+  },
+  "utf8.charpos": {
+    "prefix": ["utf8.charpos"],
+    "scope": "lua",
+    "body": ["utf8.charpos(${1:string}${2:, [charpos]}${3:, [offset]})"],
+    "description": "utf8.charpos(string[[, charpos], offset])"
+  },
+  "utf8.escape": {
+    "prefix": ["utf8.escape"],
+    "scope": "lua",
+    "body": ["utf8.escape(${1:string})"],
+    "description": "utf8.escape(string)"
+  },
+  "utf8.fold": {
+    "prefix": ["utf8.fold"],
+    "scope": "lua",
+    "body": ["utf8.fold(${1:string})"],
+    "description": "utf8.fold(string)"
+  },
+  "utf8.insert": {
+    "prefix": ["utf8.insert"],
+    "scope": "lua",
+    "body": ["utf8.insert(${1:string}${2:[, idx]}, ${3:substring})"],
+    "description": "utf8.insert(string[, idx], substring)"
+  },
+  "utf8.ncasecmp": {
+    "prefix": ["utf8.ncasecmp"],
+    "scope": "lua",
+    "body": ["utf8.ncasecmp(${1:a}, ${2:b})"],
+    "description": "utf8.ncasecmp(a, b)"
+  },
+  "utf8.next": {
+    "prefix": ["utf8.next"],
+    "scope": "lua",
+    "body": ["utf8.next(${1:string})"],
+    "description": "utf8.next(string)"
+  },
+  "utf8.next-full": {
+    "prefix": ["utf8.next-full"],
+    "scope": "lua",
+    "body": ["utf8.next(${1:string}, ${2:charpos}${3:, [offset]})"],
+    "description": "utf8.next(string[, charpos[, offset]])"
+  },
+  "utf8.remove": {
+    "prefix": ["utf8.remove"],
+    "scope": "lua",
+    "body": ["utf8.remove(${1:string}, ${2:start}${3:, [stop]})"],
+    "description": "utf8.remove(string, start[, stop])"
+  },
+  "utf8.width": {
+    "prefix": ["utf8.width"],
+    "scope": "lua",
+    "body": ["utf8.width(${1:text})"],
+    "description": "utf8.width(text)"
+  },
+  "utf8.width-full": {
+    "prefix": ["utf8.width-full"],
+    "scope": "lua",
+    "body": ["utf8.width(${1:text}, ${2:ambi_is_double}, ${3:default_width})"],
+    "description": "utf8.width(string[, ambi_is_double[, default_width]])"
+  },
+  "utf8.widthindex": {
+    "prefix": ["utf8.widthindex"],
+    "scope": "lua",
+    "body": ["utf8.widthindex(${1:string}, ${2:location})"],
+    "description": "utf8.widthindex(string, location)"
+  },
+  "utf8.widthindex-full": {
+    "prefix": ["utf8.widthindex-full"],
+    "scope": "lua",
+    "body": ["utf8.widthindex(${1:string}, ${2:location}, ${3:ambi_is_double}, ${4:default_width})"],
+    "description": "utf8.widthindex(string, location[, ambi_is_double[, default_width]])"
+  }
+}
