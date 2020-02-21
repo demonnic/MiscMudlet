@@ -1,9 +1,9 @@
 {
-  // "newSnippet": {
-  //   "prefix": ["newSnip"],
-  //   "body": ["\"${1:name}\": {", "\t\"prefix\": [\"${2:prefix}\"],", "\t\"scope\": \"lua\",", "\t\"body\": [\"${3:body}\"],", "\t\"description\": \"${4:description}\"","}"],
-  //   "description": "creates a new snippet"
-  // },
+  "newSnippet": {
+    "prefix": ["newSnip"],
+    "body": ["\"${1:name}\": {", "\t\"prefix\": [\"${2:prefix}\"],", "\t\"scope\": \"lua\",", "\t\"body\": [\"${3:body}\"],", "\t\"description\": \"${4:description}\"","}"],
+    "description": "creates a new snippet"
+  },
   "pairs() Loop": {
     "prefix": ["pairs"],
     "scope": "lua",
@@ -46,7 +46,7 @@
     "body": ["addRoom(${1:roomID})"],
     "description": "addRoom(roomID)"
   },
-"addSpecialExit": {
+  "addSpecialExit": {
     "prefix": ["addSpecialExit"],
     "scope": "lua",
     "body": ["addSpecialExit(${1:roomIDFrom}, ${2:roomIDTo}, ${3:moveCommand})"],
@@ -292,6 +292,12 @@
     "body": ["createStopWatch()"],
     "description": "createStopWatch()"
   },
+  "creplace": {
+    "prefix": ["creplace"],
+    "scope": "lua",
+    "body": ["creplace(${1:[windowName, ]}${2:text})"],
+    "description": "creplace([windowName, ]text)"
+  },
   "creplaceLine": {
     "prefix": ["creplaceLine"],
     "scope": "lua",
@@ -333,6 +339,12 @@
     "scope": "lua",
     "body": ["deleteHTTP(${url}, ${headersTable})"],
     "description": "deleteHTTP(url, headersTable)"
+  },
+  "deleteLabel": {
+    "prefix": ["deleteLabel"],
+    "scope": "lua",
+    "body": ["deleteLabel(${labelName})"],
+    "description": "deleteLabel(labelName)"
   },
   "deleteLine": {
     "prefix": ["deleteLine"],
@@ -435,6 +447,12 @@
     "scope": "lua",
     "body": ["downloadFile(${saveto}, ${url})"],
     "description": "downloadFile(saveto, url)"
+  },
+  "dreplace": {
+    "prefix": ["dreplace"],
+    "scope": "lua",
+    "body": ["dreplace(${1:[windowName, ]}${2:text})"],
+    "description": "dreplace([windowname, ]text)"
   },
   "echo": {
     "prefix": ["echo"],
@@ -741,6 +759,12 @@
     "scope": "lua",
     "body": ["getGridMode(${areaID})"],
     "description": "getGridMode(areaID)"
+  },
+  "getImageSize": {
+    "prefix": ["getImageSize"],
+    "scope": "lua",
+    "body": ["getImageSize(${imageLocation})"],
+    "description": "getImageSize(imageLocation)"
   },
   "getIrcChannels": {
     "prefix": ["getIrcChannels"],
@@ -1137,6 +1161,12 @@
     "scope": "lua",
     "body": ["hinsertPopup(${1:[windowName], }${2:text}, ${3:commands}, ${4:hints}${5:, [useCurrentFormatElseDefault]})"],
     "description": "hinsertPopup([windowName], text, {commands}, {hints}, [useCurrentFormatElseDefault])"
+  },
+  "hreplace": {
+    "prefix": ["hreplace"],
+    "scope": "lua",
+    "body": ["hreplace(${1:[windowName, ]}${2:text})"],
+    "description": "hreplace([windowName, ]text)"
   },
   "insertLink": {
     "prefix": ["insertLink"],
@@ -2379,6 +2409,12 @@
     "scope": "lua",
     "body": ["uninstallPackage(${name})"],
     "description": "uninstallPackage(name)"
+  },
+  "unzip": {
+    "prefix": ["unzip"],
+    "scope": "lua",
+    "body": ["unzip(${pathToZipFile}, ${locationToUnzipTo})"],
+    "description": "unzip(pathToZipFile, locationToUnzipTo)"
   },
   "updateMap": {
     "prefix": ["updateMap"],
