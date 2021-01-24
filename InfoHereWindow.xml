@@ -15,6 +15,7 @@
 --]=]
 local maxSize = 33
 local fontSize = 10
+local autoWrap = true
 local timerRunning, writeTimer
 demonIH = demonIH or {}
 demonIH.itemsHere = demonIH.itemsHere or {}
@@ -46,6 +47,7 @@ demonIH.container = demonIH.container or Adjustable.Container:new({
                                                                  })
 demonIH.console = demonIH.console or Geyser.MiniConsole:new({
                                                               name = "demonIHConsole",
+                                                              autoWrap = autoWrap,
                                                               x = 0,
                                                               y = 0,
                                                               width = "100%",
@@ -223,4 +225,3 @@ demonIH.eventHandlers.update = registerAnonymousEventHandler("gmcp.Char.Items.Up
 		</Script>
 	</ScriptPackage>
 </MudletPackage>
-
