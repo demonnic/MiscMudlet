@@ -13,9 +13,19 @@
   console, whether it's all the items individually or the collapsed and sorted
   version added by Kali's adjustments.
 --]=]
+-- BEGIN CONFIG
+-- max number of items before we collapse the list
 local maxSize = 33
+-- font size for the info window
 local fontSize = 10
+-- automatically set wrapwidth?
 local autoWrap = true
+-- if autoWrap = false, how many characters should we wrap at?
+local wrapAt = 40
+-- display current players in the room at the top?
+local showPlayers = true
+
+-- END CONFIG
 local timerRunning, writeTimer
 demonIH = demonIH or {}
 demonIH.itemsHere = demonIH.itemsHere or {}
@@ -35,6 +45,13 @@ local sortOrder = {"c", "none", "mx","mh", "m", "mt", "cm", "t", "et", "ct", "md
 local function sortFunc(t,a,b)
   local aname = t[a].name or ""
   local bname = t[b].name or ""
+  aname = aname:lower()
+  bname = bname:lower()
+  if aname == bname then
+    local aid = tonumber(t[a].id) or 0
+    local bid = tonumber(t[b].id) or 0
+    return aid &lt; bid
+  end
   return aname &lt; bname
 end
 demonIH.container = demonIH.container or Adjustable.Container:new({
@@ -48,6 +65,7 @@ demonIH.container = demonIH.container or Adjustable.Container:new({
 demonIH.console = demonIH.console or Geyser.MiniConsole:new({
                                                               name = "demonIHConsole",
                                                               autoWrap = autoWrap,
+                                                              wrapAt = wrapAt,
                                                               x = 0,
                                                               y = 0,
                                                               width = "100%",
@@ -119,20 +137,22 @@ end
 function demonIH.writeItems2()
   demonIH.console:clear()
   local players = {}
-  local myname = gmcp.Char.Name.name
-  for _,char in ipairs(gmcp.Room.Players) do
-    if char.name ~= myname then
-      players[#players + 1] = char.name
+  if showPlayers then
+    local myname = gmcp.Char.Name.name
+    for _,char in ipairs(gmcp.Room.Players) do
+      if char.name ~= myname then
+        players[#players + 1] = char.name
+      end
     end
+    table.sort(players)
+    demonIH.console:cecho("&lt;cyan&gt;Players:\n")
+    local playerString = " &lt;cyan&gt;None"
+    if #players &gt; 0 then
+      playerString = " &lt;cyan&gt;" .. table.concat(players, "&lt;white&gt;,&lt;cyan&gt;") .. "&lt;reset&gt;"
+      if ndb then playerString = addNDB(playerString) end
+    end
+    demonIH.console:cecho(playerString .. "\n")
   end
-  table.sort(players)
-  demonIH.console:cecho("&lt;cyan&gt;Players:\n")
-  local playerString = " &lt;cyan&gt;None"
-  if #players &gt; 0 then
-    playerString = " &lt;cyan&gt;" .. table.concat(players, "&lt;white&gt;,&lt;cyan&gt;") .. "&lt;reset&gt;"
-    if ndb then playerString = addNDB(playerString) end
-  end
-  demonIH.console:cecho(playerString .. "\n")
   demonIH.console:cecho("\n&lt;yellow&gt;Mobs &amp; Items:")
   if #demonIH.itemsHere &gt; maxSize then
     for _, attrib in ipairs(sortOrder) do
@@ -202,7 +222,7 @@ function demonIH.onItemsRemove()
     if item2.id == item.id then
       table.remove(demonIH.itemsHere, index)
       demonIH.writeItemsHere()
-      if demonIH.itemsSorted then
+      if demonIH.itemsSorted and demonIH.itemsSorted[item.attrib] then
         demonIH.itemsSorted[item.attrib][item.name] =
           (demonIH.itemsSorted[item.attrib][item.name] or 0) - 1
         if demonIH.itemsSorted[item.attrib][item.name] &lt;= 0 then
